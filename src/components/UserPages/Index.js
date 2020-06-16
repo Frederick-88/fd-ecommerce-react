@@ -16,7 +16,7 @@ const Index = () => {
     <div>
       {/* start header - part1 */}
       <div className="main-bg-height" style={picture(mainBg)}>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" href="#">
             S2 Boutique
           </a>
@@ -86,8 +86,8 @@ const Index = () => {
 
       {/* part 3 - content */}
       <div className="container">
-        <div className="row">
-          <div className="col-md-2">
+        <div className="row mb-4">
+          <div className="col-md-2 mt-3">
             <div class="list-group">
               <h4 className="ml-3">Gender</h4>
               <button
