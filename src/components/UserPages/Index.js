@@ -1,5 +1,6 @@
 import React from "react";
 import mainBg from "../../assets/mainBackground.png";
+import Carousel from "./Carousel";
 import "../Users.css";
 
 const Index = () => {
@@ -72,6 +73,9 @@ const Index = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="container">
+        <Carousel />
       </div>
     </div>
   );
