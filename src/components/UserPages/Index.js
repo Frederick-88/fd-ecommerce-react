@@ -1,6 +1,7 @@
 import React from "react";
 import mainBg from "../../assets/mainBackground.png";
 import Carousel from "./Carousel";
+import ProductField from "./Products";
 import "../Users.css";
 
 const Index = () => {
@@ -13,6 +14,7 @@ const Index = () => {
   };
   return (
     <div>
+      {/* start header - part1 */}
       <div className="main-bg-height" style={picture(mainBg)}>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" href="#">
@@ -74,9 +76,60 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <div className="container">
+      {/* start header - part 1 */}
+
+      {/* carousel-brochure */}
+      <div className="container my-5">
         <Carousel />
       </div>
+      {/* carousel-brochure */}
+
+      {/* part 3 - content */}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-2">
+            <div class="list-group">
+              <h4 className="ml-3">Gender</h4>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action"
+              >
+                Man
+              </button>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action"
+              >
+                Women
+              </button>
+              <h4 className="ml-3 mt-3">Type</h4>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action"
+              >
+                Tops
+              </button>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action"
+              >
+                Pants
+              </button>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action"
+              >
+                Outer Wear
+              </button>
+            </div>
+          </div>
+
+          <div className="col-md-10">
+            <ProductField />
+          </div>
+        </div>
+      </div>
+      {/* part 3 - content */}
     </div>
   );
 };

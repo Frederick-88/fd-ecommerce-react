@@ -8,3 +8,23 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.slick-prev::before,
+.slick-next::before {
+  color: black;
+  font-size: 1.5rem;
+}
+
+.list-group-item {
+  background-color: transparent !important;
+  border: 0 !important;
+  font-weight: bold;
+}
+
+.list-group-item-action:hover {
+  color: #28a745 !important;
+}
+
+/* i got the active but still not work */
+/* .list-group-item-action:active {
+  background-color: yellow !important;
+} */

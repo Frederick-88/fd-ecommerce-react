@@ -1,5 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Brochure from "../../assets/Brochure.png";
+import Brochure2 from "../../assets/Brochure2.png";
+import Brochure3 from "../../assets/Brochure3.png";
+import "../Users.css";
 
 class Carousel extends React.Component {
   render() {
@@ -7,28 +13,30 @@ class Carousel extends React.Component {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 3,
       slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 4000,
     };
     return (
       <Slider {...settings}>
-        <div>
-          <h3>1</h3>
+        <div className="d-flex justify-content-center">
+          <img src={Brochure} style={{ width: "90%" }} alt="..." />
         </div>
-        <div>
-          <h3>2</h3>
+        <div className="d-flex justify-content-center">
+          <img src={Brochure2} style={{ width: "90%" }} alt="..." />
         </div>
-        <div>
-          <h3>3</h3>
+        <div className="d-flex justify-content-center">
+          <img src={Brochure3} style={{ width: "90%" }} alt="..." />
         </div>
-        <div>
-          <h3>4</h3>
+        <div className="d-flex justify-content-center">
+          <img src={Brochure} style={{ width: "90%" }} alt="..." />
         </div>
-        <div>
-          <h3>5</h3>
+        <div className="d-flex justify-content-center">
+          <img src={Brochure2} style={{ width: "90%" }} alt="..." />
         </div>
-        <div>
-          <h3>6</h3>
+        <div className="d-flex justify-content-center">
+          <img src={Brochure3} style={{ width: "90%" }} alt="..." />
         </div>
       </Slider>
     );
