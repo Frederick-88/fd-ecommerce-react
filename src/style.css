@@ -1,0 +1,60 @@
+body {
+  font-family: "Montserrat", sans-serif !important;
+}
+.celcius-txt {
+  font-size: 8rem;
+}
+.hr-navbar {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.icon-fx {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+.icon-fx2 {
+  font-size: 1.75rem;
+  margin-left: 0.75rem;
+}
+.home-btn {
+  font-size: 1.5rem !important;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.rainy-bg {
+  background-image: linear-gradient(#0c5563, #4797a7);
+}
+.sunny-bg {
+  background-image: linear-gradient(#ebb000, #ffd557);
+}
+.storm-bg {
+  background-image: linear-gradient(#000000, #252525);
+}
+.windy-bg {
+  background-image: linear-gradient(#147e34, #3bc364);
+}
+.cloudy-bg {
+  background-image: linear-gradient(#228cfd, #0e4783);
+}
+.footer-bg {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.icon-fx i {
+  font-size: 2rem;
+}
+.icon-fx {
+  color: #d3d3d3;
+}
+.icon-fx:hover {
+  color: white;
+}
+.vertical-line {
+  border-left: 3px solid white;
+  height: 130px;
+}
+.gif-fx {
+  height: 5rem;
+}
