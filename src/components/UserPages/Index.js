@@ -2,7 +2,6 @@ import React from "react";
 import mainBg from "../../assets/mainBackground.png";
 import logo from "../../assets/logo.png";
 import logoHead from "../../assets/logo-1.png";
-import logoText from "../../assets/logo-2.png";
 import Carousel from "./Carousel";
 import ProductField from "./Products";
 import "../Users.css";
@@ -151,7 +150,7 @@ const Index = () => {
           <div className="col-md-3">
             <p className="footer-title">S2 BOUTIQUE</p>
             <small>
-              Look inside trendy,elegant & fantastic fashion in Batam. T ell the
+              Look inside trendy,elegant & fantastic fashion in Batam. Tell the
               world who you are with style without having to speak.
             </small>
             <div className="mt-4">
