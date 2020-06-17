@@ -24,8 +24,17 @@
   background-color: #009e7f !important;
   border-color: #009e7f !important;
 }
+.btn-outline-instagram {
+  color: #fb3958 !important;
+  border-color: #fb3958 !important;
+}
+.btn-outline-instagram:hover {
+  color: #fff !important;
+  background-color: #fb3958 !important;
+  border-color: #fb3958 !important;
+}
 .navbar {
-  padding: 0 !important;
+  padding: 0.25rem 0rem !important;
 }
 .list-group-item {
   background-color: transparent !important;
@@ -52,12 +61,18 @@
 body {
   font-family: "Lato", sans-serif !important;
 }
+.footer-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.horizontal-line {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
 .main-bg-height {
   height: 100vh;
 }
 .logo-fx {
-  width: 17rem;
-  padding-top: 0.25rem !important;
+  width: 14rem;
 }
 .vertical-center {
   margin: 0 15rem;
