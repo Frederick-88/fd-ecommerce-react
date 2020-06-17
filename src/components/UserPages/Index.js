@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import mainBg from "../../assets/mainBackground.png";
 import logo from "../../assets/logo.png";
 import logoHead from "../../assets/logo-1.png";
 import Carousel from "./Carousel";
 import ProductField from "./Products";
+import LoginModal from "./Login";
 import "../Users.css";
 
 const Index = () => {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const openLoginModal = () => {
+    setShowLoginModal(true);
+  };
+
+  const closeLoginModal = (boolean) => {
+    setShowLoginModal(boolean);
+  };
+
   const picture = (image) => {
     return {
       backgroundImage: `url(${image})`,
@@ -43,7 +54,11 @@ const Index = () => {
                   </button>
                 </li>
                 <li className="nav-item mx-4">
-                  <button type="button" className="btn btn-success">
+                  <button
+                    type="button"
+                    onClick={openLoginModal}
+                    className="btn btn-success"
+                  >
                     Sign In
                   </button>
                 </li>
@@ -205,6 +220,13 @@ const Index = () => {
         </div>
       </div>
       {/* Footer */}
+
+      {/* Modals */}
+      <LoginModal
+        showLoginModal={showLoginModal}
+        closeLoginModal={closeLoginModal}
+      />
+      {/* Modals */}
     </div>
   );
 };
