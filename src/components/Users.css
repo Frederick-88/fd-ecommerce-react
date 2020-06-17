@@ -38,6 +38,7 @@
 }
 
 /* i got the active but still not work */
+
 /* .list-group-item-action:active {
   background-color: yellow !important;
 } */
@@ -47,6 +48,7 @@
 }
 /* Rewrite Bootstrap class */
 
+/* My Own Class */
 body {
   font-family: "Lato", sans-serif !important;
 }
@@ -64,3 +66,4 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+/* My Own Class */
