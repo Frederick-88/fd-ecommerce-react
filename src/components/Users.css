@@ -1,19 +1,32 @@
-.main-bg-height {
-  height: 100vh;
-}
-.vertical-center {
-  margin: 0 15rem;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+/* ReWrite Slick Carousel Class */
 .slick-prev::before,
 .slick-next::before {
   color: black;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
+/* ReWrite Slick Carousel Class */
 
+/* Rewrite Bootstrap class */
+.btn-success {
+  background-color: #009e7f !important;
+  border-color: #009e7f !important;
+}
+.btn-success:hover {
+  background-color: #058067 !important;
+  border-color: #058067 !important;
+}
+.btn-outline-success {
+  color: #009e7f !important;
+  border-color: #009e7f !important;
+}
+.btn-outline-success:hover {
+  color: #fff !important;
+  background-color: #009e7f !important;
+  border-color: #009e7f !important;
+}
+.navbar {
+  padding: 0 !important;
+}
 .list-group-item {
   background-color: transparent !important;
   border: 0 !important;
@@ -28,3 +41,26 @@
 /* .list-group-item-action:active {
   background-color: yellow !important;
 } */
+
+.text-success-s2 {
+  color: #009e7f;
+}
+/* Rewrite Bootstrap class */
+
+body {
+  font-family: "Lato", sans-serif !important;
+}
+.main-bg-height {
+  height: 100vh;
+}
+.logo-fx {
+  width: 17rem;
+  padding-top: 0.25rem !important;
+}
+.vertical-center {
+  margin: 0 15rem;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

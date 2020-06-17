@@ -1,5 +1,6 @@
 import React from "react";
 import mainBg from "../../assets/mainBackground.png";
+import logo from "../../assets/logo.png";
 import Carousel from "./Carousel";
 import ProductField from "./Products";
 import "../Users.css";
@@ -17,39 +18,44 @@ const Index = () => {
       {/* start header - part1 */}
       <div className="main-bg-height" style={picture(mainBg)}>
         <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="#">
-            S2 Boutique
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <button className="btn btn-success d-flex d-row">
-                  <i className="fas fa-shopping-cart fa-lg align-self-center mr-2" />
-                  <p className="my-0">Cart : 1</p>
-                </button>
-              </li>
-              <li className="nav-item mx-4">
-                <button type="button" className="btn btn-success">
-                  Sign In
-                </button>
-              </li>
-            </ul>
+          <div className="container">
+            <a className="navbar-brand" href="#">
+              <img src={logo} className="logo-fx" alt="..." />
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <button className="btn btn-success d-flex d-row">
+                    <i className="fas fa-shopping-cart fa-lg align-self-center mr-2" />
+                    <p className="my-0">Cart : 1</p>
+                  </button>
+                </li>
+                <li className="nav-item mx-4">
+                  <button type="button" className="btn btn-success">
+                    Sign In
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
 
         <div className="vertical-center">
-          <h1 className="display-4 font-weight-bold text-center">
+          <h1
+            className="display-4 font-weight-bold text-center"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
             Shop Elegant & Fantastic Fashions!
           </h1>
           <p className="text-center text-secondary">
@@ -86,7 +92,7 @@ const Index = () => {
 
       {/* part 3 - content */}
       <div className="container">
-        <div className="row mb-4">
+        <div className="row mb-5">
           <div className="col-md-2 mt-3">
             <div class="list-group">
               <h4 className="ml-3">Gender</h4>
@@ -130,6 +136,10 @@ const Index = () => {
         </div>
       </div>
       {/* part 3 - content */}
+
+      {/* Footer */}
+      {/* <div>Footer</div> */}
+      {/* Footer */}
     </div>
   );
 };
