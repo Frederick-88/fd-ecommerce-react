@@ -56,7 +56,7 @@
 } */
 
 .text-success-s2 {
-  color: #009e7f;
+  color: #009e7f !important;
 }
 /* Rewrite Bootstrap class */
 
