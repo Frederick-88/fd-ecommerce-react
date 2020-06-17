@@ -96,36 +96,36 @@ const Index = () => {
       <div className="container">
         <div className="row mb-5">
           <div className="col-md-2 mt-3">
-            <div class="list-group">
+            <div className="list-group">
               <h4 className="ml-3">Gender</h4>
               <button
                 type="button"
-                class="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action"
               >
                 Man
               </button>
               <button
                 type="button"
-                class="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action"
               >
                 Women
               </button>
               <h4 className="ml-3 mt-3">Type</h4>
               <button
                 type="button"
-                class="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action"
               >
                 Tops
               </button>
               <button
                 type="button"
-                class="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action"
               >
                 Pants
               </button>
               <button
                 type="button"
-                class="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action"
               >
                 Outer Wear
               </button>
@@ -162,18 +162,18 @@ const Index = () => {
           <div className="col-md-3">
             <p className="footer-title">REACH OUT</p>
             <button className="btn btn-outline-success mr-3">
-              <i class="fab fa-whatsapp fa-lg" />
+              <i className="fab fa-whatsapp fa-lg" />
             </button>
 
             <button className="btn btn-outline-instagram mr-3">
-              <i class="fab fa-instagram fa-lg" />
+              <i className="fab fa-instagram fa-lg" />
             </button>
             <button className="btn btn-outline-primary mr-3">
-              <i class="fab fa-facebook-square fa-lg" />
+              <i className="fab fa-facebook-square fa-lg" />
             </button>
 
             <button className="btn btn-outline-danger">
-              <i class="far fa-envelope fa-lg" />
+              <i className="far fa-envelope fa-lg" />
             </button>
           </div>
           <div className="col-md-4">
@@ -181,21 +181,21 @@ const Index = () => {
             <small>
               Don't miss out the Latest Sale, Discounts, and New Arrivals !!
             </small>
-            <div class="input-group mt-3 mb-2">
+            <div className="input-group mt-3 mb-2">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Your Gmail/Whatsapp"
                 aria-label="Recipient's username"
                 aria-describedby="button-addon2"
               />
-              <div class="input-group-append">
+              <div className="input-group-append">
                 <button
-                  class="btn btn-outline-success"
+                  className="btn btn-outline-success"
                   type="button"
                   id="button-addon2"
                 >
-                  <i class="fas fa-chevron-circle-right"></i>
+                  <i className="fas fa-chevron-circle-right"></i>
                 </button>
               </div>
             </div>
