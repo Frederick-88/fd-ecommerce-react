@@ -4,6 +4,9 @@ import Tuxedo1 from "../../assets/Tuxedo1.jpg";
 import Tuxedo2 from "../../assets/Tuxedo2.jpg";
 
 const Products = () => {
+  const showDetail = () => {
+    console.log("Clicked");
+  };
   const picture = (image) => {
     return {
       backgroundImage: `url(${image})`,
@@ -17,7 +20,11 @@ const Products = () => {
     <div>
       <div className="row">
         <div className="col-md-4 mt-4">
-          <div className="card">
+          <div
+            className="card"
+            style={{ cursor: "pointer" }}
+            onClick={showDetail}
+          >
             <div style={picture(Tuxedo2)} className="card-img-top" alt="..." />
             <div className="card-body">
               <p className="font-weight-bold my-0">Exclusive Blue Tuxedo</p>

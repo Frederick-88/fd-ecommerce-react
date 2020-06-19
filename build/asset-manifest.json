@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b752fa24.chunk.css",
+    "main.js": "/static/js/main.58cd3a66.chunk.js",
+    "main.js.map": "/static/js/main.58cd3a66.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6399161f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6399161f.js.map",
+    "static/css/2.ffac7749.chunk.css": "/static/css/2.ffac7749.chunk.css",
+    "static/js/2.805607a5.chunk.js": "/static/js/2.805607a5.chunk.js",
+    "static/js/2.805607a5.chunk.js.map": "/static/js/2.805607a5.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b7dab5cf36e719eb379be97f12a9d96f.js": "/precache-manifest.b7dab5cf36e719eb379be97f12a9d96f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.ffac7749.chunk.css.map": "/static/css/2.ffac7749.chunk.css.map",
+    "static/css/main.b752fa24.chunk.css.map": "/static/css/main.b752fa24.chunk.css.map",
+    "static/js/2.805607a5.chunk.js.LICENSE.txt": "/static/js/2.805607a5.chunk.js.LICENSE.txt",
+    "static/media/Brochure.png": "/static/media/Brochure.1f7a4c9e.png",
+    "static/media/Brochure2.png": "/static/media/Brochure2.90d3534e.png",
+    "static/media/Brochure3.png": "/static/media/Brochure3.2f8285b1.png",
+    "static/media/Tuxedo1.jpg": "/static/media/Tuxedo1.05c33cfe.jpg",
+    "static/media/Tuxedo2.jpg": "/static/media/Tuxedo2.34d3aecd.jpg",
+    "static/media/logo-1.png": "/static/media/logo-1.f17de55d.png",
+    "static/media/logo.png": "/static/media/logo.534212d1.png",
+    "static/media/mainBackground.png": "/static/media/mainBackground.bc740630.png",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6399161f.js",
+    "static/css/2.ffac7749.chunk.css",
+    "static/js/2.805607a5.chunk.js",
+    "static/css/main.b752fa24.chunk.css",
+    "static/js/main.58cd3a66.chunk.js"
+  ]
+}
