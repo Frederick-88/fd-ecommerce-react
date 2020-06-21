@@ -1,38 +1,40 @@
 import React from "react";
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
 const AdminUsers = () => {
   return (
     <div className="text-center container">
-      <table class="table table-success">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Username</th>
-            <th scope="col">Gmail</th>
-            <th scope="col">Phone Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td className="d-flex flex-wrap">Mark</td>
-            <td>Mark@gmail.com</td>
-            <td>08127776889</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton@gmail.com</td>
-            <td>08120006889</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>Larry@gmail.com</td>
-            <td>08128886889</td>
-          </tr>
-        </tbody>
-      </table>
+      <Table className="table table-dark">
+        <Thead>
+          <Tr>
+            <Th>#</Th>
+            <Th>Event</Th>
+            <Th>Date</Th>
+            <Th>Location</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>1</Td>
+            <Td>Tablescon</Td>
+            <Td>9 April 2019</Td>
+            <Td>East Annex</Td>
+          </Tr>
+          <Tr>
+            <Td>2</Td>
+            <Td>Capstone Data</Td>
+            <Td>19 May 2019</Td>
+            <Td>205 Gorgas</Td>
+          </Tr>
+          <Tr>
+            <Td>3</Td>
+            <Td>Tuscaloosa D3</Td>
+            <Td>29 June 2019</Td>
+            <Td>Github</Td>
+          </Tr>
+        </Tbody>
+      </Table>
     </div>
   );
 };
