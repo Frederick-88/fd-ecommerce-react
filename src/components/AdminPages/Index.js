@@ -17,13 +17,15 @@ const Index = () => {
           </h1>
           <div className="d-flex d-row justify-content-center">
             <NavLink to={match.path}>
-              <h3>Home</h3>
+              <h4 className="text-success-s2 admin-nav">Home</h4>
             </NavLink>
+            <hr className="vertical-line mx-4 my-0" />
             <NavLink to={`${match.path}/users`}>
-              <h3>Users</h3>
+              <h4 className="text-success-s2 admin-nav">Users</h4>
             </NavLink>
+            <hr className="vertical-line mx-4 my-0" />
             <NavLink to={`${match.path}/product`}>
-              <h3>Products</h3>
+              <h4 className="text-success-s2 admin-nav">Products</h4>
             </NavLink>
           </div>
           <AdminDashboard />
@@ -35,14 +37,38 @@ const Index = () => {
           <h1 className="text-success-s2 text-center">
             Welcome Admin, this is the product Page.
           </h1>
-          <div className="d-flex d-row">Navbar,Navbar,Navbar</div>
+          <div className="d-flex d-row justify-content-center">
+            <NavLink to={match.path}>
+              <h4 className="text-success-s2 admin-nav">Home</h4>
+            </NavLink>
+            <hr className="vertical-line mx-4 my-0" />
+            <NavLink to={`${match.path}/users`}>
+              <h4 className="text-success-s2 admin-nav">Users</h4>
+            </NavLink>
+            <hr className="vertical-line mx-4 my-0" />
+            <NavLink to={`${match.path}/product`}>
+              <h4 className="text-success-s2 admin-nav">Products</h4>
+            </NavLink>
+          </div>
           <AdminProductPage />
         </Route>
         <Route exact path={`${match.path}/users`}>
           <h1 className="text-success-s2 text-center">
             Welcome Admin, this is the users Page.
           </h1>
-          <div className="d-flex d-row">Navbar,Navbar,Navbar</div>
+          <div className="d-flex d-row justify-content-center">
+            <NavLink to={match.path}>
+              <h4 className="text-success-s2 admin-nav">Home</h4>
+            </NavLink>
+            <hr className="vertical-line mx-4 my-0" />
+            <NavLink to={`${match.path}/users`}>
+              <h4 className="text-success-s2 admin-nav">Users</h4>
+            </NavLink>
+            <hr className="vertical-line mx-4 my-0" />
+            <NavLink to={`${match.path}/product`}>
+              <h4 className="text-success-s2 admin-nav">Products</h4>
+            </NavLink>
+          </div>
           <AdminUsersPage />
         </Route>
       </Switch>

@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <div className="text-center">
       <div className="text-center">
-        <img src={Chart} alt="..." className="w-100" />
+        <img src={Chart} alt="..." className="w-75" />
         This is the data today.
       </div>
     </div>

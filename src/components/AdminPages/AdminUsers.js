@@ -2,7 +2,7 @@ import React from "react";
 
 const AdminUsers = () => {
   return (
-    <div className="text-center">
+    <div className="text-center container">
       <table class="table table-success">
         <thead>
           <tr>
@@ -15,7 +15,7 @@ const AdminUsers = () => {
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
+            <td className="d-flex flex-wrap">Mark</td>
             <td>Mark@gmail.com</td>
             <td>08127776889</td>
           </tr>

@@ -85,6 +85,10 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.vertical-line {
+  border-left: 3px solid #009e7f;
+  height: 30px;
+}
 /* My Own Class */
 
 @media (min-width: 1440px) {
