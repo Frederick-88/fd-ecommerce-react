@@ -33,6 +33,10 @@ const Dashboard = () => {
                 </p>
                 <small className="card-text text-secondary">Stock : 11</small>
                 <br />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
                 <div className="d-flex d-row mt-4">
                   <p className="my-0 text-success-s2 font-weight-bold">$81</p>
                   <button className="btn btn-outline-success d-flex d-row ml-auto">
@@ -57,6 +61,10 @@ const Dashboard = () => {
                 </p>
                 <small className="card-text text-secondary">Stock : 11</small>
                 <br />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
                 <div className="d-flex d-row mt-4">
                   <p className="my-0 text-success-s2 font-weight-bold">$81</p>
                   <button className="btn btn-outline-success d-flex d-row ml-auto">
@@ -81,6 +89,10 @@ const Dashboard = () => {
                 </p>
                 <small className="card-text text-secondary">Stock : 11</small>
                 <br />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
                 <div className="d-flex d-row mt-4">
                   <p className="my-0 text-success-s2 font-weight-bold">$81</p>
                   <button className="btn btn-outline-success d-flex d-row ml-auto">
@@ -105,20 +117,26 @@ const Dashboard = () => {
                 </p>
                 <small className="card-text text-secondary">Stock : 11</small>
                 <br />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
                 <div className="d-flex d-row mt-4">
                   <p className="my-0 text-success-s2 font-weight-bold">$81</p>
-                  <button className="btn btn-outline-success d-flex d-row ml-auto">
-                    <i className="fas fa-cart-plus align-self-center mr-2 fa-sm" />
-                    <small className="font-weight-bold">Cart</small>
-                  </button>
+                  <div className="d-flex d-row ml-auto">
+                    <button className="btn btn-warning mr-2">
+                      <i class="far fa-edit fa-lg"></i>
+                    </button>
+                    <button className="btn btn-danger">
+                      <i class="far fa-trash-alt fa-lg"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button className="btn btn-warning">Edit Product here</button>
-      <button className="btn btn-danger">Delete Product here</button>
     </div>
   );
 };
