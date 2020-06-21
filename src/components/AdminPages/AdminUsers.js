@@ -9,9 +9,9 @@ const AdminUsers = () => {
         <Thead>
           <Tr>
             <Th>#</Th>
-            <Th>Event</Th>
-            <Th>Date</Th>
-            <Th>Location</Th>
+            <Th>Name</Th>
+            <Th>Email</Th>
+            <Th>Phone Number</Th>
           </Tr>
         </Thead>
         <Tbody>
