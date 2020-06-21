@@ -31,7 +31,7 @@ const Index = () => {
       <div className="main-bg-height" style={picture(mainBg)}>
         <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
           <div className="container">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
               <img src={logo} className="logo-fx" alt="..." />
             </a>
             <button

@@ -35,14 +35,14 @@ const Login = (props) => {
                   Welcome Back
                 </h4>
                 <h6 className="text-secondary">
-                  Login with your username & password
+                  Login with your email & password
                 </h6>
 
                 <div className="mt-4">
                   <input
                     type="text"
                     className="form-control mb-2 py-4"
-                    placeholder="Username"
+                    placeholder="Email"
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                   />
