@@ -1,10 +1,29 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { Modal } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import "../Users.css";
 
-const AdminLogin = () => {
+import { loginAdmin } from "../../actionCreators/LoginAction";
+
+const AdminLogin = (props) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [dataInput, setDataInput] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (event) => {
+    setDataInput({
+      ...dataInput,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(dataInput);
+  };
 
   const displayPassword = () => {
     setShowPassword(showPassword ? false : true);
@@ -31,40 +50,49 @@ const AdminLogin = () => {
               </h6>
 
               <div className="mt-4">
-                <input
-                  type="text"
-                  className="form-control mb-2 py-4"
-                  placeholder="Admin's email"
-                  aria-label="Recipient's username"
-                  aria-describedby="button-addon2"
-                />
-                <div class="input-group mb-2">
+                <form onSubmit={handleSubmit}>
                   <input
-                    type={showPassword ? "text" : "password"}
-                    class="form-control py-4"
-                    placeholder="Admin's password"
-                    aria-label="Recipient's username"
+                    type="text"
+                    name="email"
+                    onChange={handleInputChange}
+                    className="form-control mb-2 py-4"
+                    placeholder="Admin's email"
+                    aria-label="Admin's email"
                     aria-describedby="button-addon2"
                   />
-                  <div class="input-group-append">
-                    <button
-                      onClick={displayPassword}
-                      class="btn btn-outline-success"
-                      type="button"
-                      id="button-addon2"
-                    >
-                      <i
-                        class={showPassword ? "fas fa-eye-slash" : "fas fa-eye"}
-                      />
-                    </button>
+                  <div className="input-group mb-2">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      onChange={handleInputChange}
+                      className="form-control py-4"
+                      placeholder="Admin's password"
+                      aria-label="Admin's password"
+                      aria-describedby="button-addon2"
+                    />
+                    <div className="input-group-append">
+                      <button
+                        onClick={displayPassword}
+                        className="btn btn-outline-success"
+                        type="button"
+                        id="button-addon2"
+                      >
+                        <i
+                          className={
+                            showPassword ? "fas fa-eye-slash" : "fas fa-eye"
+                          }
+                        />
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <button
-                  className="btn btn-success w-100"
-                  style={{ padding: "0.7rem 0.2rem" }}
-                >
-                  Login
-                </button>
+                  <button
+                    className="btn btn-success w-100"
+                    style={{ padding: "0.7rem 0.2rem" }}
+                    type="submit"
+                  >
+                    Login
+                  </button>
+                </form>
               </div>
             </div>
           </Modal.Title>
@@ -73,4 +101,7 @@ const AdminLogin = () => {
     </div>
   );
 };
-export default AdminLogin;
+
+const mapDispatchToProps = { loginAdmin };
+
+export default connect(null, mapDispatchToProps)(AdminLogin);

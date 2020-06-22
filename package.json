@@ -8,14 +8,18 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "dotenv": "^8.2.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-device-detect": "^1.12.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-slick": "^0.26.1",
     "react-super-responsive-table": "^5.1.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

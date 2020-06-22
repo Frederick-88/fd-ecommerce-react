@@ -39,10 +39,10 @@ const AdminProduct = () => {
                   <p className="my-0 text-success-s2 font-weight-bold">$81</p>
                   <div className="d-flex d-row ml-auto">
                     <button className="btn btn-warning mr-2">
-                      <i class="far fa-edit fa-lg"></i>
+                      <i className="far fa-edit fa-lg"></i>
                     </button>
                     <button className="btn btn-danger">
-                      <i class="far fa-trash-alt fa-lg"></i>
+                      <i className="far fa-trash-alt fa-lg"></i>
                     </button>
                   </div>
                 </div>
@@ -71,10 +71,10 @@ const AdminProduct = () => {
                   <p className="my-0 text-success-s2 font-weight-bold">$81</p>
                   <div className="d-flex d-row ml-auto">
                     <button className="btn btn-warning mr-2">
-                      <i class="far fa-edit fa-lg"></i>
+                      <i className="far fa-edit fa-lg"></i>
                     </button>
                     <button className="btn btn-danger">
-                      <i class="far fa-trash-alt fa-lg"></i>
+                      <i className="far fa-trash-alt fa-lg"></i>
                     </button>
                   </div>
                 </div>
@@ -103,10 +103,10 @@ const AdminProduct = () => {
                   <p className="my-0 text-success-s2 font-weight-bold">$81</p>
                   <div className="d-flex d-row ml-auto">
                     <button className="btn btn-warning mr-2">
-                      <i class="far fa-edit fa-lg"></i>
+                      <i className="far fa-edit fa-lg"></i>
                     </button>
                     <button className="btn btn-danger">
-                      <i class="far fa-trash-alt fa-lg"></i>
+                      <i className="far fa-trash-alt fa-lg"></i>
                     </button>
                   </div>
                 </div>
@@ -135,10 +135,10 @@ const AdminProduct = () => {
                   <p className="my-0 text-success-s2 font-weight-bold">$81</p>
                   <div className="d-flex d-row ml-auto">
                     <button className="btn btn-warning mr-2">
-                      <i class="far fa-edit fa-lg"></i>
+                      <i className="far fa-edit fa-lg"></i>
                     </button>
                     <button className="btn btn-danger">
-                      <i class="far fa-trash-alt fa-lg"></i>
+                      <i className="far fa-trash-alt fa-lg"></i>
                     </button>
                   </div>
                 </div>

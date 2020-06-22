@@ -1,6 +1,6 @@
 ## Visibility Password
 
-## Better Apperance
+## Better Appearance
 
 ## Modal show without Redux
 
@@ -9,3 +9,11 @@
 ## Limit(See More) with Javascript
 
 ## Sidebar
+
+## REDUX
+
+## RESPONSIVE TABLE
+
+## Local Storage
+
+## Scroll Customization

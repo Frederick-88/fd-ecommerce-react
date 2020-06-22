@@ -46,23 +46,23 @@ const Login = (props) => {
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                   />
-                  <div class="input-group mb-2">
+                  <div className="input-group mb-2">
                     <input
                       type={showPassword ? "text" : "password"}
-                      class="form-control py-4"
+                      className="form-control py-4"
                       placeholder="Password"
                       aria-label="Recipient's username"
                       aria-describedby="button-addon2"
                     />
-                    <div class="input-group-append">
+                    <div className="input-group-append">
                       <button
                         onClick={displayPassword}
-                        class="btn btn-outline-success"
+                        className="btn btn-outline-success"
                         type="button"
                         id="button-addon2"
                       >
                         <i
-                          class={
+                          className={
                             showPassword ? "fas fa-eye-slash" : "fas fa-eye"
                           }
                         />
@@ -134,23 +134,23 @@ const Login = (props) => {
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                   />
-                  <div class="input-group mb-2">
+                  <div className="input-group mb-2">
                     <input
                       type={showPassword ? "text" : "password"}
-                      class="form-control py-4"
+                      className="form-control py-4"
                       placeholder="New Password"
                       aria-label="Recipient's username"
                       aria-describedby="button-addon2"
                     />
-                    <div class="input-group-append">
+                    <div className="input-group-append">
                       <button
                         onClick={displayPassword}
-                        class="btn btn-outline-success"
+                        className="btn btn-outline-success"
                         type="button"
                         id="button-addon2"
                       >
                         <i
-                          class={
+                          className={
                             showPassword ? "fas fa-eye-slash" : "fas fa-eye"
                           }
                         />
