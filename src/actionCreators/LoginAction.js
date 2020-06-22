@@ -8,8 +8,19 @@ export const loginAdmin = (data) => {
       const response = await axios.post(`${url}/users/loginadmin`, data);
       const output = response.data;
       console.log(output);
+
+      if (output.status === "success") {
+        dispatch({
+          type: "LOGIN_ADMIN_SUCCESS",
+          payload: output.token,
+        });
+      }
     } catch (error) {
-      console.log(error);
+      const output = error.response.data;
+      dispatch({
+        type: "LOGIN_ADMIN_FAILED",
+        payload: output.error,
+      });
     }
   };
 };

@@ -23,6 +23,8 @@ const AdminLogin = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(dataInput);
+
+    props.loginAdmin(dataInput);
   };
 
   const displayPassword = () => {
@@ -102,6 +104,13 @@ const AdminLogin = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    alertData: state.LoginReducer.alert,
+  };
+};
+
 const mapDispatchToProps = { loginAdmin };
 
-export default connect(null, mapDispatchToProps)(AdminLogin);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminLogin);
