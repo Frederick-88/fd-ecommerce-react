@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouteMatch, Switch, Route, NavLink } from "react-router-dom";
 
-import Login from "./Login";
+import Login from "./AdminLogin";
 import AdminDashboard from "./Dashboard";
 import AdminProductPage from "./AdminProduct";
 import AdminUsersPage from "./AdminUsers";

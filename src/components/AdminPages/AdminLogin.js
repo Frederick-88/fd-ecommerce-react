@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import "../Users.css";
 
-const Login = () => {
+const AdminLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const displayPassword = () => {
@@ -73,4 +73,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+export default AdminLogin;
