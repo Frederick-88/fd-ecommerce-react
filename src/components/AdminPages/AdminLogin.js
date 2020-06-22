@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { Modal, Alert } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import "../Users.css";
@@ -22,10 +23,16 @@ const AdminLogin = (props) => {
     alert.show = false;
   };
 
+  const history = useHistory();
+  // if token is filled, move to admin dashboard.
+  if (props.token) {
+    history.push({
+      pathname: "/admin",
+    });
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(dataInput);
-
     props.loginAdmin(dataInput);
   };
 
@@ -132,6 +139,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     alertData: state.LoginReducer.alert,
+    token: state.LoginReducer.token,
   };
 };
 

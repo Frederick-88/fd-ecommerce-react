@@ -12,6 +12,7 @@ const AdminProduct = () => {
       height: "14rem",
     };
   };
+
   return (
     <div className="text-center">
       <button className="btn btn-success">Add Product here as Admin</button>
