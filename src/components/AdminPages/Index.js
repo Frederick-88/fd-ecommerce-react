@@ -51,7 +51,7 @@ const Index = (props) => {
           {props.token ? (
             <div>
               <h1 className="text-success-s2 text-center">
-                Welcome Admin, this is the dashboard Page.
+                Welcome Admin, this is the Product Page.
               </h1>
               <div className="d-flex d-row justify-content-center">
                 <NavLink to={match.path}>
@@ -76,7 +76,7 @@ const Index = (props) => {
           {props.token ? (
             <div>
               <h1 className="text-success-s2 text-center">
-                Welcome Admin, this is the dashboard Page.
+                Welcome Admin, this is the Users Page.
               </h1>
               <div className="d-flex d-row justify-content-center">
                 <NavLink to={match.path}>

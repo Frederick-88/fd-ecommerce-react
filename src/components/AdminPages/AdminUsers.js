@@ -27,10 +27,12 @@ const AdminUsers = (props) => {
           {props.dataUser.map((item, index) => {
             return (
               <Tr key={index}>
-                <Td>{index + 1}</Td>
-                <Td>{item.username}</Td>
-                <Td>{item.email}</Td>
-                <Td>0{item.phoneNumber}</Td>
+                <Td className="text-justify text-center">{index + 1}</Td>
+                <Td className="text-justify text-center">{item.username}</Td>
+                <Td className="text-justify text-center">{item.email}</Td>
+                <Td className="text-justify text-center">
+                  0{item.phoneNumber}
+                </Td>
               </Tr>
             );
           })}
