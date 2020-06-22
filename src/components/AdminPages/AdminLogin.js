@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Modal } from "react-bootstrap";
+import { Modal, Alert } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import "../Users.css";
 
@@ -18,6 +18,8 @@ const AdminLogin = (props) => {
       ...dataInput,
       [event.currentTarget.name]: event.currentTarget.value,
     });
+    // to cover every time input alert keeps true.
+    alert.show = false;
   };
 
   const handleSubmit = (event) => {
@@ -32,6 +34,26 @@ const AdminLogin = (props) => {
   };
 
   const showModal = true;
+
+  const alert = props.alertData;
+
+  const AlertDismissible = () => {
+    const [alertShow, setAlertShow] = useState(alert.show);
+    console.log(alertShow);
+
+    if (alertShow) {
+      return (
+        <Alert
+          variant={alert.variant}
+          onClose={() => setAlertShow(false)}
+          dismissible
+        >
+          <Alert.Heading className="h6 my-0">{alert.message}</Alert.Heading>
+        </Alert>
+      );
+    }
+    return <></>;
+  };
 
   return (
     <div className="login-admin">
@@ -50,6 +72,8 @@ const AdminLogin = (props) => {
               <h6 className="text-secondary">
                 Login with your email & password
               </h6>
+
+              <AlertDismissible />
 
               <div className="mt-4">
                 <form onSubmit={handleSubmit}>
