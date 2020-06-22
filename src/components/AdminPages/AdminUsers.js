@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
-const AdminUsers = () => {
+import { getDataUser } from "../../actionCreators/AdminAction";
+
+const AdminUsers = (props) => {
+  useEffect(() => {
+    props.getDataUser();
+  }, []);
+
+  console.log(props.dataUser);
+
   return (
     <div className="text-center container">
       <Table className="table table-success">
@@ -15,27 +24,29 @@ const AdminUsers = () => {
           </Tr>
         </Thead>
         <Tbody>
-          <Tr>
-            <Td>1</Td>
-            <Td>Tablescon</Td>
-            <Td>9 April 2019</Td>
-            <Td>082382269138</Td>
-          </Tr>
-          <Tr>
-            <Td>2</Td>
-            <Td>Capstone Data</Td>
-            <Td>19 May 2019</Td>
-            <Td>085835998805</Td>
-          </Tr>
-          <Tr>
-            <Td>3</Td>
-            <Td>Tuscaloosa D3</Td>
-            <Td>29 June 2019</Td>
-            <Td>082382269138</Td>
-          </Tr>
+          {props.dataUser.map((item, index) => {
+            return (
+              <Tr key={index}>
+                <Td>{index + 1}</Td>
+                <Td>{item.username}</Td>
+                <Td>{item.email}</Td>
+                <Td>0{item.phoneNumber}</Td>
+              </Tr>
+            );
+          })}
         </Tbody>
       </Table>
     </div>
   );
 };
-export default AdminUsers;
+const mapStateToProps = (state) => {
+  return {
+    dataUser: state.AdminUserReducer.dataUser,
+  };
+};
+
+const mapDispatchToProps = {
+  getDataUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminUsers);

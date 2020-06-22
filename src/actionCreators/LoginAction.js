@@ -7,7 +7,6 @@ export const loginAdmin = (data) => {
     try {
       const response = await axios.post(`${url}/users/loginadmin`, data);
       const output = response.data;
-      console.log(output);
 
       if (output.status === "success") {
         dispatch({

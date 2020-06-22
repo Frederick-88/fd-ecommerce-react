@@ -1,5 +1,5 @@
 const initialState = {
-  token: localStorage.getItem("token"),
+  token: localStorage.getItem("token-admin"),
   alert: {
     show: false,
     message: "",
@@ -20,7 +20,7 @@ const loginReducer = (state = initialState, action) => {
       };
 
     case "LOGIN_ADMIN_SUCCESS":
-      localStorage.setItem("token", action.payload);
+      localStorage.setItem("token-admin", action.payload);
       return {
         ...state,
         token: action.payload,

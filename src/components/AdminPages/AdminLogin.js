@@ -136,7 +136,6 @@ const AdminLogin = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     alertData: state.LoginReducer.alert,
     token: state.LoginReducer.token,
