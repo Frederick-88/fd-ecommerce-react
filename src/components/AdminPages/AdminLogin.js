@@ -46,7 +46,6 @@ const AdminLogin = (props) => {
 
   const AlertDismissible = () => {
     const [alertShow, setAlertShow] = useState(alert.show);
-    console.log(alertShow);
 
     if (alertShow) {
       return (

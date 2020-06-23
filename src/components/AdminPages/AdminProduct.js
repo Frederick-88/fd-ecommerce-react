@@ -6,165 +6,34 @@ import {
 } from "../../actionCreators/AdminAction";
 
 import { Modal, Button } from "react-bootstrap";
+import EditProductModal from "./AdminProductEdit";
 
 const AdminProduct = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
-  const [selectedFileName, setSelectedFileName] = useState("");
 
-  const [dataEditInput, setDataEditInput] = useState({
-    image: null,
-    name: "",
-    price: "",
-    description: "",
-    quantity: "",
-    productGender: "",
-    productType: "",
-  });
-  console.log(dataEditInput);
-
-  const handleEditInputChange = (event) => {
-    setDataEditInput({
-      ...dataEditInput,
-      [event.currentTarget.name]: event.currentTarget.value,
-    });
-  };
-
-  const selectFile = (event) => {
-    setDataEditInput({
-      ...dataEditInput,
-      [event.currentTarget.name]: event.target.files[0],
-    });
-    setSelectedFileName(event.target.files[0].name);
-  };
-
-  // Edit Modal Form.
+  // EDIT MODAL FORM. (WHEN YOU MAKE MODAL FOR EDIT,ETC, YOU NEED TO DIVIDE THAT AS OTHER FILE.)
+  // WHY? BECAUSE IF YOU MAKE IT LIKE THE DELETE FORM, CONST & CALL IT ON THE BOTTOM, THE ONCHANGE WILL NOT WORK.
+  // The onchange will read the const and then when return, it will go back on the first state. We need to make it only 1 time run.
   const [showEditModal, setShowEditModal] = useState(false);
   // dataEdit = productDatas that want to be edited.
   const [dataEdit, setDataEdit] = useState({});
+
+  // to trigger useEffect after edit is done.
+  const [dataEditUpdated, setDataEditUpdated] = useState(false);
 
   const displayEditModal = (data) => {
     setDataEdit(data);
     setShowEditModal(true);
   };
-  const closeEditModal = () => {
-    setShowEditModal(false);
-  };
-  const handleEdit = () => {
-    //  props.deleteDataProduct(dataDelete._id);
-    setShowEditModal(false);
-  };
-  const EditProductModal = () => {
-    return (
-      <Modal show={showEditModal} onHide={closeEditModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Product of {dataEdit.name}</Modal.Title>
-        </Modal.Header>
 
-        <Modal.Body>
-          <div>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Name"
-                name="name"
-                onChange={handleEditInputChange}
-              />
-            </div>
-            <div className="d-flex d-row">
-              <div className="form-group">
-                <label htmlFor="price">Price</label>
-                <input
-                  type="number"
-                  className="form-control"
-                  placeholder="Price"
-                  name="price"
-                  onChange={handleEditInputChange}
-                />
-              </div>
-              <div className="form-group ml-3">
-                <label htmlFor="quantity">Quantity</label>
-                <input
-                  type="number"
-                  className="form-control"
-                  placeholder="Quantity"
-                  name="quantity"
-                  onChange={handleEditInputChange}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Choose Image</label>
-              <div className="custom-file">
-                <input
-                  name="image"
-                  type="file"
-                  accept="image/*"
-                  className="custom-file-input"
-                  id="customFile"
-                  onChange={selectFile}
-                />
-                <label className="custom-file-label" htmlFor="customFile">
-                  {selectedFileName ? (
-                    <p className="text-success-s2 my-0">{selectedFileName}</p>
-                  ) : (
-                    "Choose file"
-                  )}
-                </label>
-              </div>
-            </div>
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Description"
-                name="description"
-                onChange={handleEditInputChange}
-              />
-            </div>
-            <div className="d-flex d-row">
-              <div className="form-group w-100">
-                <label htmlFor="product-gender">Select Product Gender</label>
-                <select
-                  className="form-control"
-                  name="productGender"
-                  onChange={handleEditInputChange}
-                >
-                  <option value="man">Man</option>
-                  <option value="women">Woman</option>
-                </select>
-              </div>
-              <div className="form-group ml-3 w-100">
-                <label htmlFor="product-type">Select Product Type</label>
-                <select
-                  className="form-control"
-                  name="productType"
-                  onChange={handleEditInputChange}
-                >
-                  <option value="tops">Tops</option>
-                  <option value="bottom">Bottom</option>
-                  <option value="outer wear">Outer Wear</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={closeEditModal}>
-            Close
-          </Button>
-          <Button variant="warning" onClick={handleEdit}>
-            Edit
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    );
+  // to send to AdminProductEdit.js = function to close modal.
+  const unDisplayEditModal = (boolean) => {
+    setShowEditModal(boolean);
+    // supaya setiap update(edit) slalu ada perubahan pada state.
+    setDataEditUpdated(dataEditUpdated ? false : true);
   };
 
-  // delete modal form.
+  // DELETE MODAL FORM.
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   // dataDelete = productDatas that want to be deleted.
   const [dataDelete, setDataDelete] = useState({});
@@ -216,7 +85,7 @@ const AdminProduct = (props) => {
 
   useEffect(() => {
     props.getDataProduct();
-  }, []);
+  }, [dataEditUpdated]);
 
   return (
     <div className="text-center">
@@ -275,7 +144,11 @@ const AdminProduct = (props) => {
           })}
         </div>
       </div>
-      <EditProductModal />
+      <EditProductModal
+        showEditModal={showEditModal}
+        dataEdit={dataEdit}
+        unDisplayEditModal={unDisplayEditModal}
+      />
       <DeleteProductModal />
     </div>
   );

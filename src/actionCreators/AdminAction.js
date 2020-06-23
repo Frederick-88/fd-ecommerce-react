@@ -43,6 +43,26 @@ export const getDataProduct = () => {
   };
 };
 
+export const editDataProduct = (FormEditData, data) => {
+  return async (dispatch) => {
+    try {
+      await axios.put(`${url}/product/editproduct/${data._id}`, FormEditData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "x-access-token": tokenAdmin,
+        },
+      });
+      dispatch({
+        type: "EDIT_DATA_PRODUCT",
+        payload: data,
+      });
+    } catch (error) {
+      const errorOutput = error.response;
+      console.log(errorOutput);
+    }
+  };
+};
+
 export const deleteDataProduct = (dataId) => {
   return async (dispatch) => {
     try {
