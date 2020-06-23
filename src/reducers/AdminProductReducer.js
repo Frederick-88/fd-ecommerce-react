@@ -4,6 +4,12 @@ const initialState = {
 
 const AdminUserReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "ADD_DATA_PRODUCT":
+      return {
+        ...state,
+        dataProduct: [...state.dataProduct, action.payload],
+      };
+
     case "GET_DATA_PRODUCT":
       return {
         ...state,

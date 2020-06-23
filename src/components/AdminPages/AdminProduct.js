@@ -7,19 +7,41 @@ import {
 
 import { Modal, Button } from "react-bootstrap";
 import EditProductModal from "./AdminProductEdit";
+import AddProductModal from "./AdminProductAdd";
 
 const AdminProduct = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
 
+  const picture = (image) => {
+    return {
+      backgroundImage: `url(${urlLocalhost}/${image})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      marginTop: "1rem",
+      height: "14rem",
+    };
+  };
+
+  useEffect(() => {
+    props.getDataProduct();
+  }, []);
+
+  // ADD MODAL FORM.
+  const [showAddModal, setShowAddModal] = useState(false);
+  const displayAddModal = () => {
+    setShowAddModal(true);
+  };
+  const unDisplayAddModal = (boolean) => {
+    setShowAddModal(boolean);
+  };
+
   // EDIT MODAL FORM. (WHEN YOU MAKE MODAL FOR EDIT,ETC, YOU NEED TO DIVIDE THAT AS OTHER FILE.)
-  // WHY? BECAUSE IF YOU MAKE IT LIKE THE DELETE FORM, CONST & CALL IT ON THE BOTTOM, THE ONCHANGE WILL NOT WORK.
+
+  // WHY? Because if you make it like delete form, CONST & CALL IT ON THE BOTTOM, THE ONCHANGE WILL NOT WORK.
   // The onchange will read the const and then when return, it will go back on the first state. We need to make it only 1 time run.
   const [showEditModal, setShowEditModal] = useState(false);
   // dataEdit = productDatas that want to be edited.
   const [dataEdit, setDataEdit] = useState({});
-
-  // to trigger useEffect after edit is done.
-  const [dataEditUpdated, setDataEditUpdated] = useState(false);
 
   const displayEditModal = (data) => {
     setDataEdit(data);
@@ -30,7 +52,6 @@ const AdminProduct = (props) => {
   const unDisplayEditModal = (boolean) => {
     setShowEditModal(boolean);
     // supaya setiap update(edit) slalu ada perubahan pada state.
-    setDataEditUpdated(dataEditUpdated ? false : true);
   };
 
   // DELETE MODAL FORM.
@@ -73,23 +94,11 @@ const AdminProduct = (props) => {
     );
   };
 
-  const picture = (image) => {
-    return {
-      backgroundImage: `url(${urlLocalhost}/${image})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      marginTop: "1rem",
-      height: "14rem",
-    };
-  };
-
-  useEffect(() => {
-    props.getDataProduct();
-  }, [dataEditUpdated]);
-
   return (
     <div className="text-center">
-      <button className="btn btn-success">Add Product here as Admin</button>
+      <button className="btn btn-success" onClick={displayAddModal}>
+        Add Product here as Admin
+      </button>
 
       <div className="mx-4 my-4">
         <div className="row">
@@ -144,6 +153,10 @@ const AdminProduct = (props) => {
           })}
         </div>
       </div>
+      <AddProductModal
+        showAddModal={showAddModal}
+        unDisplayAddModal={unDisplayAddModal}
+      />
       <EditProductModal
         showEditModal={showEditModal}
         dataEdit={dataEdit}

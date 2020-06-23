@@ -26,6 +26,39 @@ export const getDataUser = () => {
 
 // FOR ADMIN PRODUCT PART
 
+export const addDataProduct = (FormAddData, data) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(
+        `${url}/product/addproduct`,
+        FormAddData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "x-access-token": tokenAdmin,
+          },
+        }
+      );
+      const output = response.data;
+
+      if (output.statusText === "Bad Request") {
+        dispatch({
+          type: "ADD_PRODUCT_FAILED",
+          payload: "Please fill all form at Add",
+        });
+      }
+      dispatch({
+        type: "ADD_DATA_PRODUCT",
+        // payload must be the return from backend because that's best
+        payload: output.data,
+      });
+    } catch (error) {
+      const errorOutput = error.response;
+      console.log(errorOutput);
+    }
+  };
+};
+
 export const getDataProduct = () => {
   return async (dispatch) => {
     try {
@@ -46,15 +79,21 @@ export const getDataProduct = () => {
 export const editDataProduct = (FormEditData, data) => {
   return async (dispatch) => {
     try {
-      await axios.put(`${url}/product/editproduct/${data._id}`, FormEditData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "x-access-token": tokenAdmin,
-        },
-      });
+      const response = await axios.put(
+        `${url}/product/editproduct/${data._id}`,
+        FormEditData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "x-access-token": tokenAdmin,
+          },
+        }
+      );
+      const output = response.data;
       dispatch({
         type: "EDIT_DATA_PRODUCT",
-        payload: data,
+        // payload must be the return from backend because that's best
+        payload: output.data,
       });
     } catch (error) {
       const errorOutput = error.response;

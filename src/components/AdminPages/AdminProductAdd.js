@@ -2,58 +2,60 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
 
-import { editDataProduct } from "../../actionCreators/AdminAction";
+import { addDataProduct } from "../../actionCreators/AdminAction";
 
-const AdminProductEdit = (props) => {
+const AdminProductAdd = (props) => {
   const [selectedFileName, setSelectedFileName] = useState("");
 
-  const [dataEditInput, setDataEditInput] = useState({
+  const [dataAddInput, setDataAddInput] = useState({
     image: null,
     name: "",
     price: "",
     description: "",
     quantity: "",
-    productGender: "",
-    productType: "",
+    productGender: "man",
+    productType: "tops",
   });
-  const handleEditInputChange = (event) => {
-    setDataEditInput({
-      ...dataEditInput,
+  console.log(dataAddInput);
+
+  const handleAddInputChange = (event) => {
+    setDataAddInput({
+      ...dataAddInput,
       [event.currentTarget.name]: event.currentTarget.value,
     });
   };
   const selectFile = (event) => {
-    setDataEditInput({
-      ...dataEditInput,
+    setDataAddInput({
+      ...dataAddInput,
       [event.currentTarget.name]: event.target.files[0],
     });
     setSelectedFileName(event.target.files[0].name);
   };
 
-  const closeEditModal = () => {
-    props.unDisplayEditModal(false);
+  const closeAddModal = () => {
+    props.unDisplayAddModal(false);
   };
 
   //  Form Edit Data = for image inputs, we use form data in Insomnia. So here we are.
-  const FormEditData = new FormData();
-  FormEditData.append("image", dataEditInput.image);
-  FormEditData.append("name", dataEditInput.name);
-  FormEditData.append("price", dataEditInput.price);
-  FormEditData.append("description", dataEditInput.description);
-  FormEditData.append("quantity", dataEditInput.quantity);
-  FormEditData.append("productGender", dataEditInput.productGender);
-  FormEditData.append("productType", dataEditInput.productType);
+  const FormAddData = new FormData();
+  FormAddData.append("image", dataAddInput.image);
+  FormAddData.append("name", dataAddInput.name);
+  FormAddData.append("price", dataAddInput.price);
+  FormAddData.append("description", dataAddInput.description);
+  FormAddData.append("quantity", dataAddInput.quantity);
+  FormAddData.append("productGender", dataAddInput.productGender);
+  FormAddData.append("productType", dataAddInput.productType);
 
-  const handleSubmitEdit = (event) => {
+  const handleSubmitAdd = (event) => {
     event.preventDefault();
-    props.editDataProduct(FormEditData, props.dataEdit, dataEditInput);
-    props.unDisplayEditModal(false);
+    props.addDataProduct(FormAddData, dataAddInput);
+    props.unDisplayAddModal(false);
   };
   return (
-    <Modal show={props.showEditModal} onHide={closeEditModal}>
-      <form onSubmit={handleSubmitEdit}>
+    <Modal show={props.showAddModal} onHide={closeAddModal}>
+      <form onSubmit={handleSubmitAdd}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Product of {props.dataEdit.name}</Modal.Title>
+          <Modal.Title>Add Product</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -65,7 +67,7 @@ const AdminProductEdit = (props) => {
                 className="form-control"
                 placeholder="Name"
                 name="name"
-                onChange={handleEditInputChange}
+                onChange={handleAddInputChange}
               />
             </div>
             <div className="d-flex d-row">
@@ -76,7 +78,7 @@ const AdminProductEdit = (props) => {
                   className="form-control"
                   placeholder="Price"
                   name="price"
-                  onChange={handleEditInputChange}
+                  onChange={handleAddInputChange}
                 />
               </div>
               <div className="form-group ml-3">
@@ -86,7 +88,7 @@ const AdminProductEdit = (props) => {
                   className="form-control"
                   placeholder="Quantity"
                   name="quantity"
-                  onChange={handleEditInputChange}
+                  onChange={handleAddInputChange}
                 />
               </div>
             </div>
@@ -117,7 +119,7 @@ const AdminProductEdit = (props) => {
                 className="form-control"
                 placeholder="Description"
                 name="description"
-                onChange={handleEditInputChange}
+                onChange={handleAddInputChange}
               />
             </div>
             <div className="d-flex d-row">
@@ -126,7 +128,7 @@ const AdminProductEdit = (props) => {
                 <select
                   className="form-control"
                   name="productGender"
-                  onChange={handleEditInputChange}
+                  onChange={handleAddInputChange}
                 >
                   <option value="man">Man</option>
                   <option value="women">Women</option>
@@ -137,7 +139,7 @@ const AdminProductEdit = (props) => {
                 <select
                   className="form-control"
                   name="productType"
-                  onChange={handleEditInputChange}
+                  onChange={handleAddInputChange}
                 >
                   <option value="tops">Tops</option>
                   <option value="bottom">Bottom</option>
@@ -149,11 +151,11 @@ const AdminProductEdit = (props) => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={closeEditModal}>
+          <Button variant="secondary" onClick={closeAddModal}>
             Close
           </Button>
-          <Button type="submit" variant="warning">
-            Edit
+          <Button type="submit" variant="success">
+            Add
           </Button>
         </Modal.Footer>
       </form>
@@ -161,7 +163,7 @@ const AdminProductEdit = (props) => {
   );
 };
 const mapDispatchToProps = {
-  editDataProduct,
+  addDataProduct,
 };
 
-export default connect(null, mapDispatchToProps)(AdminProductEdit);
+export default connect(null, mapDispatchToProps)(AdminProductAdd);
