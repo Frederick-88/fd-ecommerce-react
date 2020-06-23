@@ -79,12 +79,13 @@ const AdminProductEdit = (props) => {
                   onChange={handleEditInputChange}
                 />
               </div>
+              {/* Stock(Frontend) = Quantity(Backend) */}
               <div className="form-group ml-3">
-                <label htmlFor="quantity">Quantity</label>
+                <label htmlFor="quantity">Stock</label>
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Quantity"
+                  placeholder="Stock"
                   name="quantity"
                   onChange={handleEditInputChange}
                 />
