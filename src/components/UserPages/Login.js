@@ -64,6 +64,25 @@ const Login = (props) => {
   }
 
   // REGISTER SECTION
+  const [dataInputRegister, setDataInputRegister] = useState({
+    username: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+  });
+  const handleInputRegisterChange = (event) => {
+    setDataInputRegister({
+      ...dataInputRegister,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+    // to cover every time input alert keeps true.
+    alert.show = false;
+  };
+  const handleRegisterSubmit = (event) => {
+    event.preventDefault();
+    console.log(dataInputRegister);
+    // props.register(dataInputRegister);
+  };
   const setRegisterDisplay = () => {
     setLoginDisplay(false);
   };
@@ -165,84 +184,95 @@ const Login = (props) => {
           ) : (
             <Modal.Title>
               <div className="text-center">
-                <h4 className="text-success-s2 font-weight-bold">Sign Up</h4>
+                <form onSubmit={handleRegisterSubmit}>
+                  <h4 className="text-success-s2 font-weight-bold">Sign Up</h4>
 
-                <div className="mt-4">
-                  <input
-                    type="text"
-                    className="form-control mb-2 py-4"
-                    placeholder="Username"
-                    aria-label="Recipient's username"
-                    aria-describedby="button-addon2"
-                  />
-                  <input
-                    type="text"
-                    className="form-control mb-2 py-4"
-                    placeholder="Your email"
-                    aria-label="Recipient's username"
-                    aria-describedby="button-addon2"
-                  />
-                  <input
-                    type="number"
-                    className="form-control mb-2 py-4"
-                    placeholder="Phone Number"
-                    aria-label="Recipient's username"
-                    aria-describedby="button-addon2"
-                  />
-                  <div className="input-group mb-2">
+                  <div className="mt-4">
                     <input
-                      type={showPassword ? "text" : "password"}
-                      className="form-control py-4"
-                      placeholder="New Password"
+                      type="text"
+                      name="username"
+                      onChange={handleInputRegisterChange}
+                      className="form-control mb-2 py-4"
+                      placeholder="Username"
                       aria-label="Recipient's username"
                       aria-describedby="button-addon2"
                     />
-                    <div className="input-group-append">
-                      <button
-                        onClick={displayPassword}
-                        className="btn btn-outline-success"
-                        type="button"
-                        id="button-addon2"
-                      >
-                        <i
-                          className={
-                            showPassword ? "fas fa-eye-slash" : "fas fa-eye"
-                          }
-                        />
-                      </button>
+                    <input
+                      type="text"
+                      name="email"
+                      onChange={handleInputRegisterChange}
+                      className="form-control mb-2 py-4"
+                      placeholder="Your email"
+                      aria-label="Recipient's username"
+                      aria-describedby="button-addon2"
+                    />
+                    <input
+                      type="number"
+                      name="phoneNumber"
+                      onChange={handleInputRegisterChange}
+                      className="form-control mb-2 py-4"
+                      placeholder="Phone Number"
+                      aria-label="Recipient's username"
+                      aria-describedby="button-addon2"
+                    />
+                    <div className="input-group mb-2">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        onChange={handleInputRegisterChange}
+                        className="form-control py-4"
+                        placeholder="New Password"
+                        aria-label="Recipient's username"
+                        aria-describedby="button-addon2"
+                      />
+                      <div className="input-group-append">
+                        <button
+                          onClick={displayPassword}
+                          className="btn btn-outline-success"
+                          type="button"
+                          id="button-addon2"
+                        >
+                          <i
+                            className={
+                              showPassword ? "fas fa-eye-slash" : "fas fa-eye"
+                            }
+                          />
+                        </button>
+                      </div>
                     </div>
+
+                    <p
+                      className="text-secondary"
+                      style={{ fontSize: "0.8rem", margin: "0.7rem 0rem" }}
+                    >
+                      By signing up, you agree to S2 Boutique's
+                      <button
+                        className="btn btn-link p-0 ml-1"
+                        style={{ fontSize: "0.8rem" }}
+                      >
+                        Terms and Conditions
+                      </button>
+                    </p>
+
+                    <button
+                      type="submit"
+                      className="btn btn-success w-100"
+                      style={{ padding: "0.7rem 0.2rem" }}
+                    >
+                      Register
+                    </button>
                   </div>
 
-                  <p
-                    className="text-secondary"
-                    style={{ fontSize: "0.8rem", margin: "0.7rem 0rem" }}
-                  >
-                    By signing up, you agree to S2 Boutique's
+                  <p style={{ fontSize: "1rem", margin: "0.7rem 0rem" }}>
+                    Already have account?
                     <button
-                      className="btn btn-link p-0 ml-1"
-                      style={{ fontSize: "0.8rem" }}
+                      onClick={setLoginDisplayTrue}
+                      className="btn btn-link p-0 text-success-s2 ml-1"
                     >
-                      Terms and Conditions
+                      Login
                     </button>
                   </p>
-
-                  <button
-                    className="btn btn-success w-100"
-                    style={{ padding: "0.7rem 0.2rem" }}
-                  >
-                    Register
-                  </button>
-                </div>
-
-                <p style={{ fontSize: "1rem", margin: "0.7rem 0rem" }}>
-                  Already have account?
-                  <button
-                    onClick={setLoginDisplayTrue}
-                    className="btn btn-link p-0 text-success-s2 ml-1"
-                  >
-                    Login
-                  </button>
-                </p>
+                </form>
               </div>
             </Modal.Title>
           )}
