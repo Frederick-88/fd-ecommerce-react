@@ -24,6 +24,24 @@ export const getDataUser = () => {
   };
 };
 
+export const deleteUser = (dataId) => {
+  return async (dispatch) => {
+    try {
+      await axios.delete(`${url}/users/delete/${dataId}`, {
+        headers: { "x-access-token": tokenAdmin },
+      });
+
+      dispatch({
+        type: "DELETE_USER",
+        payload: dataId,
+      });
+    } catch (error) {
+      const errorOutput = error.response;
+      console.log(errorOutput);
+    }
+  };
+};
+
 // FOR ADMIN PRODUCT PART
 
 export const addDataProduct = (FormAddData, data) => {
@@ -40,13 +58,6 @@ export const addDataProduct = (FormAddData, data) => {
         }
       );
       const output = response.data;
-
-      if (output.statusText === "Bad Request") {
-        dispatch({
-          type: "ADD_PRODUCT_FAILED",
-          payload: "Please fill all form at Add",
-        });
-      }
       dispatch({
         type: "ADD_DATA_PRODUCT",
         // payload must be the return from backend because that's best
@@ -54,7 +65,13 @@ export const addDataProduct = (FormAddData, data) => {
       });
     } catch (error) {
       const errorOutput = error.response;
-      console.log(errorOutput);
+
+      if (errorOutput.status === 400) {
+        dispatch({
+          type: "ADD_PRODUCT_FAILED",
+          payload: "Please fill all field in the form.",
+        });
+      }
     }
   };
 };

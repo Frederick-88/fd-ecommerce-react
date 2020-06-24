@@ -16,7 +16,6 @@ const AdminProductAdd = (props) => {
     productGender: "man",
     productType: "tops",
   });
-  console.log(dataAddInput);
 
   const handleAddInputChange = (event) => {
     setDataAddInput({
@@ -51,6 +50,7 @@ const AdminProductAdd = (props) => {
     props.addDataProduct(FormAddData, dataAddInput);
     props.unDisplayAddModal(false);
   };
+
   return (
     <Modal show={props.showAddModal} onHide={closeAddModal}>
       <form onSubmit={handleSubmitAdd}>
@@ -163,6 +163,7 @@ const AdminProductAdd = (props) => {
     </Modal>
   );
 };
+
 const mapDispatchToProps = {
   addDataProduct,
 };

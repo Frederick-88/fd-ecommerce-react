@@ -4,6 +4,9 @@
   color: black;
   font-size: 2rem;
 }
+.slick-prev {
+  z-index: 100;
+}
 /* ReWrite Slick Carousel Class */
 
 /* Rewrite Bootstrap class */

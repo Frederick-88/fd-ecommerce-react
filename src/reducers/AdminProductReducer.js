@@ -1,5 +1,10 @@
 const initialState = {
   dataProduct: [],
+  alert: {
+    show: false,
+    message: "",
+    variant: "light",
+  },
 };
 
 const AdminUserReducer = (state = initialState, action) => {
@@ -8,6 +13,16 @@ const AdminUserReducer = (state = initialState, action) => {
       return {
         ...state,
         dataProduct: [...state.dataProduct, action.payload],
+      };
+
+    case "ADD_PRODUCT_FAILED":
+      return {
+        ...state,
+        alert: {
+          show: true,
+          message: action.payload,
+          variant: "danger",
+        },
       };
 
     case "GET_DATA_PRODUCT":

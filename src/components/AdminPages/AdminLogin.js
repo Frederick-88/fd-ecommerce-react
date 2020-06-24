@@ -40,6 +40,7 @@ const AdminLogin = (props) => {
     setShowPassword(showPassword ? false : true);
   };
 
+  // in the first place, modal always true.
   const showModal = true;
 
   const alert = props.alertData;

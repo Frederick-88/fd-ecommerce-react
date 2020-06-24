@@ -9,6 +9,18 @@ const AdminUserReducer = (state = initialState, action) => {
         ...state,
         dataUser: action.payload,
       };
+    case "DELETE_USER":
+      const dataAfterDelete = state.dataUser.filter((item) => {
+        //   action.payload = id product.
+        if (item._id === action.payload) {
+          return false;
+        } else return true;
+      });
+
+      return {
+        ...state,
+        dataUser: dataAfterDelete,
+      };
 
     default:
       return state;

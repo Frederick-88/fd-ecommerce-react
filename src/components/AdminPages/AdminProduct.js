@@ -5,7 +5,7 @@ import {
   deleteDataProduct,
 } from "../../actionCreators/AdminAction";
 
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Alert } from "react-bootstrap";
 import EditProductModal from "./AdminProductEdit";
 import AddProductModal from "./AdminProductAdd";
 
@@ -94,8 +94,34 @@ const AdminProduct = (props) => {
     );
   };
 
+  // alert from add product problem
+  const alert = props.alertData;
+
+  const AlertDismissible = () => {
+    const [alertShow, setAlertShow] = useState(alert.show);
+
+    if (alertShow) {
+      return (
+        <Alert
+          variant={alert.variant}
+          // BEST PRACTICE TO HANDLE ALERT THAT WILL SHOW AGAIN AFTER WE CLOSE THE ALERT. (2 FUNCTIONS IN 1 ONCLICK)
+          onClose={() => {
+            setAlertShow(false);
+            alert.show = false;
+          }}
+          dismissible
+        >
+          <Alert.Heading className="h6 my-0">{alert.message}</Alert.Heading>
+        </Alert>
+      );
+    }
+    return <></>;
+  };
+
   return (
     <div className="text-center">
+      <AlertDismissible />
+
       <button className="btn btn-success" onClick={displayAddModal}>
         Add Product here as Admin
       </button>
@@ -168,6 +194,7 @@ const AdminProduct = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
+    alertData: state.AdminProductReducer.alert,
     dataProduct: state.AdminProductReducer.dataProduct,
   };
 };
