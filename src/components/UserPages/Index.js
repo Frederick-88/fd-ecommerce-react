@@ -124,6 +124,12 @@ const Index = () => {
               >
                 Women
               </button>
+              <button
+                type="button"
+                className="list-group-item list-group-item-action"
+              >
+                Both
+              </button>
               <h4 className="ml-3 mt-3">Type</h4>
               <button
                 type="button"

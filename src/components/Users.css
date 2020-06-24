@@ -84,6 +84,12 @@ body {
 .main-bg-height {
   height: 100vh;
 }
+.mini-picture {
+  padding: 0.35rem;
+  border-radius: 7px;
+  border: 2px solid #009e7f;
+  margin-top: 1rem;
+}
 .logo-fx {
   width: 14rem;
 }

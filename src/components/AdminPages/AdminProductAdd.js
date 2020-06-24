@@ -133,6 +133,7 @@ const AdminProductAdd = (props) => {
                 >
                   <option value="man">Man</option>
                   <option value="women">Women</option>
+                  <option value="both">Both</option>
                 </select>
               </div>
               <div className="form-group ml-3 w-100">
