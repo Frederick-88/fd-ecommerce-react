@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
-import productDefault from "../../assets/bg-admin.jpg";
-import Tuxedo2 from "../../assets/Brochure.png";
+import productDefault from "../../assets/product-default.png";
+import Clothes from "../../assets/bg-admin.jpg";
+import Tuxedo from "../../assets/Tuxedo1.jpg";
 import { Modal } from "react-bootstrap";
 
 const ProductDetailModal = (props) => {
@@ -46,28 +47,28 @@ const ProductDetailModal = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 px-5 py-3 align-self-center">
-              <div style={picture(Image)} alt="..." className="w-100" />
+              <div style={picture(Image)} alt="..." className="w-100 mb-3" />
 
               <div className="d-flex d-row justify-content-center">
                 <div
                   className="mini-picture mr-3"
-                  onClick={() => changeImage(Tuxedo2)}
+                  onClick={() => changeImage(Tuxedo)}
                 >
-                  <div style={miniPicture(Tuxedo2)} alt="..." />
+                  <div style={miniPicture(Tuxedo)} alt="..." />
                 </div>
 
                 <div
                   className="mini-picture mr-3"
-                  onClick={() => changeImage(productDefault)}
+                  onClick={() => changeImage(Clothes)}
                 >
-                  <div style={miniPicture(productDefault)} alt="..." />
+                  <div style={miniPicture(Clothes)} alt="..." />
                 </div>
 
                 <div
                   className="mini-picture mr-3"
-                  onClick={() => changeImage(Tuxedo2)}
+                  onClick={() => changeImage(Tuxedo)}
                 >
-                  <div style={miniPicture(Tuxedo2)} alt="..." />
+                  <div style={miniPicture(Tuxedo)} alt="..." />
                 </div>
 
                 <div
