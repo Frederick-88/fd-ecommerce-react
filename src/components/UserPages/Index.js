@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { Alert } from "react-bootstrap";
 import mainBg from "../../assets/mainBackground.png";
 import logo from "../../assets/logo.png";
 import logoHead from "../../assets/logo-1.png";
@@ -7,8 +9,34 @@ import ProductField from "./Products";
 import LoginModal from "./Login";
 import "../Users.css";
 
-const Index = () => {
+const Index = (props) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
+
+  // why make so much, because if no this functions, the close button of alert can't be trigerred.
+  const [alertLoginSuccess, setAlertLoginSuccess] = useState(false);
+
+  const loginSuccess = (boolean) => {
+    setAlertLoginSuccess(boolean);
+  };
+  const alertShowLoginSuccess = alertLoginSuccess;
+  const AlertDismissible = () => {
+    const [alertShow, setAlertShow] = useState(alertShowLoginSuccess);
+
+    if (alertShow) {
+      return (
+        <Alert
+          variant="success"
+          onClose={() => setAlertShow(false)}
+          dismissible
+        >
+          <Alert.Heading className="h6 my-0">
+            You've Successfully Login!
+          </Alert.Heading>
+        </Alert>
+      );
+    }
+    return <></>;
+  };
 
   const openLoginModal = () => {
     setShowLoginModal(true);
@@ -68,6 +96,7 @@ const Index = () => {
         </nav>
 
         <div className="vertical-center">
+          <AlertDismissible />
           <h1
             className="display-4 font-weight-bold text-center"
             style={{ fontFamily: "Poppins, sans-serif" }}
@@ -231,9 +260,15 @@ const Index = () => {
       <LoginModal
         showLoginModal={showLoginModal}
         closeLoginModal={closeLoginModal}
+        loginSuccess={loginSuccess}
       />
       {/* Modals */}
     </div>
   );
 };
-export default Index;
+const mapStateToProps = (state) => {
+  return {
+    tokenUser: state.LoginReducer.tokenUser,
+  };
+};
+export default connect(mapStateToProps, null)(Index);

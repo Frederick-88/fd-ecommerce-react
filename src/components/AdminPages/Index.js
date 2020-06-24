@@ -20,7 +20,7 @@ const Index = (props) => {
       <Switch>
         {/* match.path = /admin (ROUTE) */}
         <Route exact path={match.path}>
-          {props.token ? (
+          {props.tokenAdmin ? (
             <div>
               <h1 className="text-success-s2 text-center">
                 Welcome Admin, this is the dashboard Page.
@@ -45,10 +45,10 @@ const Index = (props) => {
           )}
         </Route>
         <Route exact path={`${match.path}/login`}>
-          {props.token ? <Redirect push to={match.path} /> : <Login />}
+          {props.tokenAdmin ? <Redirect push to={match.path} /> : <Login />}
         </Route>
         <Route exact path={`${match.path}/product`}>
-          {props.token ? (
+          {props.tokenAdmin ? (
             <div>
               <h1 className="text-success-s2 text-center">
                 Welcome Admin, this is the Product Page.
@@ -73,7 +73,7 @@ const Index = (props) => {
           )}
         </Route>
         <Route exact path={`${match.path}/users`}>
-          {props.token ? (
+          {props.tokenAdmin ? (
             <div>
               <h1 className="text-success-s2 text-center">
                 Welcome Admin, this is the Users Page.
@@ -103,7 +103,7 @@ const Index = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    token: state.LoginReducer.token,
+    tokenAdmin: state.LoginReducer.tokenAdmin,
   };
 };
 export default connect(mapStateToProps, null)(Index);

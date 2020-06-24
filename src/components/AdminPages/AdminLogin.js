@@ -25,7 +25,7 @@ const AdminLogin = (props) => {
 
   const history = useHistory();
   // if token is filled, move to admin dashboard.
-  if (props.token) {
+  if (props.tokenAdmin) {
     history.push({
       pathname: "/admin",
     });
@@ -33,6 +33,8 @@ const AdminLogin = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(dataInput);
+
     props.loginAdmin(dataInput);
   };
 
@@ -138,7 +140,7 @@ const AdminLogin = (props) => {
 const mapStateToProps = (state) => {
   return {
     alertData: state.LoginReducer.alert,
-    token: state.LoginReducer.token,
+    tokenAdmin: state.LoginReducer.tokenAdmin,
   };
 };
 

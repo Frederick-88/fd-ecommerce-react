@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const url = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
-const tokenAdmin = localStorage.getItem("token-admin");
+// const tokenAdmin = localStorage.getItem("token-admin");
 
 export const getDataProduct = () => {
   return async (dispatch) => {

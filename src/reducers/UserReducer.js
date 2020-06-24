@@ -7,7 +7,7 @@ const initialState = {
   },
 };
 
-const UserProductReducer = (state = initialState, action) => {
+const UserReducer = (state = initialState, action) => {
   switch (action.type) {
     case "USER_GET_DATA_PRODUCT":
       return {
@@ -20,4 +20,4 @@ const UserProductReducer = (state = initialState, action) => {
   }
 };
 
-export default UserProductReducer;
+export default UserReducer;

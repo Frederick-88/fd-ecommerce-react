@@ -142,16 +142,27 @@ const AdminProduct = (props) => {
                     <small className="card-text text-secondary">
                       Stock : {item.quantity}
                     </small>
-                    <div className="d-flex d-row justify-content-center">
-                      <small className="card-text text-secondary mr-2">
-                        <span className="text-success-s2">Gender :</span>
+                    <div className="d-flex d-row mb-3 justify-content-center">
+                      <button
+                        className="btn"
+                        style={{
+                          borderRadius: "7px",
+                          backgroundColor: "#dedede",
+                        }}
+                      >
                         {item.productGender}
-                      </small>
-                      <small className="card-text text-secondary">
-                        <span className="text-success-s2">Type :</span>{" "}
+                      </button>
+                      <button
+                        className="btn ml-3"
+                        style={{
+                          borderRadius: "7px",
+                          backgroundColor: "#dedede",
+                        }}
+                      >
                         {item.productType}
-                      </small>
+                      </button>
                     </div>
+
                     <p>{item.description}</p>
                     <div className="d-flex d-row mt-4">
                       <p className="my-0 text-success-s2 font-weight-bold">

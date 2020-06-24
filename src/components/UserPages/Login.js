@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Alert } from "react-bootstrap";
+import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
+
+import { loginUser } from "../../actionCreators/LoginAction";
 
 const Login = (props) => {
   const [loginDisplay, setLoginDisplay] = useState(true);
@@ -10,14 +13,58 @@ const Login = (props) => {
     setShowPassword(showPassword ? false : true);
   };
 
+  // DYNAMIC ALERT (OCCURS WHEN PROBLEM)
+  const alert = props.alertData;
+
+  const AlertDismissible = () => {
+    const [alertShow, setAlertShow] = useState(alert.show);
+
+    if (alertShow) {
+      return (
+        <Alert
+          variant={alert.variant}
+          onClose={() => setAlertShow(false)}
+          dismissible
+        >
+          <Alert.Heading className="h6 my-0">{alert.message}</Alert.Heading>
+        </Alert>
+      );
+    }
+    return <></>;
+  };
+
+  // LOGIN SECTION
+  const [dataInputLogin, setDataInputLogin] = useState({
+    email: "",
+    password: "",
+  });
+  const handleInputLoginChange = (event) => {
+    setDataInputLogin({
+      ...dataInputLogin,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+    // to cover every time input alert keeps true.
+    alert.show = false;
+  };
+  const handleLoginSubmit = (event) => {
+    event.preventDefault();
+    props.loginUser(dataInputLogin);
+  };
   const setLoginDisplayTrue = () => {
     setLoginDisplay(true);
   };
-  const setRegisterDisplay = () => {
-    setLoginDisplay(false);
-  };
   const closeLoginModal = () => {
     props.closeLoginModal(false);
+  };
+  // If login success, close modal.
+  if (props.tokenUser) {
+    closeLoginModal();
+    props.loginSuccess(true);
+  }
+
+  // REGISTER SECTION
+  const setRegisterDisplay = () => {
+    setLoginDisplay(false);
   };
   return (
     <div>
@@ -31,80 +78,87 @@ const Login = (props) => {
           {loginDisplay ? (
             <Modal.Title>
               <div className="text-center">
-                <h4 className="text-success-s2 font-weight-bold">
-                  Welcome Back
-                </h4>
-                <h6 className="text-secondary">
-                  Login with your email & password
-                </h6>
-
-                <div className="mt-4">
-                  <input
-                    type="text"
-                    className="form-control mb-2 py-4"
-                    placeholder="Email"
-                    aria-label="Recipient's username"
-                    aria-describedby="button-addon2"
-                  />
-                  <div className="input-group mb-2">
+                <form onSubmit={handleLoginSubmit}>
+                  <h4 className="text-success-s2 font-weight-bold">
+                    Welcome Back
+                  </h4>
+                  <h6 className="text-secondary">
+                    Login with your email & password
+                  </h6>
+                  <AlertDismissible />
+                  <div className="mt-4">
                     <input
-                      type={showPassword ? "text" : "password"}
-                      className="form-control py-4"
-                      placeholder="Password"
+                      type="text"
+                      name="email"
+                      onChange={handleInputLoginChange}
+                      className="form-control mb-2 py-4"
+                      placeholder="Email"
                       aria-label="Recipient's username"
                       aria-describedby="button-addon2"
                     />
-                    <div className="input-group-append">
-                      <button
-                        onClick={displayPassword}
-                        className="btn btn-outline-success"
-                        type="button"
-                        id="button-addon2"
-                      >
-                        <i
-                          className={
-                            showPassword ? "fas fa-eye-slash" : "fas fa-eye"
-                          }
-                        />
-                      </button>
+                    <div className="input-group mb-2">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        onChange={handleInputLoginChange}
+                        className="form-control py-4"
+                        placeholder="Password"
+                        aria-label="Recipient's username"
+                        aria-describedby="button-addon2"
+                      />
+                      <div className="input-group-append">
+                        <button
+                          onClick={displayPassword}
+                          className="btn btn-outline-success"
+                          type="button"
+                          id="button-addon2"
+                        >
+                          <i
+                            className={
+                              showPassword ? "fas fa-eye-slash" : "fas fa-eye"
+                            }
+                          />
+                        </button>
+                      </div>
                     </div>
+                    <button
+                      type="submit"
+                      className="btn btn-success w-100"
+                      style={{ padding: "0.7rem 0.2rem" }}
+                    >
+                      Login
+                    </button>
                   </div>
-                  <button
-                    className="btn btn-success w-100"
-                    style={{ padding: "0.7rem 0.2rem" }}
-                  >
-                    Login
-                  </button>
-                </div>
 
-                <p style={{ fontSize: "1rem", margin: "0.7rem 0rem" }}>or</p>
+                  <p style={{ fontSize: "1rem", margin: "0.7rem 0rem" }}>or</p>
 
-                <div>
-                  <button
-                    className="btn btn-primary w-100 d-flex d-row justify-content-center mb-2"
-                    style={{ padding: "0.7rem 0.2rem" }}
-                  >
-                    <i className="fab fa-facebook-square fa-lg align-self-center mr-3" />
-                    Login with Facebook
-                  </button>
-                  <button
-                    className="btn btn-danger w-100 d-flex d-row justify-content-center"
-                    style={{ padding: "0.7rem 0.2rem" }}
-                  >
-                    <i className="fab fa-google fa-lg align-self-center mr-3" />
-                    Login with Google
-                  </button>
-                </div>
+                  <div>
+                    <button
+                      className="btn btn-primary w-100 d-flex d-row justify-content-center mb-2"
+                      style={{ padding: "0.7rem 0.2rem" }}
+                    >
+                      <i className="fab fa-facebook-square fa-lg align-self-center mr-3" />
+                      Login with Facebook
+                    </button>
+                    <button
+                      className="btn btn-danger w-100 d-flex d-row justify-content-center"
+                      style={{ padding: "0.7rem 0.2rem" }}
+                    >
+                      <i className="fab fa-google fa-lg align-self-center mr-3" />
+                      Login with Google
+                    </button>
+                  </div>
 
-                <p style={{ fontSize: "1rem", margin: "0.7rem 0rem" }}>
-                  Don't have any account?
-                  <button
-                    onClick={setRegisterDisplay}
-                    className="btn btn-link p-0 text-success-s2 ml-1"
-                  >
-                    Sign Up
-                  </button>
-                </p>
+                  <p style={{ fontSize: "1rem", margin: "0.7rem 0rem" }}>
+                    Don't have any account?
+                    <button
+                      onClick={setRegisterDisplay}
+                      className="btn btn-link p-0 text-success-s2 ml-1"
+                    >
+                      Sign Up
+                    </button>
+                  </p>
+                </form>
               </div>
             </Modal.Title>
           ) : (
@@ -196,4 +250,14 @@ const Login = (props) => {
     </div>
   );
 };
-export default Login;
+
+const mapStateToProps = (state) => {
+  return {
+    alertData: state.LoginReducer.alert,
+    tokenUser: state.LoginReducer.tokenUser,
+  };
+};
+
+const mapDispatchToProps = { loginUser };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

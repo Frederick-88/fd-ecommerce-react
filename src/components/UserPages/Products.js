@@ -82,7 +82,7 @@ const Products = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    dataProduct: state.UserProductReducer.dataProduct,
+    dataProduct: state.UserReducer.dataProduct,
   };
 };
 
