@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
-import productDefault from "../../assets/product-default.png";
-import Clothes from "../../assets/bg-admin.jpg";
-import Tuxedo from "../../assets/Tuxedo1.jpg";
 import { Modal } from "react-bootstrap";
 
 const ProductDetailModal = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
-  console.log(props.dataProduct.image);
+  // Sample photo to try on display
+  const samplePhoto1 =
+    "public/productImages/2020-06-23T11:07:29.174Z-!GRADIENT%20COLOR.png";
+  const samplePhoto2 =
+    "public/productImages/2020-06-23T11:28:36.352Z-flat-thinking-concept_23-2148154726.jpg";
+  const samplePhoto3 = "public/productImages/2020-06-23T11:30:30.982Z-tes.jpg";
 
-  const [Image, setImage] = useState(props.dataProduct.image);
+  console.log(props.dataProduct.image);
+  const [Image, setImage] = useState("");
+
+  useEffect(() => {
+    setImage(props.dataProduct.image);
+  }, []);
 
   // Function to change Image.
   const changeImage = (imageCandidate) => {
@@ -19,7 +26,6 @@ const ProductDetailModal = (props) => {
 
   const picture = (picture) => {
     console.log(Image);
-
     return {
       backgroundImage: `url(${urlLocalhost}/${picture})`,
       backgroundSize: "cover",
@@ -30,7 +36,7 @@ const ProductDetailModal = (props) => {
 
   const miniPicture = (picture) => {
     return {
-      backgroundImage: `url(${picture})`,
+      backgroundImage: `url(${urlLocalhost}/${picture})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "2.5rem",
@@ -65,23 +71,23 @@ const ProductDetailModal = (props) => {
 
                 <div
                   className="mini-picture mr-3"
-                  onClick={() => changeImage(Clothes)}
+                  onClick={() => changeImage(samplePhoto1)}
                 >
-                  <div style={miniPicture(Clothes)} alt="..." />
+                  <div style={miniPicture(samplePhoto1)} alt="..." />
                 </div>
 
                 <div
                   className="mini-picture mr-3"
-                  onClick={() => changeImage(Tuxedo)}
+                  onClick={() => changeImage(samplePhoto2)}
                 >
-                  <div style={miniPicture(Tuxedo)} alt="..." />
+                  <div style={miniPicture(samplePhoto2)} alt="..." />
                 </div>
 
                 <div
                   className="mini-picture"
-                  onClick={() => changeImage(productDefault)}
+                  onClick={() => changeImage(samplePhoto3)}
                 >
-                  <div style={miniPicture(productDefault)} alt="..." />
+                  <div style={miniPicture(samplePhoto3)} alt="..." />
                 </div>
               </div>
             </div>

@@ -35,8 +35,6 @@ const Products = (props) => {
     <div>
       <div className="row">
         {props.dataProduct.map((item, index) => {
-          console.log(item);
-
           return (
             <div className="col-md-4 mt-4" key={index}>
               <div
