@@ -90,6 +90,9 @@ body {
   border: 2px solid #009e7f;
   margin-top: 1rem;
 }
+.mini-picture:hover {
+  border: 2px solid #058067;
+}
 .logo-fx {
   width: 14rem;
 }

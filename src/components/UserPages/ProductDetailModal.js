@@ -7,6 +7,10 @@ import { Modal } from "react-bootstrap";
 
 const ProductDetailModal = (props) => {
   const [Image, setImage] = useState(productDefault);
+  // Function to change Image.
+  const changeImage = (imageCandidate) => {
+    setImage(imageCandidate);
+  };
 
   const picture = (image) => {
     return {
@@ -42,22 +46,34 @@ const ProductDetailModal = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 px-5 py-3 align-self-center">
-              <div style={picture(Tuxedo2)} alt="..." className="w-100" />
+              <div style={picture(Image)} alt="..." className="w-100" />
 
-              <div className="d-flex d-row flex-wrap justify-content-center">
-                <div className="mini-picture mr-3">
+              <div className="d-flex d-row justify-content-center">
+                <div
+                  className="mini-picture mr-3"
+                  onClick={() => changeImage(Tuxedo2)}
+                >
                   <div style={miniPicture(Tuxedo2)} alt="..." />
                 </div>
 
-                <div className="mini-picture mr-3">
+                <div
+                  className="mini-picture mr-3"
+                  onClick={() => changeImage(productDefault)}
+                >
                   <div style={miniPicture(productDefault)} alt="..." />
                 </div>
 
-                <div className="mini-picture mr-3">
+                <div
+                  className="mini-picture mr-3"
+                  onClick={() => changeImage(Tuxedo2)}
+                >
                   <div style={miniPicture(Tuxedo2)} alt="..." />
                 </div>
 
-                <div className="mini-picture">
+                <div
+                  className="mini-picture"
+                  onClick={() => changeImage(productDefault)}
+                >
                   <div style={miniPicture(productDefault)} alt="..." />
                 </div>
               </div>
