@@ -56,7 +56,8 @@ const Login = (props) => {
   const closeLoginModal = () => {
     props.closeLoginModal(false);
   };
-  // If login success, close modal.
+
+  // If login success, close modal & trigger alert in home page.
   if (props.tokenUser) {
     closeLoginModal();
     props.loginSuccess(true);

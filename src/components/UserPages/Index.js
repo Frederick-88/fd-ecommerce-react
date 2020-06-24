@@ -13,6 +13,7 @@ const Index = (props) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   // why make so much, because if no this functions, the close button of alert can't be trigerred.
+  // If using Reducer, when reload page the alert will be show again.
   const [alertLoginSuccess, setAlertLoginSuccess] = useState(false);
 
   const loginSuccess = (boolean) => {
