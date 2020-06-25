@@ -41,6 +41,7 @@ const ProductDetailModal = (props) => {
       backgroundPosition: "center",
       height: "2.5rem",
       width: "2.5rem",
+      cursor: "pointer",
     };
   };
   const closeDetailModal = () => {

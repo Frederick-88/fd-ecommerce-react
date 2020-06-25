@@ -126,11 +126,11 @@ const AdminProduct = (props) => {
         Add Product here as Admin
       </button>
 
-      <div className="mx-4 my-4">
+      <div className="mx-4 my-3">
         <div className="row">
           {props.dataProduct.map((item, index) => {
             return (
-              <div className="col-md-3" key={index}>
+              <div className="col-md-3 mt-4" key={index}>
                 <div className="card">
                   <div
                     style={picture(item.image)}

@@ -17,8 +17,6 @@ const AdminUsers = (props) => {
   const [dataDelete, setDataDelete] = useState({});
 
   const displayDeleteModal = (data) => {
-    console.log(data);
-
     setDataDelete(data);
     setShowDeleteModal(true);
   };
@@ -52,6 +50,8 @@ const AdminUsers = (props) => {
       </Modal>
     );
   };
+
+  console.log(props.dataUser);
 
   return (
     <div className="text-center container">
