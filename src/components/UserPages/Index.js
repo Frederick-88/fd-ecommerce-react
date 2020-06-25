@@ -171,7 +171,7 @@ const Index = (props) => {
                 type="button"
                 className="list-group-item list-group-item-action"
               >
-                Pants
+                Bottom
               </button>
               <button
                 type="button"

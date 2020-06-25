@@ -115,7 +115,8 @@ const AdminProductAdd = (props) => {
             </div>
             <div className="form-group">
               <label htmlFor="description">Description</label>
-              <input
+              <textarea
+                rows="3"
                 type="text"
                 className="form-control"
                 placeholder="Description"
