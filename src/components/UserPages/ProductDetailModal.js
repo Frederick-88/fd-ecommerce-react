@@ -12,12 +12,13 @@ const ProductDetailModal = (props) => {
     "public/productImages/2020-06-23T11:28:36.352Z-flat-thinking-concept_23-2148154726.jpg";
   const samplePhoto3 = "public/productImages/2020-06-23T11:30:30.982Z-tes.jpg";
 
-  console.log(props.dataProduct.image);
+  // To make dynamic photo displayer.
   const [Image, setImage] = useState("");
 
+  // parameter (ID) so that useEffect would run everytime id change.
   useEffect(() => {
-    setImage(props.dataProduct.image);
-  }, []);
+    setImage("");
+  }, [props.dataProduct._id]);
 
   // Function to change Image.
   const changeImage = (imageCandidate) => {
@@ -25,9 +26,16 @@ const ProductDetailModal = (props) => {
   };
 
   const picture = (picture) => {
-    console.log(Image);
+    // Condition to cover the undefined value of Image in row 15.
+    // Assignment to constant variable = ERROR yang bakal muncul kalau kamu ganti "Var" dengan "Const"
+    var pictureChecked = "";
+    if (!picture) {
+      pictureChecked = props.dataProduct.image;
+    } else {
+      pictureChecked = picture;
+    }
     return {
-      backgroundImage: `url(${urlLocalhost}/${picture})`,
+      backgroundImage: `url(${urlLocalhost}/${pictureChecked})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "17rem",
