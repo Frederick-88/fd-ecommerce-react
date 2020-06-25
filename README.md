@@ -19,3 +19,5 @@
 ## Scroll Customization
 
 ## React Slick custom-paging (Made Manual with UseState)
+
+## NEXT NAVBAR HARUS COMPONENT BEDA BIAR GAMPANG

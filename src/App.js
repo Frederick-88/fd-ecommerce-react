@@ -3,6 +3,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserPage from "./components/UserPages/Index";
 import AdminPage from "./components/AdminPages/Index";
+import CartPage from "./components/UserPages/Cart";
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <UserPage />
+            </Route>
+            <Route exact path="/cart">
+              <CartPage />
             </Route>
 
             <Route path="/admin">

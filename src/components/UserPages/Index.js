@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import mainBg from "../../assets/mainBackground.png";
 import logo from "../../assets/logo.png";
@@ -76,12 +77,15 @@ const Index = (props) => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <button className="btn btn-success d-flex d-row">
-                    <i className="fas fa-shopping-cart fa-lg align-self-center mr-2" />
-                    <p className="my-0">Cart : 1</p>
-                  </button>
-                </li>
+                <Link to="/cart" style={{ textDecoration: "none" }}>
+                  <li className="nav-item">
+                    <button className="btn btn-success d-flex d-row">
+                      <i className="fas fa-shopping-cart fa-lg align-self-center mr-2" />
+                      <p className="my-0">Cart : 1</p>
+                    </button>
+                  </li>
+                </Link>
+
                 <li className="nav-item mx-4">
                   <button
                     type="button"
