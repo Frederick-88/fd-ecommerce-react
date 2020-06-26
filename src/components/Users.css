@@ -96,13 +96,17 @@ body {
 .logo-fx {
   width: 14rem;
 }
-/* for the first user page */
+/* vertical-center = for the first user page */
 .vertical-center {
   margin: 0 15rem;
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+/* center table vertically */
+td {
+  vertical-align: middle !important;
 }
 .vertical-line {
   border-left: 3px solid #009e7f;
