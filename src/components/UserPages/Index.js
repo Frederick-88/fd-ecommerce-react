@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Alert } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import mainBg from "../../assets/mainBackground.png";
 import logo from "../../assets/logo.png";
 import logoHead from "../../assets/logo-1.png";
@@ -12,33 +14,27 @@ import "../Users.css";
 
 const Index = (props) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [NavLoginSuccess, setNavLoginSuccess] = useState(false);
 
-  // why make so much, because if no this functions, the close button of alert can't be trigerred.
-  // If using Reducer, when reload page the alert will be show again.
   const [alertLoginSuccess, setAlertLoginSuccess] = useState(false);
 
   const loginSuccess = (boolean) => {
     setAlertLoginSuccess(boolean);
+    setNavLoginSuccess(boolean);
   };
-  const alertShowLoginSuccess = alertLoginSuccess;
-  const AlertDismissible = () => {
-    const [alertShow, setAlertShow] = useState(alertShowLoginSuccess);
 
-    if (alertShow) {
-      return (
-        <Alert
-          variant="success"
-          onClose={() => setAlertShow(false)}
-          dismissible
-        >
-          <Alert.Heading className="h6 my-0">
-            You've Successfully Login!
-          </Alert.Heading>
-        </Alert>
-      );
-    }
-    return <></>;
-  };
+  // CustomId = only can show 1.
+  const customId = "custom-id-yes";
+  const SuccessLoginAlert = () =>
+    toast.success("You've Successfully Login!", {
+      position: toast.POSITION.TOP_CENTER,
+      toastId: customId,
+    });
+
+  // ToastContainer = <AlertDismissable/> in React Bootstrap
+  if (alertLoginSuccess) {
+    SuccessLoginAlert();
+  }
 
   const openLoginModal = () => {
     setShowLoginModal(true);
@@ -87,21 +83,41 @@ const Index = (props) => {
                 </Link>
 
                 <li className="nav-item mx-4">
-                  <button
-                    type="button"
-                    onClick={openLoginModal}
-                    className="btn btn-success"
-                  >
-                    Sign In <i class="fas fa-sign-in-alt ml-2"></i>
-                  </button>
+                  {NavLoginSuccess ? (
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-success dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Hello, Chen Frederick
+                      </button>
+                      <div class="dropdown-menu">
+                        <button class="dropdown-item text-danger">
+                          Logout <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={openLoginModal}
+                      className="btn btn-success"
+                    >
+                      Sign In <i class="fas fa-sign-in-alt ml-2"></i>
+                    </button>
+                  )}
                 </li>
               </ul>
             </div>
           </div>
         </nav>
 
+        <ToastContainer />
+
         <div className="vertical-center">
-          <AlertDismissible />
           <h1
             className="display-4 font-weight-bold text-center"
             style={{ fontFamily: "Poppins, sans-serif" }}

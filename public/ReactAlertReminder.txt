@@ -1,0 +1,25 @@
+// why make so much, because if no this functions, the close button of alert can't be trigerred.
+// If using Reducer, when reload page the alert will be show again.
+
+// React Bootstrap Alert
+
+const [alertLoginSuccess, setAlertLoginSuccess] = useState(false);
+
+const loginSuccess = (boolean) => {
+  setAlertLoginSuccess(boolean);
+};
+const alertShowLoginSuccess = alertLoginSuccess;
+const AlertDismissible = () => {
+  const [alertShow, setAlertShow] = useState(alertShowLoginSuccess);
+
+  if (alertShow) {
+    return (
+      <Alert variant="success" onClose={() => setAlertShow(false)} dismissible>
+        <Alert.Heading className="h6 my-0">
+          You've Successfully Login!
+        </Alert.Heading>
+      </Alert>
+    );
+  }
+  return <></>;
+};
