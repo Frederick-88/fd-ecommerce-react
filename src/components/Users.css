@@ -81,6 +81,13 @@ body {
 .table-success th {
   border-color: whitesmoke !important;
 }
+.trash-cart-btn {
+  color: #dc3545 !important;
+}
+.trash-cart-btn:hover {
+  background-color: #dc3545;
+  color: whitesmoke !important;
+}
 .main-bg-height {
   height: 100vh;
 }
@@ -95,6 +102,9 @@ body {
 }
 .logo-fx {
   width: 14rem;
+}
+.shadow-subtotal-fx {
+  box-shadow: 0px 3px 10px 10px rgba(0, 0, 0, 0.2);
 }
 /* vertical-center = for the first user page */
 .vertical-center {
