@@ -80,7 +80,7 @@ const Index = (props) => {
                 <Link to="/cart" style={{ textDecoration: "none" }}>
                   <li className="nav-item">
                     <button className="btn btn-success d-flex d-row">
-                      <i className="fas fa-shopping-cart fa-lg align-self-center mr-2" />
+                      <i className="fas fa-shopping-cart align-self-center mr-2" />
                       <p className="my-0">Cart : 1</p>
                     </button>
                   </li>
@@ -92,7 +92,7 @@ const Index = (props) => {
                     onClick={openLoginModal}
                     className="btn btn-success"
                   >
-                    Sign In
+                    Sign In <i class="fas fa-sign-in-alt ml-2"></i>
                   </button>
                 </li>
               </ul>

@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import photoSample1 from "../../assets/product-default.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../Users.css";
 
 const Cart = () => {
@@ -12,6 +14,8 @@ const Cart = () => {
       height: "8rem",
     };
   };
+  const checkoutNotification = () =>
+    toast.success("Checkout feature coming soon! Stay tune.");
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -234,9 +238,15 @@ const Cart = () => {
                 </div>
               </div>
               <div className="d-flex">
-                <button className="btn btn-outline-success mt-4">
-                  PROCEED TO CHECKOUT <i class="fas fa-print"></i>
-                </button>
+                <div>
+                  <button
+                    onClick={checkoutNotification}
+                    className="btn btn-outline-success mt-4"
+                  >
+                    PROCEED TO CHECKOUT <i class="fas fa-print"></i>
+                  </button>
+                  <ToastContainer />
+                </div>
                 <button className="btn btn-outline-primary mt-4 ml-auto">
                   CONTINUE SHOPPING <i class="fas fa-shopping-cart"></i>
                 </button>

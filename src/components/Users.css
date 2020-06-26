@@ -9,6 +9,15 @@
 }
 /* ReWrite Slick Carousel Class */
 
+/* Toastify class */
+.Toastify__toast {
+  padding: 12px !important;
+}
+.Toastify__toast--success {
+  background-color: #009e7f !important;
+}
+/* Toastify class */
+
 /* Rewrite Bootstrap class */
 .btn-success {
   background-color: #009e7f !important;
