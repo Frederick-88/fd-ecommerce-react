@@ -235,10 +235,10 @@ const Cart = () => {
               </div>
               <div className="d-flex">
                 <button className="btn btn-outline-success mt-4">
-                  PROCEED TO CHECKOUT
+                  PROCEED TO CHECKOUT <i class="fas fa-print"></i>
                 </button>
                 <button className="btn btn-outline-primary mt-4 ml-auto">
-                  CONTINUE SHOPPING
+                  CONTINUE SHOPPING <i class="fas fa-shopping-cart"></i>
                 </button>
               </div>
             </div>
