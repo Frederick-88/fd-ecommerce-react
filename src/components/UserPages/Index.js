@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Alert } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import mainBg from "../../assets/mainBackground.png";
@@ -12,36 +11,52 @@ import ProductField from "./Products";
 import LoginModal from "./Login";
 import "../Users.css";
 
+import { userLogout } from "../../actionCreators/LoginAction";
+
 const Index = (props) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [NavLoginSuccess, setNavLoginSuccess] = useState(false);
 
-  const [alertLoginSuccess, setAlertLoginSuccess] = useState(false);
-
   const loginSuccess = (boolean) => {
-    setAlertLoginSuccess(boolean);
     setNavLoginSuccess(boolean);
   };
 
   // CustomId = only can show 1.
   const customId = "custom-id-yes";
-  const SuccessLoginAlert = () =>
-    toast.success("You've Successfully Login!", {
-      position: toast.POSITION.TOP_CENTER,
-      toastId: customId,
-    });
+  const variant = props.toastifyNotifData.variant;
+  const SuccessLoginAlert = () => {
+    if (variant === "success") {
+      toast.success(`${props.toastifyNotifData.message}`, {
+        position: toast.POSITION.TOP_CENTER,
+        toastId: customId,
+      });
+    } else {
+      toast.error(`${props.toastifyNotifData.message}`, {
+        position: toast.POSITION.TOP_CENTER,
+        toastId: customId,
+      });
+    }
+  };
 
   // ToastContainer = <AlertDismissable/> in React Bootstrap
-  if (alertLoginSuccess) {
+
+  if (props.toastifyNotifData.show) {
     SuccessLoginAlert();
   }
 
   const openLoginModal = () => {
     setShowLoginModal(true);
+    // cause warning but needed to stop logout alert shows 2 times.
+    props.toastifyNotifData.show = false;
   };
 
   const closeLoginModal = (boolean) => {
     setShowLoginModal(boolean);
+  };
+
+  const Logout = () => {
+    props.userLogout();
+    setNavLoginSuccess(false);
   };
 
   const picture = (image) => {
@@ -84,19 +99,25 @@ const Index = (props) => {
 
                 <li className="nav-item mx-4">
                   {NavLoginSuccess ? (
-                    <div class="btn-group">
+                    <div className="btn-group">
                       <button
                         type="button"
-                        class="btn btn-success dropdown-toggle"
+                        className="btn btn-success dropdown-toggle"
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
                         Hello, Chen Frederick
                       </button>
-                      <div class="dropdown-menu">
-                        <button class="dropdown-item text-danger">
-                          Logout <i class="fas fa-sign-out-alt"></i>
+                      <div className="dropdown-menu">
+                        <button className="dropdown-item text-success-s2">
+                          About Developer <i className="fas fa-info-circle"></i>
+                        </button>
+                        <button
+                          className="dropdown-item text-danger"
+                          onClick={Logout}
+                        >
+                          Logout <i className="fas fa-sign-out-alt"></i>
                         </button>
                       </div>
                     </div>
@@ -106,7 +127,7 @@ const Index = (props) => {
                       onClick={openLoginModal}
                       className="btn btn-success"
                     >
-                      Sign In <i class="fas fa-sign-in-alt ml-2"></i>
+                      Sign In <i className="fas fa-sign-in-alt ml-2"></i>
                     </button>
                   )}
                 </li>
@@ -290,6 +311,11 @@ const Index = (props) => {
 const mapStateToProps = (state) => {
   return {
     tokenUser: state.LoginReducer.tokenUser,
+    toastifyNotifData: state.LoginReducer.toastifyNotif,
   };
 };
-export default connect(mapStateToProps, null)(Index);
+
+const mapDispatchToProps = {
+  userLogout,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

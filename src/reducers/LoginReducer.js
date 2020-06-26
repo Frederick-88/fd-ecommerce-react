@@ -6,6 +6,12 @@ const initialState = {
     message: "",
     variant: "light",
   },
+  // only for the homepage(user)
+  toastifyNotif: {
+    show: false,
+    message: "",
+    variant: "",
+  },
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -42,6 +48,23 @@ const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         tokenUser: action.payload,
+        toastifyNotif: {
+          show: true,
+          message: "You've successfully login! ",
+          variant: "success",
+        },
+      };
+
+    case "LOGOUT_USER":
+      localStorage.removeItem("token-user");
+      return {
+        ...state,
+        tokenUser: "",
+        toastifyNotif: {
+          show: true,
+          message: "You've successfully logout!",
+          variant: "danger",
+        },
       };
 
     default:

@@ -45,3 +45,11 @@ export const loginUser = (data) => {
     }
   };
 };
+
+export const userLogout = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "LOGOUT_USER",
+    });
+  };
+};

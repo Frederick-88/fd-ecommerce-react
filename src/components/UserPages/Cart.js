@@ -50,7 +50,7 @@ const Cart = () => {
       </nav>
 
       <div className="container" style={{ marginTop: "6rem" }}>
-        <table class="table">
+        <table className="table">
           <thead style={{ backgroundColor: "#009e7f", color: "white" }}>
             <tr>
               <th scope="col">PRODUCT</th>
@@ -90,7 +90,7 @@ const Cart = () => {
                 <p className="my-0 text-secondary">$120</p>
               </th>
               <td>
-                <div class="btn-group" role="group" aria-label="...">
+                <div className="btn-group" role="group" aria-label="...">
                   <button className="btn btn-outline-success">-</button>
                   <p
                     className="btn my-0 text-success-s2"
@@ -142,7 +142,7 @@ const Cart = () => {
                 <p className="my-0 text-secondary">$120</p>
               </th>
               <td>
-                <div class="btn-group" role="group" aria-label="...">
+                <div className="btn-group" role="group" aria-label="...">
                   <button className="btn btn-outline-success">-</button>
                   <p
                     className="btn my-0 text-success-s2"
@@ -194,7 +194,7 @@ const Cart = () => {
                 <p className="my-0 text-secondary">$120</p>
               </th>
               <td>
-                <div class="btn-group" role="group" aria-label="...">
+                <div className="btn-group" role="group" aria-label="...">
                   <button className="btn btn-outline-success">-</button>
                   <p
                     className="btn my-0 text-success-s2"
@@ -220,8 +220,8 @@ const Cart = () => {
         </table>
 
         <div style={{ margin: "4rem 16rem" }}>
-          <div class="card shadow-subtotal-fx">
-            <div class="card-body p-5">
+          <div className="card shadow-subtotal-fx">
+            <div className="card-body p-5">
               <h5 className="font-weight-bold mb-4">Cart Totals</h5>
               <div className="border border-top-0">
                 <div className="border-top d-flex d-row py-3 px-3">
@@ -243,13 +243,13 @@ const Cart = () => {
                     onClick={checkoutNotification}
                     className="btn btn-outline-success mt-4"
                   >
-                    PROCEED TO CHECKOUT <i class="fas fa-print"></i>
+                    PROCEED TO CHECKOUT <i className="fas fa-print"></i>
                   </button>
                   <ToastContainer />
                 </div>
-                <button className="btn btn-outline-primary mt-4 ml-auto">
-                  CONTINUE SHOPPING <i class="fas fa-shopping-cart"></i>
-                </button>
+                <a className="btn btn-outline-primary mt-4 ml-auto" href="/">
+                  CONTINUE SHOPPING <i className="fas fa-shopping-cart"></i>
+                </a>
               </div>
             </div>
           </div>
