@@ -92,7 +92,7 @@ const Cart = () => {
                     className="btn my-0 text-success-s2"
                     style={{ borderColor: "#009e7f", cursor: "default" }}
                   >
-                    0
+                    <b>1</b>
                   </p>
                   <button className="btn btn-outline-success">+</button>
                 </div>
@@ -144,7 +144,7 @@ const Cart = () => {
                     className="btn my-0 text-success-s2"
                     style={{ borderColor: "#009e7f", cursor: "default" }}
                   >
-                    0
+                    <b>1</b>
                   </p>
                   <button className="btn btn-outline-success">+</button>
                 </div>
@@ -196,7 +196,7 @@ const Cart = () => {
                     className="btn my-0 text-success-s2"
                     style={{ borderColor: "#009e7f", cursor: "default" }}
                   >
-                    0
+                    <b>1</b>
                   </p>
                   <button className="btn btn-outline-success">+</button>
                 </div>
@@ -222,7 +222,7 @@ const Cart = () => {
               <div className="border border-top-0">
                 <div className="border-top d-flex d-row py-3 px-3">
                   <h6 className="font-weight-bold my-0">Subtotal</h6>
-                  <h6 className="ml-auto my-0">$1640</h6>
+                  <h6 className="ml-auto my-0">$360</h6>
                 </div>
                 <div className="border-top d-flex d-row py-3 px-3">
                   <h6 className="font-weight-bold my-0">Shipping</h6>
@@ -230,14 +230,14 @@ const Cart = () => {
                 </div>
                 <div className="border-top d-flex d-row py-3 px-3">
                   <h6 className="font-weight-bold my-0">Total</h6>
-                  <h6 className="ml-auto my-0">$1645</h6>
+                  <h6 className="ml-auto my-0">$365</h6>
                 </div>
               </div>
               <div className="d-flex">
                 <button className="btn btn-outline-success mt-4">
                   PROCEED TO CHECKOUT
                 </button>
-                <button className="btn btn-outline-danger mt-4 ml-auto">
+                <button className="btn btn-outline-primary mt-4 ml-auto">
                   CONTINUE SHOPPING
                 </button>
               </div>
