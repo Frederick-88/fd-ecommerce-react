@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
 
@@ -16,6 +16,13 @@ const AdminProductEdit = (props) => {
     productGender: "",
     productType: "",
   });
+
+  // useEffect(() => {
+  //   setDataEditInput({
+  //     image: null,
+  //   });
+  // }, [props.dataEdit._id]);
+
   const handleEditInputChange = (event) => {
     setDataEditInput({
       ...dataEditInput,
@@ -49,6 +56,7 @@ const AdminProductEdit = (props) => {
     props.editDataProduct(FormEditData, props.dataEdit, dataEditInput);
     props.unDisplayEditModal(false);
   };
+
   return (
     <Modal show={props.showEditModal} onHide={closeEditModal}>
       <form onSubmit={handleSubmitEdit}>

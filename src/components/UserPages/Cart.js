@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import photoSample1 from "../../assets/product-default.png";
+import photoSample1 from "../../assets/Hoodie3.jpg";
+import photoSample2 from "../../assets/dress.jpg";
+import photoSample3 from "../../assets/Tuxedo2.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../Users.css";
@@ -71,10 +73,10 @@ const Cart = () => {
               <td>
                 <div>
                   <h6 className="text-secondary font-weight-bold">
-                    Executive Grey Tuxedo
+                    Fold Over Collar Plain Blazers
                   </h6>
                   <small className="my-0 text-secondary">
-                    Color: <b>Light Blue</b>
+                    Color: <b>Light Gray</b>
                   </small>
                   <br />
                   <small className="my-0 text-secondary">
@@ -117,20 +119,20 @@ const Cart = () => {
               <td>
                 <div
                   className="w-75 text-center"
-                  style={picture(photoSample1)}
+                  style={picture(photoSample2)}
                 />
               </td>
               <td>
                 <div>
                   <h6 className="text-secondary font-weight-bold">
-                    Executive Grey Tuxedo
+                    Perkins Self Striped A Line Dress
                   </h6>
                   <small className="my-0 text-secondary">
-                    Color: <b>Light Blue</b>
+                    Color: <b>Gold</b>
                   </small>
                   <br />
                   <small className="my-0 text-secondary">
-                    Size: <b>XL</b>
+                    Size: <b>L</b>
                   </small>
                   <br />
                   <small className="my-0 text-secondary">
@@ -139,7 +141,7 @@ const Cart = () => {
                 </div>
               </td>
               <th style={{ verticalAlign: "middle" }}>
-                <p className="my-0 text-secondary">$120</p>
+                <p className="my-0 text-secondary">$88</p>
               </th>
               <td>
                 <div className="btn-group" role="group" aria-label="...">
@@ -156,7 +158,7 @@ const Cart = () => {
               <td>
                 <div className="d-flex d-row">
                   <h6 className="font-weight-bold text-secondary align-self-center my-0">
-                    $120
+                    $88
                   </h6>
                   <button className="btn trash-cart-btn ml-2">
                     <i className="far fa-trash-alt fa-sm"></i>
@@ -169,16 +171,16 @@ const Cart = () => {
               <td>
                 <div
                   className="w-75 text-center"
-                  style={picture(photoSample1)}
+                  style={picture(photoSample3)}
                 />
               </td>
               <td>
                 <div>
                   <h6 className="text-secondary font-weight-bold">
-                    Executive Grey Tuxedo
+                    Executive Blue Tuxedo
                   </h6>
                   <small className="my-0 text-secondary">
-                    Color: <b>Light Blue</b>
+                    Color: <b>Dark Blue</b>
                   </small>
                   <br />
                   <small className="my-0 text-secondary">
