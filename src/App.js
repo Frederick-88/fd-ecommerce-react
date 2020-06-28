@@ -25,7 +25,7 @@ function App() {
         </Router>
       </BrowserView>
       <MobileView>
-        <h1> Not Rendered on Mobilae, Please check via Desktop/PC. </h1>
+        <h1> Not Rendered on Mobile, Please check via Desktop/PC. </h1>
       </MobileView>
     </div>
   );
