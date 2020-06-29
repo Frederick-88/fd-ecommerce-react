@@ -91,7 +91,7 @@ const Index = (props) => {
                   <li className="nav-item">
                     <button className="btn btn-success d-flex d-row">
                       <i className="fas fa-shopping-cart align-self-center mr-2" />
-                      <p className="my-0">Cart : 1</p>
+                      <p className="my-0">Carta : 1</p>
                     </button>
                   </li>
                 </a>
