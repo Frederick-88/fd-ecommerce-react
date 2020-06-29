@@ -20,7 +20,10 @@ const Cart = () => {
     toast.success("Checkout feature coming soon! Stay tune.");
   return (
     <div>
-      <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <nav
+        id="top"
+        className="navbar fixed-top navbar-expand-lg navbar-light bg-light"
+      >
         <div className="container">
           <a className="navbar-brand" href="/">
             <img src={logo} className="logo-fx" alt="..." />

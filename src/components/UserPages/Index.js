@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import mainBg from "../../assets/mainBackground.png";
@@ -88,14 +87,14 @@ const Index = (props) => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ml-auto">
-                <Link to="/cart" style={{ textDecoration: "none" }}>
+                <a href="/cart#top" style={{ textDecoration: "none" }}>
                   <li className="nav-item">
                     <button className="btn btn-success d-flex d-row">
                       <i className="fas fa-shopping-cart align-self-center mr-2" />
                       <p className="my-0">Cart : 1</p>
                     </button>
                   </li>
-                </Link>
+                </a>
 
                 <li className="nav-item mx-4">
                   {NavLoginSuccess ? (
