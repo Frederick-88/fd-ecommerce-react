@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Modal, Alert } from "react-bootstrap";
+import { Modal, Alert, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
 
-import { loginUser } from "../../actionCreators/LoginAction";
+import { loginUser, registerUser } from "../../actionCreators/LoginAction";
 
 const Login = (props) => {
   const [loginDisplay, setLoginDisplay] = useState(true);
@@ -80,8 +80,8 @@ const Login = (props) => {
   };
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
+    props.registerUser(dataInputRegister);
     console.log(dataInputRegister);
-    // props.register(dataInputRegister);
   };
   const setRegisterDisplay = () => {
     setLoginDisplay(false);
@@ -184,46 +184,65 @@ const Login = (props) => {
           ) : (
             <Modal.Title>
               <div className="text-center">
-                <form onSubmit={handleRegisterSubmit}>
+                <Form onSubmit={handleRegisterSubmit}>
                   <h4 className="text-success-s2 font-weight-bold">Sign Up</h4>
-
+                  <AlertDismissible />
                   <div className="mt-4">
-                    <input
+                    <Form.Control
                       type="text"
                       name="username"
                       onChange={handleInputRegisterChange}
                       className="form-control mb-2 py-4"
                       placeholder="Username"
-                      aria-label="Recipient's username"
-                      aria-describedby="button-addon2"
+                      isInvalid={!!props.formControlError.username}
                     />
-                    <input
+                    <Form.Control.Feedback
+                      type="invalid"
+                      className="text-left"
+                      style={{ fontSize: "0.8rem", marginBottom: "0.35rem" }}
+                    >
+                      {props.formControlError.username}
+                    </Form.Control.Feedback>
+
+                    <Form.Control
                       type="text"
                       name="email"
                       onChange={handleInputRegisterChange}
                       className="form-control mb-2 py-4"
                       placeholder="Your email"
-                      aria-label="Recipient's username"
-                      aria-describedby="button-addon2"
+                      isInvalid={!!props.formControlError.email}
                     />
-                    <input
+                    <Form.Control.Feedback
+                      type="invalid"
+                      className="text-left"
+                      style={{ fontSize: "0.8rem", marginBottom: "0.35rem" }}
+                    >
+                      {props.formControlError.email}
+                    </Form.Control.Feedback>
+
+                    <Form.Control
                       type="number"
                       name="phoneNumber"
                       onChange={handleInputRegisterChange}
                       className="form-control mb-2 py-4"
                       placeholder="Phone Number"
-                      aria-label="Recipient's username"
-                      aria-describedby="button-addon2"
+                      isInvalid={!!props.formControlError.phoneNumber}
                     />
+                    <Form.Control.Feedback
+                      type="invalid"
+                      className="text-left"
+                      style={{ fontSize: "0.8rem", marginBottom: "0.35rem" }}
+                    >
+                      {props.formControlError.phoneNumber}
+                    </Form.Control.Feedback>
                     <div className="input-group mb-2">
-                      <input
+                      <Form.Control
                         type={showPassword ? "text" : "password"}
                         name="password"
                         onChange={handleInputRegisterChange}
                         className="form-control py-4"
                         placeholder="New Password"
-                        aria-label="Recipient's username"
-                        aria-describedby="button-addon2"
+                        isInvalid={!!props.formControlError.password}
                       />
                       <div className="input-group-append">
                         <button
@@ -239,6 +258,13 @@ const Login = (props) => {
                           />
                         </button>
                       </div>
+                      <Form.Control.Feedback
+                        type="invalid"
+                        className="text-left"
+                        style={{ fontSize: "0.8rem" }}
+                      >
+                        {props.formControlError.password}
+                      </Form.Control.Feedback>
                     </div>
 
                     <p
@@ -272,7 +298,7 @@ const Login = (props) => {
                       Login
                     </button>
                   </p>
-                </form>
+                </Form>
               </div>
             </Modal.Title>
           )}
@@ -284,11 +310,12 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    formControlError: state.LoginReducer.formControlError,
     alertData: state.LoginReducer.alert,
     tokenUser: state.LoginReducer.tokenUser,
   };
 };
 
-const mapDispatchToProps = { loginUser };
+const mapDispatchToProps = { loginUser, registerUser };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

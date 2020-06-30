@@ -1,6 +1,7 @@
 const initialState = {
   tokenAdmin: localStorage.getItem("token-admin"),
   tokenUser: localStorage.getItem("token-user"),
+  // alert for login feedbacks
   alert: {
     show: false,
     message: "",
@@ -11,6 +12,19 @@ const initialState = {
     show: false,
     message: "",
     variant: "",
+  },
+  // only for register success
+  registerSuccessToastifyNotif: {
+    show: false,
+    message: "",
+    variant: "",
+  },
+  // for form control feedback. (react bootstrap)
+  formControlError: {
+    username: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
   },
 };
 
@@ -52,6 +66,35 @@ const loginReducer = (state = initialState, action) => {
           show: true,
           message: "You've successfully login! ",
           variant: "success",
+        },
+      };
+
+    case "REGISTER_USER_SUCCESS":
+      return {
+        ...state,
+        registerSuccessToastifyNotif: {
+          show: true,
+          message: action.payload,
+          variant: "success",
+        },
+      };
+
+    case "REGISTER_USER_FAIL":
+      return {
+        ...state,
+        formControlError: {
+          ...state.error,
+          ...action.payload,
+        },
+      };
+
+    case "REGISTER_USER_INVALID":
+      return {
+        ...state,
+        alert: {
+          show: true,
+          message: action.payload,
+          variant: "danger",
         },
       };
 

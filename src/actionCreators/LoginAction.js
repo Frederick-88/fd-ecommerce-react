@@ -46,6 +46,35 @@ export const loginUser = (data) => {
   };
 };
 
+export const registerUser = (data) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(`${url}/users/register`, data);
+      const output = response.data;
+      if (output.status === "success") {
+        dispatch({
+          type: "REGISTER_USER_SUCCESS",
+          payload: output.message,
+        });
+      }
+    } catch (error) {
+      const output = error.response.data;
+      if (output.message) {
+        dispatch({
+          type: "REGISTER_USER_FAIL",
+          payload: output.message,
+        });
+      } else {
+        dispatch({
+          // error of same username/email/phoneNumber,it has to be unique no duplication/same username.
+          type: "REGISTER_USER_INVALID",
+          payload: output.error,
+        });
+      }
+    }
+  };
+};
+
 export const userLogout = () => {
   return (dispatch) => {
     dispatch({
