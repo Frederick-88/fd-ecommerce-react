@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { Modal, Alert, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
@@ -11,6 +12,7 @@ const Login = (props) => {
 
   const displayPassword = () => {
     setShowPassword(showPassword ? false : true);
+    props.registerSuccessToastifyNotif.show = false;
   };
 
   // DYNAMIC ALERT (OCCURS WHEN PROBLEM)
@@ -33,6 +35,23 @@ const Login = (props) => {
     return <></>;
   };
 
+  // DYNAMIC TOASTIFY
+  // CustomId = only can show 1.
+  const customId = "custom-id-yes";
+  const registerSuccessToastifyNotif = () => {
+    toast.success(`${props.registerSuccessToastifyNotif.message}`, {
+      position: toast.POSITION.TOP_CENTER,
+      toastId: customId,
+      autoClose: 2500,
+      // if not it will show 2 times.
+      closeButton: false,
+    });
+  };
+
+  if (props.registerSuccessToastifyNotif.show) {
+    registerSuccessToastifyNotif();
+  }
+
   // LOGIN SECTION
   const [dataInputLogin, setDataInputLogin] = useState({
     email: "",
@@ -45,6 +64,7 @@ const Login = (props) => {
     });
     // to cover every time input alert keeps true.
     alert.show = false;
+    props.registerSuccessToastifyNotif.show = false;
   };
   const handleLoginSubmit = (event) => {
     event.preventDefault();
@@ -52,6 +72,7 @@ const Login = (props) => {
   };
   const setLoginDisplayTrue = () => {
     setLoginDisplay(true);
+    props.registerSuccessToastifyNotif.show = false;
   };
   const closeLoginModal = () => {
     props.closeLoginModal(false);
@@ -77,14 +98,19 @@ const Login = (props) => {
     });
     // to cover every time input alert keeps true.
     alert.show = false;
+    props.formControlError.username = "";
+    props.formControlError.email = "";
+    props.formControlError.phoneNumber = "";
+    props.formControlError.password = "";
+    props.registerSuccessToastifyNotif.show = false;
   };
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
     props.registerUser(dataInputRegister);
-    console.log(dataInputRegister);
   };
   const setRegisterDisplay = () => {
     setLoginDisplay(false);
+    props.registerSuccessToastifyNotif.show = false;
   };
   return (
     <div>
@@ -95,6 +121,7 @@ const Login = (props) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ padding: "2rem 4rem" }}>
+          <ToastContainer />
           {loginDisplay ? (
             <Modal.Title>
               <div className="text-center">
@@ -310,6 +337,8 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    registerSuccessToastifyNotif:
+      state.LoginReducer.registerSuccessToastifyNotif,
     formControlError: state.LoginReducer.formControlError,
     alertData: state.LoginReducer.alert,
     tokenUser: state.LoginReducer.tokenUser,
