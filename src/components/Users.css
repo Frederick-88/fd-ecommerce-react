@@ -78,6 +78,28 @@
 body {
   font-family: "Lato", sans-serif !important;
 }
+.product-showdetail {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+/* div = the image */
+.product-showdetail:hover .card-img-top {
+  opacity: 65%;
+  transition: 0.2s;
+}
+.product-showdetail:hover h3 {
+  visibility: visible;
+}
+.product-showdetail h3 {
+  visibility: hidden;
+  -webkit-text-stroke: 0.7px rgba(29, 29, 29, 0.3);
+  text-shadow: 2px 2px rgba(29, 29, 29, 0.3);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .footer-title {
   font-size: 1rem;
   font-weight: bold;

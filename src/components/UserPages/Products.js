@@ -13,6 +13,10 @@ const Products = (props) => {
   const unDisplayDetailModal = (boolean) => {
     setShowDetailModal(boolean);
   };
+  const inputCart = () => {
+    setShowDetailModal(false);
+    console.log("masukcart");
+  };
   const showDetail = (data) => {
     setDataProduct(data);
     setShowDetailModal(true);
@@ -37,17 +41,19 @@ const Products = (props) => {
         {props.dataProduct.map((item, index) => {
           return (
             <div className="col-md-4 mt-4" key={index}>
-              <div
-                className="card"
-                style={{ cursor: "pointer" }}
-                // kalau tanpa ()=> nanti ulang render terus ga bisa jalan
-                onClick={() => showDetail(item)}
-              >
+              <div className="card">
                 <div
-                  style={picture(item.image)}
-                  className="card-img-top"
-                  alt="..."
-                />
+                  className="product-showdetail"
+                  // kalau tanpa ()=> nanti ulang render terus ga bisa jalan
+                  onClick={() => showDetail(item)}
+                >
+                  <div
+                    style={picture(item.image)}
+                    className="card-img-top"
+                    alt="..."
+                  />
+                  <h3 className="text-success-s2">SEE DETAIL</h3>
+                </div>
                 <div className="card-body">
                   <p className="font-weight-bold my-0">{item.name}</p>
                   <small className="card-text text-secondary">
@@ -58,7 +64,10 @@ const Products = (props) => {
                     <p className="my-0 text-success-s2 font-weight-bold">
                       ${item.price}
                     </p>
-                    <button className="btn btn-outline-success d-flex d-row ml-auto">
+                    <button
+                      onClick={() => inputCart()}
+                      className="btn btn-outline-success d-flex d-row ml-auto"
+                    >
                       <i className="fas fa-cart-plus align-self-center mr-2 fa-sm" />
                       <small className="font-weight-bold">Cart</small>
                     </button>
