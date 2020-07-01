@@ -19,7 +19,18 @@ const UserReducer = (state = initialState, action) => {
     case "ADD_ITEM_TO_CART":
       return {
         ...state,
-        dataCart: action.payload,
+        dataCart: [...state.dataCart, action.payload],
+      };
+
+    case "DELETE_ITEM_FROM_CART":
+      const filteredItem = state.dataCart.filter((item) => {
+        if (item._id === action.payload._id) {
+          return false;
+        } else return true;
+      });
+      return {
+        ...state,
+        dataCart: filteredItem,
       };
 
     default:

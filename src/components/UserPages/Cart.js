@@ -1,26 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import photoSample1 from "../../assets/Hoodie3.jpg";
-import photoSample2 from "../../assets/dress.jpg";
-import photoSample3 from "../../assets/Tuxedo2.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../Users.css";
 
+import { deleteItemFromCart } from "../../actionCreators/UserAction";
+
 const Cart = (props) => {
-  console.log(props.dataCart);
+  const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
+  const samplePhoto3 = "public/productImages/2020-06-23T11:30:30.982Z-tes.jpg";
 
   const picture = (image) => {
     return {
-      backgroundImage: `url(${image})`,
+      backgroundImage: `url(${urlLocalhost}/${image})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "8rem",
     };
   };
+
+  const removeItemNotification = () =>
+    toast.error("You've removed an item from cart.", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+    });
+
+  const removeItem = (item) => {
+    removeItemNotification();
+    props.deleteItemFromCart(item);
+  };
+
   const checkoutNotification = () =>
     toast.success("Checkout feature coming soon! Stay tune.");
+
   return (
     <div>
       <nav
@@ -28,9 +42,9 @@ const Cart = (props) => {
         className="navbar fixed-top navbar-expand-lg navbar-light bg-light"
       >
         <div className="container">
-          <a className="navbar-brand" href="/">
+          <Link to="/" className="navbar-brand">
             <img src={logo} className="logo-fx" alt="..." />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -46,9 +60,9 @@ const Cart = (props) => {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item mx-4">
                 <h6 className="my-0 text-success-s2 d-flex d-row">
-                  <a href="/" className="text-success-s2 mr-2">
+                  <Link to="/" className="text-success-s2 mr-2">
                     HOME
-                  </a>
+                  </Link>
                   <p className="text-success-s2 my-0">/ CART PAGE</p>
                 </h6>
               </li>
@@ -69,63 +83,70 @@ const Cart = (props) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <div
-                  className="w-75 text-center"
-                  style={picture(photoSample1)}
-                />
-              </td>
-              <td>
-                <div>
-                  <h6 className="text-secondary font-weight-bold">
-                    Fold Over Collar Plain Blazers
-                  </h6>
-                  <small className="my-0 text-secondary">
-                    Color: <b>Light Gray</b>
-                  </small>
-                  <br />
-                  <small className="my-0 text-secondary">
-                    Size: <b>XL</b>
-                  </small>
-                  <br />
-                  <small className="my-0 text-secondary">
-                    Material: <b>Cotton</b>
-                  </small>
-                </div>
-              </td>
-              <th style={{ verticalAlign: "middle" }}>
-                <p className="my-0 text-secondary">$120</p>
-              </th>
-              <td>
-                <div className="btn-group" role="group" aria-label="...">
-                  <button className="btn btn-outline-success">-</button>
-                  <p
-                    className="btn my-0 text-success-s2"
-                    style={{ borderColor: "#009e7f", cursor: "default" }}
-                  >
-                    <b>1</b>
-                  </p>
-                  <button className="btn btn-outline-success">+</button>
-                </div>
-              </td>
-              <td>
-                <div className="d-flex d-row">
-                  <h6 className="font-weight-bold text-secondary align-self-center my-0">
-                    $120
-                  </h6>
-                  <button className="btn trash-cart-btn ml-2">
-                    <i className="far fa-trash-alt fa-sm"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
+            {props.dataCart.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <td>
+                    <div
+                      className="w-75 text-center"
+                      style={picture(item.image)}
+                    />
+                  </td>
+                  <td>
+                    <div>
+                      <h6 className="text-secondary font-weight-bold">
+                        {item.name}
+                      </h6>
+                      <small className="my-0 text-secondary">
+                        Color: <b>Light Gray</b>
+                      </small>
+                      <br />
+                      <small className="my-0 text-secondary">
+                        Size: <b>XL</b>
+                      </small>
+                      <br />
+                      <small className="my-0 text-secondary">
+                        Type: <b>{item.productType}</b>
+                      </small>
+                    </div>
+                  </td>
+                  <th style={{ verticalAlign: "middle" }}>
+                    <p className="my-0 text-secondary">${item.price}</p>
+                  </th>
+                  <td>
+                    <div className="btn-group" role="group" aria-label="...">
+                      <button className="btn btn-outline-success">-</button>
+                      <p
+                        className="btn my-0 text-success-s2"
+                        style={{ borderColor: "#009e7f", cursor: "default" }}
+                      >
+                        <b>1</b>
+                      </p>
+                      <button className="btn btn-outline-success">+</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="d-flex d-row">
+                      <h6 className="font-weight-bold text-secondary align-self-center my-0">
+                        ${item.price}
+                      </h6>
+                      <button
+                        className="btn trash-cart-btn ml-2"
+                        onClick={() => removeItem(item)}
+                      >
+                        <i className="far fa-trash-alt fa-sm"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
 
             <tr>
               <td>
                 <div
                   className="w-75 text-center"
-                  style={picture(photoSample2)}
+                  style={picture(samplePhoto3)}
                 />
               </td>
               <td>
@@ -172,58 +193,6 @@ const Cart = (props) => {
                 </div>
               </td>
             </tr>
-
-            <tr>
-              <td>
-                <div
-                  className="w-75 text-center"
-                  style={picture(photoSample3)}
-                />
-              </td>
-              <td>
-                <div>
-                  <h6 className="text-secondary font-weight-bold">
-                    Executive Blue Tuxedo
-                  </h6>
-                  <small className="my-0 text-secondary">
-                    Color: <b>Dark Blue</b>
-                  </small>
-                  <br />
-                  <small className="my-0 text-secondary">
-                    Size: <b>XL</b>
-                  </small>
-                  <br />
-                  <small className="my-0 text-secondary">
-                    Material: <b>Cotton</b>
-                  </small>
-                </div>
-              </td>
-              <th style={{ verticalAlign: "middle" }}>
-                <p className="my-0 text-secondary">$120</p>
-              </th>
-              <td>
-                <div className="btn-group" role="group" aria-label="...">
-                  <button className="btn btn-outline-success">-</button>
-                  <p
-                    className="btn my-0 text-success-s2"
-                    style={{ borderColor: "#009e7f", cursor: "default" }}
-                  >
-                    <b>1</b>
-                  </p>
-                  <button className="btn btn-outline-success">+</button>
-                </div>
-              </td>
-              <td>
-                <div className="d-flex d-row">
-                  <h6 className="font-weight-bold text-secondary align-self-center my-0">
-                    $120
-                  </h6>
-                  <button className="btn trash-cart-btn ml-2">
-                    <i className="far fa-trash-alt fa-sm"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
           </tbody>
         </table>
 
@@ -255,9 +224,9 @@ const Cart = (props) => {
                   </button>
                   <ToastContainer />
                 </div>
-                <a className="btn btn-outline-primary mt-4 ml-auto" href="/">
+                <Link to="/" className="btn btn-outline-primary mt-4 ml-auto">
                   CONTINUE SHOPPING <i className="fas fa-shopping-cart"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -271,4 +240,7 @@ const mapStateToProps = (state) => {
     dataCart: state.UserReducer.dataCart,
   };
 };
-export default connect(mapStateToProps)(Cart);
+
+const mapDispatchToProps = { deleteItemFromCart };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

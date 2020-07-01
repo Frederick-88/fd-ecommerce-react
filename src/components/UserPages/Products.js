@@ -15,20 +15,16 @@ const Products = (props) => {
     setShowDetailModal(boolean);
   };
   // Toastify Alert
-  const customId = "custom-id-yes";
   const AddItemCartAlert = () => {
     toast.success("Item added to cart!", {
       position: toast.POSITION.TOP_CENTER,
-      toastId: customId,
       autoClose: 3000,
     });
   };
 
   const inputCart = (data) => {
-    console.log(data);
     props.addItemToCart(data);
     AddItemCartAlert();
-    console.log("masukcart");
   };
   const showDetail = (data) => {
     setDataProduct(data);

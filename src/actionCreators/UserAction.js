@@ -28,3 +28,12 @@ export const addItemToCart = (item) => {
     });
   };
 };
+
+export const deleteItemFromCart = (item) => {
+  return (dispatch) => {
+    dispatch({
+      type: "DELETE_ITEM_FROM_CART",
+      payload: item,
+    });
+  };
+};

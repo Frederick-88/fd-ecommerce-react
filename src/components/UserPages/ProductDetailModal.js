@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
 import { Modal } from "react-bootstrap";
 
+import { addItemToCart } from "../../actionCreators/UserAction";
+
 const ProductDetailModal = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
   // Sample photo to try on display
@@ -37,10 +39,8 @@ const ProductDetailModal = (props) => {
   };
 
   const inputCart = (data) => {
-    console.log(data);
-
+    props.addItemToCart(data);
     AddItemCartAlert();
-    console.log("masukcart");
   };
 
   const picture = (picture) => {
@@ -166,4 +166,6 @@ const ProductDetailModal = (props) => {
   );
 };
 
-export default connect(null, null)(ProductDetailModal);
+const mapDispatchToProps = { addItemToCart };
+
+export default connect(null, mapDispatchToProps)(ProductDetailModal);
