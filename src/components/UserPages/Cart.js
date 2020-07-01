@@ -152,7 +152,7 @@ const Cart = (props) => {
               <td>
                 <div>
                   <h6 className="text-secondary font-weight-bold">
-                    Perkins Self Striped A Line Dress
+                    Perkins Self Striped A Line Dress (SAMPLE)
                   </h6>
                   <small className="my-0 text-secondary">
                     Color: <b>Gold</b>
