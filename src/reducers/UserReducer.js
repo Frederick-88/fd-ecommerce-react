@@ -1,5 +1,6 @@
 const initialState = {
   dataProduct: [],
+  dataCart: [],
   alert: {
     show: false,
     message: "",
@@ -13,6 +14,12 @@ const UserReducer = (state = initialState, action) => {
       return {
         ...state,
         dataProduct: action.payload,
+      };
+
+    case "ADD_ITEM_TO_CART":
+      return {
+        ...state,
+        dataCart: action.payload,
       };
 
     default:

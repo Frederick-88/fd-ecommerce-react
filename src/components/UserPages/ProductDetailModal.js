@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
 import { Modal } from "react-bootstrap";
@@ -23,6 +24,23 @@ const ProductDetailModal = (props) => {
   // Function to change Image.
   const changeImage = (imageCandidate) => {
     setImage(imageCandidate);
+  };
+
+  // Toastify Alert
+  const customId = "custom-id-yes";
+  const AddItemCartAlert = () => {
+    toast.success("Item added to cart!", {
+      position: toast.POSITION.TOP_CENTER,
+      toastId: customId,
+      autoClose: 3000,
+    });
+  };
+
+  const inputCart = (data) => {
+    console.log(data);
+
+    AddItemCartAlert();
+    console.log("masukcart");
   };
 
   const picture = (picture) => {
@@ -118,7 +136,10 @@ const ProductDetailModal = (props) => {
                 </p>
               </div>
 
-              <button className="btn btn-outline-success d-flex d-row mt-5 mb-4">
+              <button
+                onClick={() => inputCart(props.dataProduct)}
+                className="btn btn-outline-success d-flex d-row mt-5 mb-4"
+              >
                 <i className="fas fa-cart-plus align-self-center mr-2 fa-sm" />
                 <small className="font-weight-bold">Cart</small>
               </button>

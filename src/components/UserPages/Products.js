@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import "../Users.css";
 import ProductDetailModal from "./ProductDetailModal";
 
-import { getDataProduct } from "../../actionCreators/UserAction";
+import { getDataProduct, addItemToCart } from "../../actionCreators/UserAction";
 
 const Products = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
@@ -13,8 +14,20 @@ const Products = (props) => {
   const unDisplayDetailModal = (boolean) => {
     setShowDetailModal(boolean);
   };
-  const inputCart = () => {
-    setShowDetailModal(false);
+  // Toastify Alert
+  const customId = "custom-id-yes";
+  const AddItemCartAlert = () => {
+    toast.success("Item added to cart!", {
+      position: toast.POSITION.TOP_CENTER,
+      toastId: customId,
+      autoClose: 3000,
+    });
+  };
+
+  const inputCart = (data) => {
+    console.log(data);
+    props.addItemToCart(data);
+    AddItemCartAlert();
     console.log("masukcart");
   };
   const showDetail = (data) => {
@@ -52,7 +65,9 @@ const Products = (props) => {
                     className="card-img-top"
                     alt="..."
                   />
-                  <h3 className="text-success-s2">SEE DETAIL</h3>
+                  <h3 className="text-success-s2 font-weight-bold">
+                    SEE DETAIL
+                  </h3>
                 </div>
                 <div className="card-body">
                   <p className="font-weight-bold my-0">{item.name}</p>
@@ -65,7 +80,7 @@ const Products = (props) => {
                       ${item.price}
                     </p>
                     <button
-                      onClick={() => inputCart()}
+                      onClick={() => inputCart(item)}
                       className="btn btn-outline-success d-flex d-row ml-auto"
                     >
                       <i className="fas fa-cart-plus align-self-center mr-2 fa-sm" />
@@ -95,5 +110,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { getDataProduct };
+const mapDispatchToProps = { getDataProduct, addItemToCart };
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
 import photoSample1 from "../../assets/Hoodie3.jpg";
 import photoSample2 from "../../assets/dress.jpg";
@@ -7,7 +8,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../Users.css";
 
-const Cart = () => {
+const Cart = (props) => {
+  console.log(props.dataCart);
+
   const picture = (image) => {
     return {
       backgroundImage: `url(${image})`,
@@ -263,4 +266,9 @@ const Cart = () => {
     </div>
   );
 };
-export default Cart;
+const mapStateToProps = (state) => {
+  return {
+    dataCart: state.UserReducer.dataCart,
+  };
+};
+export default connect(mapStateToProps)(Cart);
