@@ -98,7 +98,7 @@ const Cart = (props) => {
                         {item.name}
                       </h6>
                       <small className="my-0 text-secondary">
-                        Color: <b>Light Gray</b>
+                        Color: <b>Light aGray</b>
                       </small>
                       <br />
                       <small className="my-0 text-secondary">
