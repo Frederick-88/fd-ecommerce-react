@@ -111,16 +111,6 @@ const loginReducer = (state = initialState, action) => {
         },
       };
 
-    case "NO_LOGIN_CART_NOTIFICATION":
-      return {
-        ...state,
-        toastifyNotif: {
-          show: true,
-          message: "Please login first to continue.",
-          variant: "success",
-        },
-      };
-
     default:
       return state;
   }

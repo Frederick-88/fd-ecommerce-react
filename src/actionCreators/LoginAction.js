@@ -82,11 +82,3 @@ export const userLogout = () => {
     });
   };
 };
-
-export const noLoginCartNotification = () => {
-  return (dispatch) => {
-    dispatch({
-      type: "NO_LOGIN_CART_NOTIFICATION",
-    });
-  };
-};

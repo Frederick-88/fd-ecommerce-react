@@ -44,6 +44,12 @@ const Index = (props) => {
     SuccessLoginAlert();
   }
 
+  const noLoginCartNotification = () => {
+    toast.error("Please login first to continue.", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   const openLoginModal = () => {
     setShowLoginModal(true);
     // cause warning but needed to stop logout alert shows 2 times.
@@ -66,6 +72,7 @@ const Index = (props) => {
       backgroundPosition: "center",
     };
   };
+
   return (
     <div>
       {/* start header - part1 */}
@@ -88,14 +95,26 @@ const Index = (props) => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ml-auto">
-                <Link to="/cart" style={{ textDecoration: "none" }}>
+                {props.tokenUser ? (
+                  <Link to="/cart" style={{ textDecoration: "none" }}>
+                    <li className="nav-item">
+                      <button className="btn btn-success d-flex d-row">
+                        <i className="fas fa-shopping-cart align-self-center mr-2" />
+                        <p className="my-0">Cart : {props.dataCart.length}</p>
+                      </button>
+                    </li>
+                  </Link>
+                ) : (
                   <li className="nav-item">
-                    <button className="btn btn-success d-flex d-row">
+                    <button
+                      onClick={() => noLoginCartNotification()}
+                      className="btn btn-secondary d-flex d-row"
+                    >
                       <i className="fas fa-shopping-cart align-self-center mr-2" />
-                      <p className="my-0">Cart : 1</p>
+                      <p className="my-0">Cart : {props.dataCart.length}</p>
                     </button>
                   </li>
-                </Link>
+                )}
 
                 <li className="nav-item mx-4">
                   {NavLoginSuccess ? (
@@ -312,6 +331,7 @@ const mapStateToProps = (state) => {
   return {
     tokenUser: state.LoginReducer.tokenUser,
     toastifyNotifData: state.LoginReducer.toastifyNotif,
+    dataCart: state.UserReducer.dataCart,
   };
 };
 
