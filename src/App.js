@@ -1,9 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import { BrowserView, MobileView } from "react-device-detect";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserPage from "./components/UserPages/Index";
 import AdminPage from "./components/AdminPages/Index";
 import CartPage from "./components/UserPages/Cart";
+
+import { noLoginCartNotification } from "./actionCreators/LoginAction";
 
 function App() {
   return (
@@ -30,4 +33,13 @@ function App() {
     </div>
   );
 }
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    tokenUser: state.LoginReducer.tokenUser,
+  };
+};
+
+const mapDispatchToProps = { noLoginCartNotification };
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

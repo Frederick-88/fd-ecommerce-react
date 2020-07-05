@@ -37,6 +37,7 @@ const Index = (props) => {
       });
     }
   };
+  NO_LOGIN_CART_NOTIFICATION;
 
   // ToastContainer = <AlertDismissable/> in React Bootstrap
 
