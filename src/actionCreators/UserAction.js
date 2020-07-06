@@ -29,6 +29,24 @@ export const addItemToCart = (item) => {
   };
 };
 
+// inside cart object
+export const increaseQtyBuy = (itemId) => {
+  return (dispatch) => {
+    dispatch({
+      type: "INCREASE_QTY_BUY",
+      payload: itemId,
+    });
+  };
+};
+
+export const decreaseQtyBuy = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "DECREASE_QTY_BUY",
+    });
+  };
+};
+
 export const deleteItemFromCart = (item) => {
   return (dispatch) => {
     dispatch({

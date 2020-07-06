@@ -6,11 +6,22 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../Users.css";
 
-import { deleteItemFromCart } from "../../actionCreators/UserAction";
+import {
+  deleteItemFromCart,
+  increaseQtyBuy,
+  decreaseQtyBuy,
+} from "../../actionCreators/UserAction";
 
 const Cart = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
-  const samplePhoto3 = "public/productImages/2020-06-23T11:30:30.982Z-tes.jpg";
+
+  const addQuantity = (id) => {
+    props.increaseQtyBuy(id);
+  };
+
+  const decreaseQuantity = (id) => {
+    props.decreaseQtyBuy(id);
+  };
 
   const picture = (image) => {
     return {
@@ -115,20 +126,30 @@ const Cart = (props) => {
                   </th>
                   <td>
                     <div className="btn-group" role="group" aria-label="...">
-                      <button className="btn btn-outline-success">-</button>
+                      <button
+                        onClick={() => decreaseQuantity(item._id)}
+                        className="btn btn-outline-success"
+                      >
+                        -
+                      </button>
                       <p
                         className="btn my-0 text-success-s2"
                         style={{ borderColor: "#009e7f", cursor: "default" }}
                       >
-                        <b>1</b>
+                        <b>{item.qtyBuy}</b>
                       </p>
-                      <button className="btn btn-outline-success">+</button>
+                      <button
+                        onClick={() => addQuantity(item._id)}
+                        className="btn btn-outline-success"
+                      >
+                        +
+                      </button>
                     </div>
                   </td>
                   <td>
                     <div className="d-flex d-row">
                       <h6 className="font-weight-bold text-secondary align-self-center my-0">
-                        ${item.price}
+                        ${item.price * item.qtyBuy}
                       </h6>
                       <button
                         className="btn trash-cart-btn ml-2"
@@ -141,58 +162,6 @@ const Cart = (props) => {
                 </tr>
               );
             })}
-
-            <tr>
-              <td>
-                <div
-                  className="w-75 text-center"
-                  style={picture(samplePhoto3)}
-                />
-              </td>
-              <td>
-                <div>
-                  <h6 className="text-secondary font-weight-bold">
-                    Perkins Self Striped A Line Dress (SAMPLE)
-                  </h6>
-                  <small className="my-0 text-secondary">
-                    Color: <b>Gold</b>
-                  </small>
-                  <br />
-                  <small className="my-0 text-secondary">
-                    Size: <b>L</b>
-                  </small>
-                  <br />
-                  <small className="my-0 text-secondary">
-                    Material: <b>Cotton</b>
-                  </small>
-                </div>
-              </td>
-              <th style={{ verticalAlign: "middle" }}>
-                <p className="my-0 text-secondary">$88</p>
-              </th>
-              <td>
-                <div className="btn-group" role="group" aria-label="...">
-                  <button className="btn btn-outline-success">-</button>
-                  <p
-                    className="btn my-0 text-success-s2"
-                    style={{ borderColor: "#009e7f", cursor: "default" }}
-                  >
-                    <b>1</b>
-                  </p>
-                  <button className="btn btn-outline-success">+</button>
-                </div>
-              </td>
-              <td>
-                <div className="d-flex d-row">
-                  <h6 className="font-weight-bold text-secondary align-self-center my-0">
-                    $88
-                  </h6>
-                  <button className="btn trash-cart-btn ml-2">
-                    <i className="far fa-trash-alt fa-sm"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
           </tbody>
         </table>
 
@@ -241,6 +210,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { deleteItemFromCart };
+const mapDispatchToProps = {
+  deleteItemFromCart,
+  increaseQtyBuy,
+  decreaseQtyBuy,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

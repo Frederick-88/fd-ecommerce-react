@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 const initialState = {
   dataProduct: [],
   dataCart: [],
@@ -7,7 +8,6 @@ const initialState = {
     variant: "light",
   },
 };
-
 const UserReducer = (state = initialState, action) => {
   switch (action.type) {
     case "USER_GET_DATA_PRODUCT":
@@ -17,9 +17,55 @@ const UserReducer = (state = initialState, action) => {
       };
 
     case "ADD_ITEM_TO_CART":
+      const data = {
+        ...action.payload,
+        qtyBuy: 1,
+      };
+      const dataIsSame = state.dataCart.find((item) => {
+        return item._id === data._id;
+      });
+
+      if (!dataIsSame) {
+        toast.success("Item added to cart!", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+        });
+
+        return {
+          ...state,
+          dataCart: [...state.dataCart, data],
+        };
+      } else {
+        return state;
+      }
+
+    case "INCREASE_QTY_BUY":
+      const filterDataToAdd = state.dataCart.filter((item) => {
+        if (action.payload === item._id) {
+          console.log(item.qtyBuy);
+          console.log(item.qtyBuy + 1);
+          return item.qtyBuy + 1;
+        } else {
+          return false;
+        }
+      });
+
+      const FilterData = state.dataCart.filter((item) => {
+        if (action.payload === item._id) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+      console.log(filterDataToAdd);
+      console.log(FilterData);
+
+      const mergeAddedData = [...FilterData, ...filterDataToAdd];
+      console.log(mergeAddedData);
+
       return {
         ...state,
-        dataCart: [...state.dataCart, action.payload],
+        dataCart: mergeAddedData,
       };
 
     case "DELETE_ITEM_FROM_CART":

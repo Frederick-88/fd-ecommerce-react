@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import "../Users.css";
 import ProductDetailModal from "./ProductDetailModal";
@@ -14,17 +13,9 @@ const Products = (props) => {
   const unDisplayDetailModal = (boolean) => {
     setShowDetailModal(boolean);
   };
-  // Toastify Alert
-  const AddItemCartAlert = () => {
-    toast.success("Item added to cart!", {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 3000,
-    });
-  };
 
   const inputCart = (data) => {
     props.addItemToCart(data);
-    AddItemCartAlert();
   };
   const showDetail = (data) => {
     setDataProduct(data);
@@ -103,6 +94,7 @@ const Products = (props) => {
 const mapStateToProps = (state) => {
   return {
     dataProduct: state.UserReducer.dataProduct,
+    dataCart: state.UserReducer.dataCart,
   };
 };
 
