@@ -40,32 +40,33 @@ const UserReducer = (state = initialState, action) => {
       }
 
     case "INCREASE_QTY_BUY":
-      const filterDataToAdd = state.dataCart.filter((item) => {
+      const dataCart = state.dataCart.map((item) => {
         if (action.payload === item._id) {
-          console.log(item.qtyBuy);
-          console.log(item.qtyBuy + 1);
-          return item.qtyBuy + 1;
-        } else {
-          return false;
+          // ++ = item.qtyBuy + 1, pkai ini krna kalau +1 ngga diterima
+          item.qtyBuy++;
         }
-      });
 
-      const FilterData = state.dataCart.filter((item) => {
-        if (action.payload === item._id) {
-          return false;
-        } else {
-          return true;
-        }
+        return item;
       });
-      console.log(filterDataToAdd);
-      console.log(FilterData);
-
-      const mergeAddedData = [...FilterData, ...filterDataToAdd];
-      console.log(mergeAddedData);
 
       return {
         ...state,
-        dataCart: mergeAddedData,
+        // kalau namanya sama key & value boleh jadi 1
+        dataCart,
+      };
+
+    case "DECREASE_QTY_BUY":
+      const dataCartDecrease = state.dataCart.map((item) => {
+        if (action.payload === item._id && item.qtyBuy !== 1) {
+          item.qtyBuy--;
+        }
+
+        return item;
+      });
+
+      return {
+        ...state,
+        dataCart: dataCartDecrease,
       };
 
     case "DELETE_ITEM_FROM_CART":

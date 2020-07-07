@@ -39,10 +39,11 @@ export const increaseQtyBuy = (itemId) => {
   };
 };
 
-export const decreaseQtyBuy = () => {
+export const decreaseQtyBuy = (itemId) => {
   return (dispatch) => {
     dispatch({
       type: "DECREASE_QTY_BUY",
+      payload: itemId,
     });
   };
 };

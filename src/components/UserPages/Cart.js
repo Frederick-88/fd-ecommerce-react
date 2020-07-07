@@ -172,7 +172,7 @@ const Cart = (props) => {
               <div className="border border-top-0">
                 <div className="border-top d-flex d-row py-3 px-3">
                   <h6 className="font-weight-bold my-0">Subtotal</h6>
-                  <h6 className="ml-auto my-0">$360</h6>
+                  <h6 className="ml-auto my-0">${props.subTotalPrice}</h6>
                 </div>
                 <div className="border-top d-flex d-row py-3 px-3">
                   <h6 className="font-weight-bold my-0">Shipping</h6>
@@ -180,7 +180,7 @@ const Cart = (props) => {
                 </div>
                 <div className="border-top d-flex d-row py-3 px-3">
                   <h6 className="font-weight-bold my-0">Total</h6>
-                  <h6 className="ml-auto my-0">$365</h6>
+                  <h6 className="ml-auto my-0">${props.subTotalPrice + 5}</h6>
                 </div>
               </div>
               <div className="d-flex">
@@ -205,8 +205,18 @@ const Cart = (props) => {
   );
 };
 const mapStateToProps = (state) => {
+  var dataCart = state.UserReducer.dataCart;
+  var subTotalPrice = 0;
+  var i;
+  // selama i lebih kecil dari banyaknya array di datacart, dia bakal tambah terus.
+  for (i = 0; i < dataCart.length; i++) {
+    // += itu smacam kalkulator untuk tambah terus. Jadi subtotal yang awalnya 0 di render prtama jadi $10, nah habis render lgi $10 + $10 lagi jadi $20.
+    subTotalPrice += dataCart[i].qtyBuy * dataCart[i].price;
+  }
+
   return {
     dataCart: state.UserReducer.dataCart,
+    subTotalPrice: subTotalPrice,
   };
 };
 
