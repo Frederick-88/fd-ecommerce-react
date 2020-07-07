@@ -28,19 +28,8 @@ const ProductDetailModal = (props) => {
     setImage(imageCandidate);
   };
 
-  // Toastify Alert
-  const customId = "custom-id-yes";
-  const AddItemCartAlert = () => {
-    toast.success("Item added to cart!", {
-      position: toast.POSITION.TOP_CENTER,
-      toastId: customId,
-      autoClose: 3000,
-    });
-  };
-
   const inputCart = (data) => {
     props.addItemToCart(data);
-    AddItemCartAlert();
   };
 
   const picture = (picture) => {
