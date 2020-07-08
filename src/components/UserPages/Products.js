@@ -10,7 +10,10 @@ const Products = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [dataProduct, setDataProduct] = useState({});
-  const [loading, setLoading] = useState(false);
+  // mencegah too many re-renders
+  const [loading, setLoading] = useState(props.dataProduct ? true : false);
+
+  console.log(loading);
 
   const unDisplayDetailModal = (boolean) => {
     setShowDetailModal(boolean);
@@ -34,9 +37,7 @@ const Products = (props) => {
   };
 
   useEffect(() => {
-    setLoading(true);
     props.getDataProduct();
-    setLoading(false);
   }, []);
 
   return (
@@ -85,9 +86,9 @@ const Products = (props) => {
           );
         })}
       </div>
-      <div className="text-center">
+      {/* <div className="text-center">
         <button className="btn btn-success mt-3 px-4">See More</button>
-      </div>
+      </div> */}
       <ProductDetailModal
         showDetailModal={showDetailModal}
         unDisplayDetailModal={unDisplayDetailModal}

@@ -2,9 +2,10 @@ import React from "react";
 import "../Loader.css";
 
 const Loader = (loading) => {
-  console.log(loading === true);
+  console.log(loading);
+  console.log(loading.loading);
 
-  if (loading === true) {
+  if (loading.loading) {
     return (
       <div>
         <div class="loader" />
