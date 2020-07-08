@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "../Users.css";
 import ProductDetailModal from "./ProductDetailModal";
+import Loader from "./Loader";
 
 import { getDataProduct, addItemToCart } from "../../actionCreators/UserAction";
 
@@ -9,6 +10,7 @@ const Products = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [dataProduct, setDataProduct] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const unDisplayDetailModal = (boolean) => {
     setShowDetailModal(boolean);
@@ -32,11 +34,14 @@ const Products = (props) => {
   };
 
   useEffect(() => {
+    setLoading(true);
     props.getDataProduct();
+    setLoading(false);
   }, []);
 
   return (
     <div>
+      <Loader loading={loading} />
       <div className="row">
         {props.dataProduct.map((item, index) => {
           return (

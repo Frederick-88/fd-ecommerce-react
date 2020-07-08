@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
 import { Modal } from "react-bootstrap";
