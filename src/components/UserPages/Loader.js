@@ -2,12 +2,12 @@ import React from "react";
 import "../Loader.css";
 
 const Loader = (loading) => {
-  console.log(loading);
+  console.log(loading === true);
 
-  if (loading) {
+  if (loading === true) {
     return (
       <div>
-        <div class="loader">Loading...</div>
+        <div class="loader" />
       </div>
     );
   } else {
