@@ -201,43 +201,29 @@ const Index = (props) => {
         <div className="row mb-5">
           <div className="col-md-2 mt-3">
             <div className="list-group">
-              <h4 className="ml-3">Gender</h4>
               <button
                 type="button"
-                className="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
+                <i class="fas fa-male mr-5 fa-lg align-self-center"></i>
                 Man
               </button>
               <button
                 type="button"
-                className="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
+                <i class="fas fa-female mr-5 fa-lg align-self-center"></i>
                 Women
               </button>
               <button
                 type="button"
-                className="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action d-flex d-row"
               >
+                <div style={{ marginRight: "2rem" }}>
+                  <i class="fas fa-male mr-2 fa-lg align-self-center"></i>
+                  <i class="fas fa-female fa-lg align-self-center"></i>
+                </div>
                 Both
-              </button>
-              <h4 className="ml-3 mt-3">Type</h4>
-              <button
-                type="button"
-                className="list-group-item list-group-item-action"
-              >
-                Tops
-              </button>
-              <button
-                type="button"
-                className="list-group-item list-group-item-action"
-              >
-                Bottom
-              </button>
-              <button
-                type="button"
-                className="list-group-item list-group-item-action"
-              >
-                Outer Wear
               </button>
             </div>
           </div>
