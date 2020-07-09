@@ -199,8 +199,11 @@ const Index = (props) => {
       {/* part 3 - content */}
       <div className="container">
         <div className="row mb-5">
-          <div className="col-md-2 mt-3">
+          <div className="col-md-3 mt-3">
             <div className="list-group">
+              <h5 className="ml-3 text-secondary font-weight-bold mb-3">
+                Gender
+              </h5>
               <button
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-2"
@@ -217,7 +220,7 @@ const Index = (props) => {
               </button>
               <button
                 type="button"
-                className="list-group-item list-group-item-action d-flex d-row"
+                className="list-group-item list-group-item-action d-flex d-row mb-4"
               >
                 <div style={{ marginRight: "2rem" }}>
                   <i class="fas fa-male mr-2 fa-lg align-self-center"></i>
@@ -225,10 +228,35 @@ const Index = (props) => {
                 </div>
                 Both
               </button>
+
+              <h5 className="ml-3 text-secondary font-weight-bold mb-3">
+                Type
+              </h5>
+              <button
+                type="button"
+                className="list-group-item list-group-item-action d-flex d-row mb-2"
+              >
+                <i class="fas fa-circle mr-5 fa-sm align-self-center"></i>
+                Tops
+              </button>
+              <button
+                type="button"
+                className="list-group-item list-group-item-action d-flex d-row mb-2"
+              >
+                <i class="fas fa-circle mr-5 fa-sm align-self-center"></i>
+                Bottom
+              </button>
+              <button
+                type="button"
+                className="list-group-item list-group-item-action d-flex d-row"
+              >
+                <i class="fas fa-circle mr-5 fa-sm align-self-center"></i>
+                Outer Wear
+              </button>
             </div>
           </div>
 
-          <div className="col-md-10">
+          <div className="col-md-9">
             <ProductField />
           </div>
         </div>

@@ -63,6 +63,14 @@
   color: #009e7f !important;
 }
 
+.list-group-item-action:focus {
+  color: #009e7f !important;
+}
+
+.list-group button {
+  outline: none !important;
+}
+
 /* i got the active but still not work */
 
 /* .list-group-item-action:active {
