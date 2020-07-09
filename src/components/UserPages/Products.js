@@ -82,9 +82,13 @@ const Products = (props) => {
           );
         })}
       </div>
-      {/* <div className="text-center">
-        <button className="btn btn-success mt-3 px-4">See More</button>
-      </div> */}
+      {props.dataProduct.length !== 0 ? (
+        <div className="text-center">
+          <button className="btn btn-success mt-3 px-4">See More</button>
+        </div>
+      ) : (
+        <> </>
+      )}
       <ProductDetailModal
         showDetailModal={showDetailModal}
         unDisplayDetailModal={unDisplayDetailModal}

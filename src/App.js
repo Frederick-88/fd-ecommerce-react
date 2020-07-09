@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserPage from "./components/UserPages/Index";
 import AdminPage from "./components/AdminPages/Index";
 import CartPage from "./components/UserPages/Cart";
+import CheckoutPage from "./components/UserPages/Checkout";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
             </Route>
             <Route exact path="/cart">
               <CartPage />
+            </Route>
+            <Route exact path="/checkout">
+              <CheckoutPage />
             </Route>
 
             <Route path="/admin">
