@@ -3,16 +3,12 @@ import { connect } from "react-redux";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import { Modal, Button } from "react-bootstrap";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
-import Loader from "../UserPages/Loader";
 
 import { getDataUser, deleteUser } from "../../actionCreators/AdminAction";
 
 const AdminUsers = (props) => {
-  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true);
     props.getDataUser();
-    setLoading(false);
   }, []);
 
   // DELETE MODAL FORM.
@@ -59,7 +55,6 @@ const AdminUsers = (props) => {
 
   return (
     <div className="text-center container">
-      <Loader loading={loading} />
       <Table className="table table-success">
         <Thead>
           <Tr>

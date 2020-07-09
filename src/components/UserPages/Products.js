@@ -10,10 +10,6 @@ const Products = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [dataProduct, setDataProduct] = useState({});
-  // mencegah too many re-renders
-  const [loading, setLoading] = useState(props.dataProduct ? true : false);
-
-  console.log(loading);
 
   const unDisplayDetailModal = (boolean) => {
     setShowDetailModal(boolean);
@@ -42,7 +38,7 @@ const Products = (props) => {
 
   return (
     <div>
-      <Loader loading={loading} />
+      <Loader dataProduct={props.dataProduct} />
       <div className="row">
         {props.dataProduct.map((item, index) => {
           return (
