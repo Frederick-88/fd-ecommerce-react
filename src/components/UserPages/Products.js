@@ -10,6 +10,7 @@ const Products = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [dataProduct, setDataProduct] = useState({});
+  const [limit, setLimit] = useState(3);
 
   const unDisplayDetailModal = (boolean) => {
     setShowDetailModal(boolean);
@@ -36,11 +37,20 @@ const Products = (props) => {
     props.getDataProduct();
   }, []);
 
+  // limit configuration
+  var start = 0;
+  var arrayDataProduct = Array.from(props.dataProduct).slice(start, limit);
+  var lengthOfDataProduct = props.dataProduct.length;
+
+  const seeMoreFunction = () => {
+    setLimit(limit + 3);
+  };
+
   return (
     <div>
       <Loader dataProduct={props.dataProduct} />
       <div className="row">
-        {props.dataProduct.map((item, index) => {
+        {arrayDataProduct.map((item, index) => {
           return (
             <div className="col-md-4 mt-4" key={index}>
               <div className="card">
@@ -82,9 +92,14 @@ const Products = (props) => {
           );
         })}
       </div>
-      {props.dataProduct.length !== 0 ? (
+      {props.dataProduct.length !== 0 && lengthOfDataProduct >= limit ? (
         <div className="text-center">
-          <button className="btn btn-success mt-3 px-4">See More</button>
+          <button
+            onClick={() => seeMoreFunction()}
+            className="btn btn-success mt-3 px-4"
+          >
+            See More
+          </button>
         </div>
       ) : (
         <> </>
