@@ -2,12 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
+import "../Checkout.css";
 
 const Checkout = (props) => {
   console.log(props.dataCart);
 
   return (
-    <div>
+    <div
+      style={{
+        fontFamily: "Karla,sans-serif",
+        backgroundColor: "#f8f9fa",
+      }}
+    >
       <nav
         id="top"
         className="navbar fixed-top navbar-expand-lg navbar-light bg-light"
@@ -42,8 +48,285 @@ const Checkout = (props) => {
         </div>
       </nav>
 
-      <div style={{ marginTop: "5rem" }}>
-        <h1 className="text center">This is your checkout form</h1>
+      <div style={{ paddingTop: "5rem" }} className="mx-5">
+        <form>
+          <div className="row">
+            <div className="col-md-7 pr-3">
+              <div className="checkout-div-1">
+                <h4 className="font-weight-bold text-success-s2 mb-4">
+                  BILLING DETAILS
+                </h4>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6 pr-3">
+                    <p className="checkout-txt">
+                      First Name <span className="text-danger">*</span>
+                    </p>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="First Name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6 pl-3">
+                    <p className="checkout-txt">
+                      Last Name <span className="text-danger">*</span>
+                    </p>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Last Name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <p className="checkout-txt">
+                    Email Address <span className="text-danger">*</span>
+                  </p>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Email address"
+                  />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6 pr-3">
+                    <p className="checkout-txt">
+                      Country <span className="text-danger">*</span>
+                    </p>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Country"
+                    />
+                  </div>
+                  <div class="form-group col-md-6 pl-3">
+                    <p className="checkout-txt">
+                      Town/City <span className="text-danger">*</span>
+                    </p>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Town/City"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p className="checkout-txt">
+                    Address <span className="text-danger">*</span>
+                  </p>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Address"
+                  />
+                </div>
+                <div class="form-group">
+                  <p className="checkout-txt">
+                    Phone Number <span className="text-danger">*</span>
+                  </p>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Phone Number"
+                  />
+                </div>
+                <div class="form-group">
+                  <p className="checkout-txt">
+                    Postal Code <span className="text-danger">*</span>
+                  </p>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Postal Code"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="col-md-5 pl-5">
+              <div className="checkout-div-2 ">
+                <h4 className="font-weight-bold text-center text-success-s2 mb-4">
+                  YOUR ORDER
+                </h4>
+                <div className="mx-1">
+                  <div className="row">
+                    <div className="col-md-7">
+                      <h5 className="text-success-s2 my-0 font-weight-bold">
+                        Product
+                      </h5>
+                    </div>
+                    <div className="col-md-5 pl-0">
+                      <h5 className="text-success-s2 my-0 text-right font-weight-bold">
+                        Subtotal
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                <hr
+                  className="w-100 my-2"
+                  style={{ borderTop: "2px solid #009e7f" }}
+                />
+
+                <div className="mx-1 mb-4">
+                  <div className="d-flex d-row">
+                    <div className="col-md-9 px-0">
+                      <p className="text-success-s2 mb-0 mt-2">
+                        Fold Over Collar Plain Blazers{" "}
+                        <span className="text-secondary font-weight-bold ml-2">
+                          × 1
+                        </span>
+                      </p>
+                    </div>
+                    <div className="col-md-3 text-right pr-0">
+                      <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
+                        $15
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="d-flex d-row">
+                    <div className="col-md-9 px-0">
+                      <p className="text-success-s2 mb-0 mt-2">
+                        Perkins Self Striped Line Dress
+                        <span className="text-secondary font-weight-bold ml-2">
+                          × 2
+                        </span>
+                      </p>
+                    </div>
+                    <div className="col-md-3 text-right pr-0">
+                      <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
+                        $32
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <hr
+                  className="w-100 my-2"
+                  style={{ borderTop: "2px solid #009e7f" }}
+                />
+
+                <div className="mx-1">
+                  <div className="row">
+                    <div className="col-md-7">
+                      <p className="text-success-s2 my-0 font-weight-bold">
+                        Subtotal
+                      </p>
+                      <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
+                        Shipping
+                      </p>
+                    </div>
+                    <div className="col-md-5 pl-0 text-right">
+                      <p className="text-success-s2 my-0 font-weight-bold">
+                        $47
+                      </p>
+                      <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
+                        $5
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <hr
+                  className="w-100 my-2"
+                  style={{ borderTop: "2px solid #009e7f" }}
+                />
+
+                <div className="mx-1 mt-3">
+                  <div className="row">
+                    <div className="col-md-7">
+                      <h5 className="text-success-s2 my-0 font-weight-bold">
+                        TOTAL
+                      </h5>
+                    </div>
+                    <div className="col-md-5 pl-0 text-right">
+                      <h5 className="text-success-s2 my-0 font-weight-bold">
+                        $52
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios1"
+                      value="option1"
+                    />
+                    <label
+                      class="form-check-label font-weight-bold"
+                      htmlFor="exampleRadios1"
+                    >
+                      Direct Bank Transfer
+                    </label>
+                    <div>
+                      <p style={{ fontSize: "0.9rem" }}>
+                        Make your payment directly into our bank account. Please
+                        use your Order ID as the payment reference. Your order
+                        won’t be shipped until the funds have cleared in our
+                        account.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="form-check mt-2">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios1"
+                      value="option1"
+                    />
+                    <label
+                      class="form-check-label font-weight-bold"
+                      htmlFor="exampleRadios1"
+                    >
+                      Cash On Delivery
+                    </label>
+                    <div>
+                      <p style={{ fontSize: "0.9rem" }}>
+                        Pay with cash upon delivery.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="exampleCheck1"
+                    />
+                    <label
+                      style={{ fontSize: "0.75rem" }}
+                      class="form-check-label "
+                      htmlFor="exampleCheck1"
+                    >
+                      I have read and agree to the website{" "}
+                      <b className="text-success-s2">terms and conditions</b>{" "}
+                      <span className="text-danger h6 my-0">*</span>
+                    </label>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-success w-100 py-3 mt-4"
+                  style={{ borderRadius: "0" }}
+                >
+                  PLACE ORDER
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
