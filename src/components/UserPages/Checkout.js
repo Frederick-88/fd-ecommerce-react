@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
 
-const Checkout = () => {
+const Checkout = (props) => {
+  console.log(props.dataCart);
+
   return (
     <div>
       <nav
@@ -45,4 +48,10 @@ const Checkout = () => {
     </div>
   );
 };
-export default Checkout;
+const mapStateToProps = (state) => {
+  return {
+    dataCart: state.UserReducer.dataCart,
+  };
+};
+
+export default connect(mapStateToProps, null)(Checkout);

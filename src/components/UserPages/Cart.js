@@ -43,9 +43,6 @@ const Cart = (props) => {
     props.deleteItemFromCart(item);
   };
 
-  const checkoutNotification = () =>
-    toast.success("Checkout feature coming soon! Stay tune.");
-
   return (
     <div>
       <nav
@@ -185,12 +182,9 @@ const Cart = (props) => {
               </div>
               <div className="d-flex">
                 <div>
-                  <button
-                    onClick={checkoutNotification}
-                    className="btn btn-outline-success mt-4"
-                  >
+                  <Link className="btn btn-outline-success mt-4" to="/checkout">
                     PROCEED TO CHECKOUT <i className="fas fa-print"></i>
-                  </button>
+                  </Link>
                   <ToastContainer />
                 </div>
                 <Link to="/" className="btn btn-outline-primary mt-4 ml-auto">

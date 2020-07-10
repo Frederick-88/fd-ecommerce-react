@@ -36,6 +36,10 @@ const UserReducer = (state = initialState, action) => {
           dataCart: [...state.dataCart, data],
         };
       } else {
+        toast.error("This item already in cart.", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+        });
         return state;
       }
 
