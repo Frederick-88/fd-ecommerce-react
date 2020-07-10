@@ -5,7 +5,7 @@ const Loader = (props) => {
   if (props.dataProduct.length === 0) {
     return (
       <div>
-        <div class="loader" />
+        <div className="loader" />
       </div>
     );
   } else {

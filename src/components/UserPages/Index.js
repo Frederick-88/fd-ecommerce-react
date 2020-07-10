@@ -208,14 +208,14 @@ const Index = (props) => {
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
-                <i class="fas fa-male mr-5 fa-lg align-self-center"></i>
+                <i className="fas fa-male mr-5 fa-lg align-self-center"></i>
                 Man
               </button>
               <button
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
-                <i class="fas fa-female mr-5 fa-lg align-self-center"></i>
+                <i className="fas fa-female mr-5 fa-lg align-self-center"></i>
                 Women
               </button>
               <button
@@ -223,8 +223,8 @@ const Index = (props) => {
                 className="list-group-item list-group-item-action d-flex d-row mb-4"
               >
                 <div style={{ marginRight: "2rem" }}>
-                  <i class="fas fa-male mr-2 fa-lg align-self-center"></i>
-                  <i class="fas fa-female fa-lg align-self-center"></i>
+                  <i className="fas fa-male mr-2 fa-lg align-self-center"></i>
+                  <i className="fas fa-female fa-lg align-self-center"></i>
                 </div>
                 Both
               </button>
@@ -236,21 +236,21 @@ const Index = (props) => {
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
-                <i class="fas fa-circle mr-5 fa-sm align-self-center"></i>
+                <i className="fas fa-circle mr-5 fa-sm align-self-center"></i>
                 Tops
               </button>
               <button
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
-                <i class="fas fa-circle mr-5 fa-sm align-self-center"></i>
+                <i className="fas fa-circle mr-5 fa-sm align-self-center"></i>
                 Bottom
               </button>
               <button
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row"
               >
-                <i class="fas fa-circle mr-5 fa-sm align-self-center"></i>
+                <i className="fas fa-circle mr-5 fa-sm align-self-center"></i>
                 Outer Wear
               </button>
             </div>

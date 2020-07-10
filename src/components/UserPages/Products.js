@@ -10,7 +10,7 @@ const Products = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [dataProduct, setDataProduct] = useState({});
-  const [limit, setLimit] = useState(3);
+  const [limit, setLimit] = useState(5);
 
   const unDisplayDetailModal = (boolean) => {
     setShowDetailModal(boolean);
@@ -92,7 +92,7 @@ const Products = (props) => {
           );
         })}
       </div>
-      {props.dataProduct.length !== 0 && lengthOfDataProduct >= limit ? (
+      {props.dataProduct.length !== 0 && lengthOfDataProduct > limit ? (
         <div className="text-center">
           <button
             onClick={() => seeMoreFunction()}
