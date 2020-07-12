@@ -91,76 +91,89 @@ const Cart = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props.dataCart.map((item, index) => {
-              return (
-                <tr key={index}>
-                  <td>
-                    <div
-                      className="w-75 text-center"
-                      style={picture(item.image)}
-                    />
-                  </td>
-                  <td>
-                    <div>
-                      <h6 className="text-secondary font-weight-bold">
-                        {item.name}
-                      </h6>
-                      <small className="my-0 text-secondary">
-                        Color: <b>Light Gray</b>
-                      </small>
-                      <br />
-                      <small className="my-0 text-secondary">
-                        Size: <b>XL</b>
-                      </small>
-                      <br />
-                      <small className="my-0 text-secondary">
-                        Type: <b>{item.productType}</b>
-                      </small>
-                    </div>
-                  </td>
-                  <th style={{ verticalAlign: "middle" }}>
-                    <p className="my-0 text-secondary">${item.price}</p>
-                  </th>
-                  <td>
-                    <div className="btn-group" role="group" aria-label="...">
-                      <button
-                        onClick={() => decreaseQuantity(item._id)}
-                        className="btn btn-outline-success"
-                      >
-                        -
-                      </button>
-                      <p
-                        className="btn my-0 text-success-s2"
-                        style={{ borderColor: "#009e7f", cursor: "default" }}
-                      >
-                        <b>{item.qtyBuy}</b>
-                      </p>
-                      <button
-                        onClick={() => addQuantity(item._id)}
-                        className="btn btn-outline-success"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="d-flex d-row">
-                      <h6 className="font-weight-bold text-secondary align-self-center my-0">
-                        ${item.price * item.qtyBuy}
-                      </h6>
-                      <button
-                        className="btn trash-cart-btn ml-2"
-                        onClick={() => removeItem(item)}
-                      >
-                        <i className="far fa-trash-alt fa-sm"></i>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
+            {props.dataCart.length !== 0 ? (
+              props.dataCart.map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <td>
+                      <div
+                        className="w-75 text-center"
+                        style={picture(item.image)}
+                      />
+                    </td>
+                    <td>
+                      <div>
+                        <h6 className="text-secondary font-weight-bold">
+                          {item.name}
+                        </h6>
+                        <small className="my-0 text-secondary">
+                          Color: <b>Light Gray</b>
+                        </small>
+                        <br />
+                        <small className="my-0 text-secondary">
+                          Size: <b>XL</b>
+                        </small>
+                        <br />
+                        <small className="my-0 text-secondary">
+                          Type: <b>{item.productType}</b>
+                        </small>
+                      </div>
+                    </td>
+                    <th style={{ verticalAlign: "middle" }}>
+                      <p className="my-0 text-secondary">${item.price}</p>
+                    </th>
+                    <td>
+                      <div className="btn-group" role="group" aria-label="...">
+                        <button
+                          onClick={() => decreaseQuantity(item._id)}
+                          className="btn btn-outline-success"
+                        >
+                          -
+                        </button>
+                        <p
+                          className="btn my-0 text-success-s2"
+                          style={{ borderColor: "#009e7f", cursor: "default" }}
+                        >
+                          <b>{item.qtyBuy}</b>
+                        </p>
+                        <button
+                          onClick={() => addQuantity(item._id)}
+                          className="btn btn-outline-success"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="d-flex d-row">
+                        <h6 className="font-weight-bold text-secondary align-self-center my-0">
+                          ${item.price * item.qtyBuy}
+                        </h6>
+                        <button
+                          className="btn trash-cart-btn ml-2"
+                          onClick={() => removeItem(item)}
+                        >
+                          <i className="far fa-trash-alt fa-sm"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <></>
+            )}
           </tbody>
         </table>
+        {props.dataCart.length === 0 ? (
+          <div>
+            <h3 className="my-0 text-secondary text-center">
+              The cart is still empty, let's search something cool in the shop!
+            </h3>
+          </div>
+        ) : (
+          <> </>
+        )}
 
         <div style={{ margin: "4rem 16rem" }}>
           <div className="card shadow-subtotal-fx">
@@ -182,9 +195,18 @@ const Cart = (props) => {
               </div>
               <div className="d-flex">
                 <div>
-                  <Link className="btn btn-outline-success mt-4" to="/checkout">
-                    PROCEED TO CHECKOUT <i className="fas fa-print"></i>
-                  </Link>
+                  {props.dataCart.length !== 0 ? (
+                    <Link
+                      className="btn btn-outline-success mt-4"
+                      to="/checkout"
+                    >
+                      PROCEED TO CHECKOUT <i className="fas fa-print"></i>
+                    </Link>
+                  ) : (
+                    <button className="btn btn-outline-success mt-4" disabled>
+                      PROCEED TO CHECKOUT <i className="fas fa-print"></i>
+                    </button>
+                  )}
                   <ToastContainer />
                 </div>
                 <Link to="/" className="btn btn-outline-primary mt-4 ml-auto">
