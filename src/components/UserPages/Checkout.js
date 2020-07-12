@@ -15,6 +15,7 @@ const Checkout = (props) => {
     address: "",
     phoneNumber: "",
     postalCode: "",
+    payment: "Direct Bank Transfer",
   });
 
   const handleInputCheckoutChange = (event) => {
@@ -82,6 +83,7 @@ const Checkout = (props) => {
                     </p>
                     <input
                       type="text"
+                      name="firstName"
                       class="form-control"
                       placeholder="First Name"
                       onChange={handleInputCheckoutChange}
@@ -94,6 +96,7 @@ const Checkout = (props) => {
                     </p>
                     <input
                       type="text"
+                      name="lastName"
                       class="form-control"
                       placeholder="Last Name"
                       onChange={handleInputCheckoutChange}
@@ -108,6 +111,7 @@ const Checkout = (props) => {
                   </p>
                   <input
                     type="text"
+                    name="emailAddress"
                     class="form-control"
                     placeholder="Email address"
                     onChange={handleInputCheckoutChange}
@@ -122,6 +126,7 @@ const Checkout = (props) => {
                     </p>
                     <input
                       type="text"
+                      name="country"
                       class="form-control"
                       placeholder="Country"
                       onChange={handleInputCheckoutChange}
@@ -134,6 +139,7 @@ const Checkout = (props) => {
                     </p>
                     <input
                       type="text"
+                      name="city"
                       class="form-control"
                       placeholder="Town/City"
                       onChange={handleInputCheckoutChange}
@@ -147,6 +153,7 @@ const Checkout = (props) => {
                   </p>
                   <input
                     type="text"
+                    name="address"
                     class="form-control"
                     placeholder="Address"
                     onChange={handleInputCheckoutChange}
@@ -159,6 +166,7 @@ const Checkout = (props) => {
                   </p>
                   <input
                     type="number"
+                    name="phoneNumber"
                     class="form-control"
                     placeholder="Phone Number"
                     onChange={handleInputCheckoutChange}
@@ -171,6 +179,7 @@ const Checkout = (props) => {
                   </p>
                   <input
                     type="text"
+                    name="postalCode"
                     class="form-control"
                     placeholder="Postal Code"
                     onChange={handleInputCheckoutChange}
@@ -205,37 +214,33 @@ const Checkout = (props) => {
                 />
 
                 <div className="mx-1 mb-4">
-                  <div className="d-flex d-row">
-                    <div className="col-md-9 px-0">
-                      <p className="text-success-s2 mb-0 mt-2">
-                        Fold Over Collar Plain Blazers{" "}
-                        <span className="text-secondary font-weight-bold ml-2">
-                          × 1
-                        </span>
-                      </p>
+                  {props.dataCart.length !== 0 ? (
+                    props.dataCart.map((item, index) => {
+                      return (
+                        <div className="d-flex d-row" key={index}>
+                          <div className="col-md-9 px-0">
+                            <p className="text-success-s2 mb-0 mt-2">
+                              {item.name}
+                              <span className="text-secondary font-weight-bold ml-2">
+                                × {item.qtyBuy}
+                              </span>
+                            </p>
+                          </div>
+                          <div className="col-md-3 text-right pr-0">
+                            <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
+                              ${item.price * item.qtyBuy}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div>
+                      <h6 className="my-0">
+                        There are no any product here, try to reopen this app.
+                      </h6>{" "}
                     </div>
-                    <div className="col-md-3 text-right pr-0">
-                      <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
-                        $15
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="d-flex d-row">
-                    <div className="col-md-9 px-0">
-                      <p className="text-success-s2 mb-0 mt-2">
-                        Perkins Self Striped Line Dress
-                        <span className="text-secondary font-weight-bold ml-2">
-                          × 2
-                        </span>
-                      </p>
-                    </div>
-                    <div className="col-md-3 text-right pr-0">
-                      <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
-                        $32
-                      </p>
-                    </div>
-                  </div>
+                  )}
                 </div>
 
                 <hr
@@ -255,7 +260,7 @@ const Checkout = (props) => {
                     </div>
                     <div className="col-md-5 pl-0 text-right">
                       <p className="text-success-s2 my-0 font-weight-bold">
-                        $47
+                        ${props.subTotalPrice}
                       </p>
                       <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
                         $5
@@ -278,7 +283,7 @@ const Checkout = (props) => {
                     </div>
                     <div className="col-md-5 pl-0 text-right">
                       <h5 className="text-success-s2 my-0 font-weight-bold">
-                        $52
+                        ${props.subTotalPrice + 5}
                       </h5>
                     </div>
                   </div>
@@ -289,9 +294,10 @@ const Checkout = (props) => {
                     <input
                       class="form-check-input"
                       type="radio"
-                      name="exampleRadios"
+                      name="payment"
                       id="exampleRadios1"
-                      value="option1"
+                      value="Direct Bank Transfer"
+                      onChange={handleInputCheckoutChange}
                     />
                     <label
                       class="form-check-label font-weight-bold"
@@ -313,9 +319,10 @@ const Checkout = (props) => {
                     <input
                       class="form-check-input"
                       type="radio"
-                      name="exampleRadios"
+                      name="payment"
                       id="exampleRadios1"
-                      value="option1"
+                      value="Cash on Delivery"
+                      onChange={handleInputCheckoutChange}
                     />
                     <label
                       class="form-check-label font-weight-bold"
@@ -335,6 +342,7 @@ const Checkout = (props) => {
                       type="checkbox"
                       class="form-check-input"
                       id="exampleCheck1"
+                      required
                     />
                     <label
                       style={{ fontSize: "0.75rem" }}
@@ -364,6 +372,14 @@ const Checkout = (props) => {
   );
 };
 const mapStateToProps = (state) => {
+  var dataCart = state.UserReducer.dataCart;
+  var subTotalPrice = 0;
+  var i;
+  // selama i lebih kecil dari banyaknya array di datacart, dia bakal tambah terus.
+  for (i = 0; i < dataCart.length; i++) {
+    // += itu smacam kalkulator untuk tambah terus. Jadi subtotal yang awalnya 0 di render prtama jadi $10, nah habis render lgi $10 + $10 lagi jadi $20.
+    subTotalPrice += dataCart[i].qtyBuy * dataCart[i].price;
+  }
   return {
     dataCart: state.UserReducer.dataCart,
   };
