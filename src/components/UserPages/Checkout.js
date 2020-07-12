@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 import logo from "../../assets/logo.png";
 import "../Checkout.css";
 
@@ -26,6 +27,24 @@ const Checkout = (props) => {
   };
   console.log(dataInputCheckout);
 
+  const unavailableAlert = () =>
+    toast.error(
+      "Sorry,for now we are unavailable for direct bank transfer. You can try with cash on delivery.",
+      {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+      }
+    );
+
+  const handleCheckoutSubmit = (event) => {
+    event.preventDefault();
+    if (dataInputCheckout.payment === "Direct Bank Transfer") {
+      unavailableAlert();
+    } else {
+      console.log(dataInputCheckout);
+    }
+  };
+
   return (
     <div
       style={{
@@ -33,6 +52,7 @@ const Checkout = (props) => {
         backgroundColor: "#f8f9fa",
       }}
     >
+      <ToastContainer />
       <nav
         id="top"
         className="navbar fixed-top navbar-expand-lg navbar-light bg-light"
@@ -68,7 +88,7 @@ const Checkout = (props) => {
       </nav>
 
       <div style={{ paddingTop: "5rem" }} className="mx-5">
-        <form>
+        <form onSubmit={handleCheckoutSubmit}>
           <div className="row">
             <div className="col-md-7 pr-3">
               <div className="checkout-div-1">
@@ -237,8 +257,9 @@ const Checkout = (props) => {
                   ) : (
                     <div>
                       <h6 className="my-0">
-                        There are no any product here, try to reopen this app.
-                      </h6>{" "}
+                        It seems you've just reloaded this page, try to reopen
+                        this website.
+                      </h6>
                     </div>
                   )}
                 </div>
@@ -298,6 +319,7 @@ const Checkout = (props) => {
                       id="exampleRadios1"
                       value="Direct Bank Transfer"
                       onChange={handleInputCheckoutChange}
+                      checked
                     />
                     <label
                       class="form-check-label font-weight-bold"
@@ -380,8 +402,11 @@ const mapStateToProps = (state) => {
     // += itu smacam kalkulator untuk tambah terus. Jadi subtotal yang awalnya 0 di render prtama jadi $10, nah habis render lgi $10 + $10 lagi jadi $20.
     subTotalPrice += dataCart[i].qtyBuy * dataCart[i].price;
   }
+  console.log(subTotalPrice);
+
   return {
     dataCart: state.UserReducer.dataCart,
+    subTotalPrice: subTotalPrice,
   };
 };
 
