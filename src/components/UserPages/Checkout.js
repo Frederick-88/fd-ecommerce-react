@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import logo from "../../assets/logo.png";
+
+import CheckoutModal from "./CheckoutModal";
 import "../Checkout.css";
 
 const Checkout = (props) => {
-  console.log(props.dataCart);
+  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const [dataInputCheckout, setDataInputCheckout] = useState({
     firstName: "",
     lastName: "",
@@ -42,7 +44,12 @@ const Checkout = (props) => {
       unavailableAlert();
     } else {
       console.log(dataInputCheckout);
+      setShowCheckoutModal(true);
     }
+  };
+
+  const unDisplayCheckoutModal = (boolean) => {
+    setShowCheckoutModal(false);
   };
 
   return (
@@ -390,6 +397,11 @@ const Checkout = (props) => {
           </div>
         </form>
       </div>
+      <CheckoutModal
+        showCheckoutModal={showCheckoutModal}
+        unDisplayCheckoutModal={unDisplayCheckoutModal}
+        dataInputCheckout={dataInputCheckout}
+      />
     </div>
   );
 };
@@ -402,7 +414,6 @@ const mapStateToProps = (state) => {
     // += itu smacam kalkulator untuk tambah terus. Jadi subtotal yang awalnya 0 di render prtama jadi $10, nah habis render lgi $10 + $10 lagi jadi $20.
     subTotalPrice += dataCart[i].qtyBuy * dataCart[i].price;
   }
-  console.log(subTotalPrice);
 
   return {
     dataCart: state.UserReducer.dataCart,
