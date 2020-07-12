@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
@@ -6,6 +6,24 @@ import "../Checkout.css";
 
 const Checkout = (props) => {
   console.log(props.dataCart);
+  const [dataInputCheckout, setDataInputCheckout] = useState({
+    firstName: "",
+    lastName: "",
+    emailAddress: "",
+    country: "",
+    city: "",
+    address: "",
+    phoneNumber: "",
+    postalCode: "",
+  });
+
+  const handleInputCheckoutChange = (event) => {
+    setDataInputCheckout({
+      ...dataInputCheckout,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
+  console.log(dataInputCheckout);
 
   return (
     <div
@@ -66,6 +84,7 @@ const Checkout = (props) => {
                       type="text"
                       class="form-control"
                       placeholder="First Name"
+                      onChange={handleInputCheckoutChange}
                       required
                     />
                   </div>
@@ -77,6 +96,7 @@ const Checkout = (props) => {
                       type="text"
                       class="form-control"
                       placeholder="Last Name"
+                      onChange={handleInputCheckoutChange}
                       required
                     />
                   </div>
@@ -90,6 +110,8 @@ const Checkout = (props) => {
                     type="text"
                     class="form-control"
                     placeholder="Email address"
+                    onChange={handleInputCheckoutChange}
+                    required
                   />
                 </div>
 
@@ -102,6 +124,8 @@ const Checkout = (props) => {
                       type="text"
                       class="form-control"
                       placeholder="Country"
+                      onChange={handleInputCheckoutChange}
+                      required
                     />
                   </div>
                   <div class="form-group col-md-6 pl-3">
@@ -112,6 +136,8 @@ const Checkout = (props) => {
                       type="text"
                       class="form-control"
                       placeholder="Town/City"
+                      onChange={handleInputCheckoutChange}
+                      required
                     />
                   </div>
                 </div>
@@ -123,6 +149,8 @@ const Checkout = (props) => {
                     type="text"
                     class="form-control"
                     placeholder="Address"
+                    onChange={handleInputCheckoutChange}
+                    required
                   />
                 </div>
                 <div class="form-group">
@@ -133,6 +161,8 @@ const Checkout = (props) => {
                     type="number"
                     class="form-control"
                     placeholder="Phone Number"
+                    onChange={handleInputCheckoutChange}
+                    required
                   />
                 </div>
                 <div class="form-group">
@@ -143,6 +173,8 @@ const Checkout = (props) => {
                     type="text"
                     class="form-control"
                     placeholder="Postal Code"
+                    onChange={handleInputCheckoutChange}
+                    required
                   />
                 </div>
               </div>
