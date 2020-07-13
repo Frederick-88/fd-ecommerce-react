@@ -33,7 +33,7 @@ const AdminUsers = (props) => {
         <Modal.Header closeButton>
           <Modal.Title>
             <p>
-              Are you sure want to delete this user with the name of{" "}
+              Are you sure want to delete this user with the name of
               <span className="text-success-s2">"{dataDelete.username}"</span> ?
             </p>
           </Modal.Title>

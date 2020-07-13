@@ -379,7 +379,7 @@ const Checkout = (props) => {
                       htmlFor="exampleCheck1"
                     >
                       I have read and agree to the website{" "}
-                      <b className="text-success-s2">terms and conditions</b>{" "}
+                      <b className="text-success-s2">terms and conditions</b>
                       <span className="text-danger h6 my-0">*</span>
                     </label>
                   </div>
@@ -401,6 +401,7 @@ const Checkout = (props) => {
         showCheckoutModal={showCheckoutModal}
         unDisplayCheckoutModal={unDisplayCheckoutModal}
         dataInputCheckout={dataInputCheckout}
+        subTotalPrice={props.subTotalPrice}
       />
     </div>
   );

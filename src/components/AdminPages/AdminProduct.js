@@ -76,7 +76,7 @@ const AdminProduct = (props) => {
         <Modal.Header closeButton>
           <Modal.Title>
             <p>
-              Are you sure want to delete this product with the name of{" "}
+              Are you sure want to delete this product with the name of
               <span className="text-success-s2">"{dataDelete.name}"</span> ?
             </p>
           </Modal.Title>
