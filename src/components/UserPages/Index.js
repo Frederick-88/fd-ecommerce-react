@@ -35,7 +35,6 @@ const Index = (props) => {
   const openLoginModal = () => {
     setShowLoginModal(true);
     // cause warning but needed to stop logout alert shows 2 times.
-    props.toastifyNotifData.show = false;
   };
 
   const closeLoginModal = (boolean) => {
@@ -326,7 +325,6 @@ const Index = (props) => {
 const mapStateToProps = (state) => {
   return {
     tokenUser: state.LoginReducer.tokenUser,
-    toastifyNotifData: state.LoginReducer.toastifyNotif,
     dataCart: state.UserReducer.dataCart,
   };
 };

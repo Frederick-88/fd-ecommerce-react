@@ -114,28 +114,28 @@ const Checkout = (props) => {
                   BILLING DETAILS
                 </h4>
 
-                <div class="form-row">
-                  <div class="form-group col-md-6 pr-3">
+                <div className="form-row">
+                  <div className="form-group col-md-6 pr-3">
                     <p className="checkout-txt">
                       First Name <span className="text-danger">*</span>
                     </p>
                     <input
                       type="text"
                       name="firstName"
-                      class="form-control"
+                      className="form-control"
                       placeholder="First Name"
                       onChange={handleInputCheckoutChange}
                       required
                     />
                   </div>
-                  <div class="form-group col-md-6 pl-3">
+                  <div className="form-group col-md-6 pl-3">
                     <p className="checkout-txt">
                       Last Name <span className="text-danger">*</span>
                     </p>
                     <input
                       type="text"
                       name="lastName"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Last Name"
                       onChange={handleInputCheckoutChange}
                       required
@@ -143,82 +143,82 @@ const Checkout = (props) => {
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div className="form-group">
                   <p className="checkout-txt">
                     Email Address <span className="text-danger">*</span>
                   </p>
                   <input
                     type="text"
                     name="emailAddress"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Email address"
                     onChange={handleInputCheckoutChange}
                     required
                   />
                 </div>
 
-                <div class="form-row">
-                  <div class="form-group col-md-6 pr-3">
+                <div className="form-row">
+                  <div className="form-group col-md-6 pr-3">
                     <p className="checkout-txt">
                       Country <span className="text-danger">*</span>
                     </p>
                     <input
                       type="text"
                       name="country"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Country"
                       onChange={handleInputCheckoutChange}
                       required
                     />
                   </div>
-                  <div class="form-group col-md-6 pl-3">
+                  <div className="form-group col-md-6 pl-3">
                     <p className="checkout-txt">
                       Town/City <span className="text-danger">*</span>
                     </p>
                     <input
                       type="text"
                       name="city"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Town/City"
                       onChange={handleInputCheckoutChange}
                       required
                     />
                   </div>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <p className="checkout-txt">
                     Address <span className="text-danger">*</span>
                   </p>
                   <input
                     type="text"
                     name="address"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Address"
                     onChange={handleInputCheckoutChange}
                     required
                   />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <p className="checkout-txt">
                     Phone Number <span className="text-danger">*</span>
                   </p>
                   <input
                     type="number"
                     name="phoneNumber"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Phone Number"
                     onChange={handleInputCheckoutChange}
                     required
                   />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <p className="checkout-txt">
                     Postal Code <span className="text-danger">*</span>
                   </p>
                   <input
                     type="text"
                     name="postalCode"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Postal Code"
                     onChange={handleInputCheckoutChange}
                     required
@@ -329,9 +329,9 @@ const Checkout = (props) => {
                 </div>
 
                 <div className="mt-4">
-                  <div class="form-check">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="payment"
                       id="exampleRadios1"
@@ -340,7 +340,7 @@ const Checkout = (props) => {
                       checked
                     />
                     <label
-                      class="form-check-label font-weight-bold"
+                      className="form-check-label font-weight-bold"
                       htmlFor="exampleRadios1"
                     >
                       Direct Bank Transfer
@@ -355,9 +355,9 @@ const Checkout = (props) => {
                     </div>
                   </div>
 
-                  <div class="form-check mt-2">
+                  <div className="form-check mt-2">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="payment"
                       id="exampleRadios1"
@@ -365,7 +365,7 @@ const Checkout = (props) => {
                       onChange={handleInputCheckoutChange}
                     />
                     <label
-                      class="form-check-label font-weight-bold"
+                      className="form-check-label font-weight-bold"
                       htmlFor="exampleRadios1"
                     >
                       Cash On Delivery
@@ -377,16 +377,16 @@ const Checkout = (props) => {
                     </div>
                   </div>
 
-                  <div class="form-check">
+                  <div className="form-check">
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      className="form-check-input"
                       id="exampleCheck1"
                       required
                     />
                     <label
                       style={{ fontSize: "0.75rem" }}
-                      class="form-check-label "
+                      className="form-check-label "
                       htmlFor="exampleCheck1"
                     >
                       I have read and agree to the website{" "}
@@ -398,7 +398,7 @@ const Checkout = (props) => {
 
                 <button
                   type="submit"
-                  class="btn btn-success w-100 py-3 mt-4"
+                  className="btn btn-success w-100 py-3 mt-4"
                   style={{ borderRadius: "0" }}
                 >
                   PLACE ORDER

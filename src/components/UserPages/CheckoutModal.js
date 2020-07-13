@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
 import jwt from "jwt-decode";

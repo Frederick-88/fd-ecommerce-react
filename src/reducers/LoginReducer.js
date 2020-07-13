@@ -9,12 +9,6 @@ const initialState = {
     message: "",
     variant: "light",
   },
-  // only for the homepage(user)
-  toastifyNotif: {
-    show: false,
-    message: "",
-    variant: "",
-  },
   // only for register success
   registerSuccessToastifyNotif: {
     show: false,
@@ -67,10 +61,6 @@ const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         tokenUser: action.payload,
-        toastifyNotif: {
-          show: true,
-          variant: "success",
-        },
       };
 
     case "REGISTER_USER_SUCCESS":
@@ -110,10 +100,6 @@ const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         tokenUser: "",
-        toastifyNotif: {
-          show: true,
-          variant: "danger",
-        },
       };
 
     default:
