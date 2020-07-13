@@ -107,15 +107,11 @@ const Cart = (props) => {
                           {item.name}
                         </h6>
                         <small className="my-0 text-secondary">
-                          Color: <b>Light Gray</b>
-                        </small>
-                        <br />
-                        <small className="my-0 text-secondary">
-                          Size: <b>XL</b>
-                        </small>
-                        <br />
-                        <small className="my-0 text-secondary">
                           Type: <b>{item.productType}</b>
+                        </small>
+                        <br />
+                        <small className="my-0 text-secondary">
+                          Gender: <b>{item.productGender}</b>
                         </small>
                       </div>
                     </td>
