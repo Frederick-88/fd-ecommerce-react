@@ -34,7 +34,7 @@ const Checkout = (props) => {
       "Sorry,for now we are unavailable for direct bank transfer. You can try with cash on delivery.",
       {
         position: toast.POSITION.TOP_CENTER,
-        autoClose: 3000,
+        autoClose: 6000,
       }
     );
 
@@ -49,7 +49,18 @@ const Checkout = (props) => {
   };
 
   const unDisplayCheckoutModal = (boolean) => {
-    setShowCheckoutModal(false);
+    setShowCheckoutModal(boolean);
+    setDataInputCheckout({
+      firstName: "",
+      lastName: "",
+      emailAddress: "",
+      country: "",
+      city: "",
+      address: "",
+      phoneNumber: "",
+      postalCode: "",
+      payment: "Direct Bank Transfer",
+    });
   };
 
   return (

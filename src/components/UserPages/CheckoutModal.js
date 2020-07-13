@@ -5,10 +5,6 @@ import jwt from "jwt-decode";
 import { Modal } from "react-bootstrap";
 
 const CheckoutModal = (props) => {
-  console.log(props.dataCart);
-  console.log(props.dataInputCheckout);
-  console.log(props.subTotalPrice);
-
   const monthNames = [
     "January",
     "February",
@@ -32,7 +28,6 @@ const CheckoutModal = (props) => {
     date.getFullYear();
 
   const userData = jwt(localStorage.getItem("token-user"));
-  console.log(userData.username);
 
   const closeCheckoutModal = () => {
     props.unDisplayCheckoutModal(false);
@@ -111,8 +106,9 @@ const CheckoutModal = (props) => {
             <p>
               Location:{" "}
               <b>
-                {props.dataInputCheckout.address},{props.dataInputCheckout.city}
-                , {props.dataInputCheckout.country}
+                {props.dataInputCheckout.address},{" "}
+                {props.dataInputCheckout.city},{" "}
+                {props.dataInputCheckout.country}
               </b>
             </p>
             <p className="my-0">Product :</p>
