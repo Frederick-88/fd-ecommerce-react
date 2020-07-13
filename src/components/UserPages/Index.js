@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import jwt from "jwt-decode";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import mainBg from "../../assets/mainBackground.png";
@@ -21,27 +22,8 @@ const Index = (props) => {
     setNavLoginSuccess(boolean);
   };
 
-  // CustomId = only can show 1.
-  const customId = "custom-id-yes";
-  const variant = props.toastifyNotifData.variant;
-  const SuccessLoginAlert = () => {
-    if (variant === "success") {
-      toast.success(`${props.toastifyNotifData.message}`, {
-        position: toast.POSITION.TOP_CENTER,
-        toastId: customId,
-      });
-    } else {
-      toast.error(`${props.toastifyNotifData.message}`, {
-        position: toast.POSITION.TOP_CENTER,
-        toastId: customId,
-      });
-    }
-  };
-
-  // ToastContainer = <AlertDismissable/> in React Bootstrap
-
-  if (props.toastifyNotifData.show) {
-    SuccessLoginAlert();
+  if (localStorage.getItem("token-user")) {
+    var userData = jwt(localStorage.getItem("token-user"));
   }
 
   const noLoginCartNotification = () => {
@@ -126,7 +108,7 @@ const Index = (props) => {
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        Hello, Chen Frederick
+                        Hello, {userData.username}
                       </button>
                       <div className="dropdown-menu">
                         <button className="dropdown-item text-success-s2">

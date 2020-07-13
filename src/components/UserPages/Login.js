@@ -121,7 +121,6 @@ const Login = (props) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ padding: "2rem 4rem" }}>
-          <ToastContainer />
           {loginDisplay ? (
             <Modal.Title>
               <div className="text-center">

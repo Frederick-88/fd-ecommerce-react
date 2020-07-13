@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 const initialState = {
   // if after login token haven't got from reducer, we can make condition to transfer the token with action.payload if they can't get
   tokenAdmin: localStorage.getItem("token-admin"),
@@ -60,12 +61,14 @@ const loginReducer = (state = initialState, action) => {
 
     case "LOGIN_USER_SUCCESS":
       localStorage.setItem("token-user", action.payload);
+      toast.success("You've successfully login!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return {
         ...state,
         tokenUser: action.payload,
         toastifyNotif: {
           show: true,
-          message: "You've successfully login! ",
           variant: "success",
         },
       };
@@ -101,12 +104,14 @@ const loginReducer = (state = initialState, action) => {
 
     case "LOGOUT_USER":
       localStorage.removeItem("token-user");
+      toast.error("You've successfully logout!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return {
         ...state,
         tokenUser: "",
         toastifyNotif: {
           show: true,
-          message: "You've successfully logout!",
           variant: "danger",
         },
       };
