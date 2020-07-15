@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import logo from "../../assets/logo.png";
@@ -43,24 +43,15 @@ const Checkout = (props) => {
     if (dataInputCheckout.payment === "Direct Bank Transfer") {
       unavailableAlert();
     } else {
-      console.log(dataInputCheckout);
       setShowCheckoutModal(true);
     }
   };
 
+  const history = useHistory();
   const unDisplayCheckoutModal = (boolean) => {
     setShowCheckoutModal(boolean);
-    setDataInputCheckout({
-      firstName: "",
-      lastName: "",
-      emailAddress: "",
-      country: "",
-      city: "",
-      address: "",
-      phoneNumber: "",
-      postalCode: "",
-      payment: "Direct Bank Transfer",
-    });
+    // take back user to home page
+    history.push("/");
   };
 
   return (
@@ -337,7 +328,6 @@ const Checkout = (props) => {
                       id="exampleRadios1"
                       value="Direct Bank Transfer"
                       onChange={handleInputCheckoutChange}
-                      checked
                     />
                     <label
                       className="form-check-label font-weight-bold"
