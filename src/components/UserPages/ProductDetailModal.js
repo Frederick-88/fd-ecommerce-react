@@ -133,18 +133,18 @@ const ProductDetailModal = (props) => {
               </button>
 
               <div className="d-flex d-row">
-                <button
-                  className="btn"
+                <div
+                  className="px-3 py-2"
                   style={{ borderRadius: "7px", backgroundColor: "#dedede" }}
                 >
                   {props.dataProduct.productGender}
-                </button>
-                <button
-                  className="btn ml-3"
+                </div>
+                <div
+                  className="px-3 py-2 ml-3"
                   style={{ borderRadius: "7px", backgroundColor: "#dedede" }}
                 >
                   {props.dataProduct.productType}
-                </button>
+                </div>
               </div>
             </div>
           </div>
