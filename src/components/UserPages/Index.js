@@ -17,6 +17,8 @@ import { userLogout } from "../../actionCreators/LoginAction";
 const Index = (props) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [NavLoginSuccess, setNavLoginSuccess] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const [submitSearch, setSubmitSearch] = useState(false);
 
   const loginSuccess = (boolean) => {
     setNavLoginSuccess(boolean);
@@ -30,6 +32,22 @@ const Index = (props) => {
     toast.error("Please login first to continue.", {
       position: toast.POSITION.TOP_CENTER,
     });
+  };
+
+  const searchNotification = () => {
+    toast.success("Discover the clothe that you search below.", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
+  const handleSearchInput = (event) => {
+    let { value } = event.currentTarget;
+    setSearchInput(value);
+  };
+
+  const handleSearchSubmit = () => {
+    setSubmitSearch(true);
+    searchNotification();
   };
 
   const openLoginModal = () => {
@@ -154,14 +172,15 @@ const Index = (props) => {
               type="text"
               className="form-control py-4"
               placeholder="Search the fashion name that you want here"
-              aria-label="Recipient's username"
-              aria-describedby="button-addon2"
+              name="searchinput"
+              onChange={handleSearchInput}
             />
             <div className="input-group-append">
               <button
                 className="btn btn-success px-4"
                 type="button"
                 id="button-addon2"
+                onClick={handleSearchSubmit}
               >
                 <i className="fas fa-search"></i>
               </button>
@@ -238,7 +257,10 @@ const Index = (props) => {
           </div>
 
           <div className="col-md-9">
-            <ProductField />
+            <ProductField
+              searchInput={searchInput}
+              submitSearch={submitSearch}
+            />
           </div>
         </div>
       </div>

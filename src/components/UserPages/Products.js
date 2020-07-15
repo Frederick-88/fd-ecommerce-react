@@ -7,6 +7,9 @@ import Loader from "./Loader";
 import { getDataProduct, addItemToCart } from "../../actionCreators/UserAction";
 
 const Products = (props) => {
+  console.log(props.searchInput);
+  console.log(props.submitSearch);
+
   const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [dataProduct, setDataProduct] = useState({});
@@ -41,6 +44,25 @@ const Products = (props) => {
   var start = 0;
   var arrayDataProduct = Array.from(props.dataProduct).slice(start, limit);
   var lengthOfDataProduct = props.dataProduct.length;
+
+  // search function
+  if (props.submitSearch) {
+    var filteredDataProduct = [];
+    var filteredDataProduct = arrayDataProduct.filter((item) => {
+      var nameLowercase = item.name.toLowerCase();
+      var searchInputLowercase = props.searchInput.toLowerCase();
+      console.log(nameLowercase.includes(searchInputLowercase));
+
+      if (nameLowercase.includes(searchInputLowercase)) {
+        console.log(item);
+        return item;
+      } else {
+        return false;
+      }
+    });
+    console.log(filteredDataProduct);
+    arrayDataProduct = filteredDataProduct;
+  }
 
   const seeMoreFunction = () => {
     setLimit(limit + 3);
