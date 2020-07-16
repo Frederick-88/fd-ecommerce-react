@@ -105,7 +105,7 @@ body {
 }
 /* div = the image */
 .product-showdetail:hover .card-img-top {
-  opacity: 65% !important;
+  opacity: 0.65 !important;
   transition: 0.2s;
 }
 .product-showdetail:hover h3 {
