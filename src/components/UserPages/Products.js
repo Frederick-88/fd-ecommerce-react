@@ -46,7 +46,7 @@ const Products = (props) => {
   // search function
   if (props.submitSearch) {
     var filteredDataProduct = [];
-    var filteredDataProduct = props.dataProduct.filter((item) => {
+    filteredDataProduct = props.dataProduct.filter((item) => {
       var nameLowercase = item.name.toLowerCase();
       var searchInputLowercase = props.searchInput.toLowerCase();
 

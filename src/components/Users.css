@@ -51,6 +51,9 @@
 .dropdown-toggle::after {
   margin-left: 1em !important;
 }
+.dropdown-item:active {
+  background-color: #cfcfcf !important;
+}
 .navbar {
   padding: 0.25rem 0rem !important;
 }

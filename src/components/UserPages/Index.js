@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import Carousel from "./Carousel";
 import ProductField from "./Products";
 import LoginModal from "./Login";
+import AboutPage from "./AboutDeveloper";
 import "../Users.css";
 
 import { userLogout } from "../../actionCreators/LoginAction";
@@ -19,6 +20,7 @@ const Index = (props) => {
   const [NavLoginSuccess, setNavLoginSuccess] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [submitSearch, setSubmitSearch] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
 
   const loginSuccess = (boolean) => {
     setNavLoginSuccess(boolean);
@@ -62,6 +64,14 @@ const Index = (props) => {
   const Logout = () => {
     props.userLogout();
     setNavLoginSuccess(false);
+  };
+
+  const displayAboutModal = () => {
+    setShowAbout(true);
+  };
+
+  const unDisplayAboutModal = (boolean) => {
+    setShowAbout(boolean);
   };
 
   const picture = (image) => {
@@ -128,7 +138,10 @@ const Index = (props) => {
                         Hello, {userData.username}
                       </button>
                       <div className="dropdown-menu">
-                        <button className="dropdown-item text-success-s2">
+                        <button
+                          onClick={displayAboutModal}
+                          className="dropdown-item text-success-s2"
+                        >
                           About Developer <i className="fas fa-info-circle"></i>
                         </button>
                         <button
@@ -278,6 +291,10 @@ const Index = (props) => {
         showLoginModal={showLoginModal}
         closeLoginModal={closeLoginModal}
         loginSuccess={loginSuccess}
+      />
+      <AboutPage
+        showAbout={showAbout}
+        unDisplayAboutModal={unDisplayAboutModal}
       />
       {/* Modals */}
     </div>
