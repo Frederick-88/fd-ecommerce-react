@@ -48,6 +48,15 @@
 .btn-outline-instagram:focus {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5) !important;
 }
+.btn-outline-github {
+  color: #1a1a1a;
+  border-color: #1a1a1a !important;
+}
+.btn-outline-github:hover {
+  color: whitesmoke !important;
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
 .dropdown-toggle::after {
   margin-left: 1em !important;
 }

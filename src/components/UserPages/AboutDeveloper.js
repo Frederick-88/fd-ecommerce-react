@@ -25,32 +25,47 @@ const AboutDeveloper = (props) => {
               Chen Frederick
             </h4>
             <div className="d-flex justify-content-center mt-2">
-              <button className="btn btn-outline-success mr-3">
-                <i className="fab fa-whatsapp fa-lg" />
-              </button>
-
-              <button
-                className="btn btn-outline-github rounded-circle p-2"
+              <a
+                className="btn btn-outline-github rounded-circle px-2 pt-2 mr-2"
                 style={{ width: "2.5rem", height: "2.5rem" }}
+                href="https://github.com/Frederick-88"
+                target="blank"
               >
-                <i className="fab fa-instagram fa-lg" />
-              </button>
-              <button
-                className="btn btn-outline-primary rounded-circle p-2"
+                <i className="fab fa-github" />
+              </a>
+              <a
+                className="btn btn-outline-primary rounded-circle px-2 pt-2 mr-2"
                 style={{ width: "2.5rem", height: "2.5rem" }}
+                href="https://www.linkedin.com/in/chen-frederick-1324301a8/"
+                target="blank"
               >
                 <i className="fab fa-linkedin" />
-              </button>
+              </a>
 
               <button
                 className="btn btn-outline-danger rounded-circle p-2"
-                style={{ width: "2.5rem", height: "2.5rem" }}
+                style={{ width: "2.5rem", height: "2.5rem", cursor: "default" }}
+                type="button"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Frederick@fdtech.asia"
               >
                 <i className="far fa-envelope" />
               </button>
             </div>
           </div>
-          Ini adalah about developer
+          <p className="mt-3 text-justify text-secondary">
+            Frederick is an enthusiastic and passionate person who empower
+            learning and hardwork is the key to deliver quality in advance, So
+            he always give maximum effort in his works.
+            <br />
+            <br />
+            He is a MERN Fullstack Javascript Developer who thrives in
+            fast-paced environment, keen to learn and pay attention to detail.
+            Recently, he is focusing to develop his skills as a Fullstack
+            Developer and continuing to sharpen & improve more skills to be a
+            better Developer and deliver better quality to society.
+          </p>
         </div>
       </Modal.Body>
     </Modal>
