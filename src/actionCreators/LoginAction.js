@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
+const url = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
 
 export const loginAdmin = (data) => {
   return async (dispatch) => {

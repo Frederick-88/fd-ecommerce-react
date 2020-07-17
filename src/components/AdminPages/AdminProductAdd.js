@@ -48,6 +48,15 @@ const AdminProductAdd = (props) => {
   const handleSubmitAdd = (event) => {
     event.preventDefault();
     props.addDataProduct(FormAddData, dataAddInput);
+    setDataAddInput({
+      image: null,
+      name: "",
+      price: "",
+      description: "",
+      quantity: "",
+      productGender: "man",
+      productType: "tops",
+    });
     props.unDisplayAddModal(false);
   };
 

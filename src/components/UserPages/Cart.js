@@ -13,7 +13,7 @@ import {
 } from "../../actionCreators/UserAction";
 
 const Cart = (props) => {
-  const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
+  const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
 
   const addQuantity = (id) => {
     props.increaseQtyBuy(id);

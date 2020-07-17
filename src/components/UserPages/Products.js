@@ -8,7 +8,7 @@ import Pic404 from "../../assets/404.png";
 import { getDataProduct, addItemToCart } from "../../actionCreators/UserAction";
 
 const Products = (props) => {
-  const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
+  const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [dataProduct, setDataProduct] = useState({});
   const [limit, setLimit] = useState(5);

@@ -10,7 +10,7 @@ import EditProductModal from "./AdminProductEdit";
 import AddProductModal from "./AdminProductAdd";
 
 const AdminProduct = (props) => {
-  const urlLocalhost = `${process.env.REACT_APP_LOCALHOST_BACKEND_URL}`;
+  const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
 
   const picture = (image) => {
     return {
