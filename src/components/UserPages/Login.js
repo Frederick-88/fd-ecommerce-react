@@ -303,12 +303,12 @@ const Login = (props) => {
 
                     <p
                       className="text-secondary"
-                      style={{ fontSize: "0.8rem", margin: "0.7rem 0rem" }}
+                      style={{ fontSize: "0.75rem", margin: "0.7rem 0rem" }}
                     >
                       By signing up, you agree to S2 Boutique's
                       <button
                         className="btn btn-link p-0 ml-1"
-                        style={{ fontSize: "0.8rem" }}
+                        style={{ fontSize: "0.75rem" }}
                       >
                         Terms and Conditions
                       </button>

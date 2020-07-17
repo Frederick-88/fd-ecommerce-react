@@ -89,7 +89,12 @@ const Index = (props) => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        fontFamily: "Karla,sans-serif",
+        backgroundColor: "#f8f9fa",
+      }}
+    >
       {/* start header - part1 */}
       <div className="main-bg-height" style={picture(mainBg)}>
         <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">

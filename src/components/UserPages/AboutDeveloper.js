@@ -21,10 +21,13 @@ const AboutDeveloper = (props) => {
             <img src={devPic} alt="..." className="w-50 rounded-circle" />
           </div>
           <div>
-            <h4 className="mt-3 font-weight-bold text-center">
+            <h4 className="mt-3 mb-0 font-weight-bold text-center">
               Chen Frederick
             </h4>
-            <div className="d-flex justify-content-center mt-2">
+            <div className="d-flex justify-content-center">
+              <small className="text-secondary">Developer of S2 Boutique</small>
+            </div>
+            <div className="d-flex justify-content-center mt-3">
               <a
                 className="btn btn-outline-github rounded-circle px-2 pt-2 mr-2"
                 style={{ width: "2.5rem", height: "2.5rem" }}

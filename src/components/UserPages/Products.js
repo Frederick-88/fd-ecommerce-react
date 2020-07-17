@@ -64,7 +64,11 @@ const Products = (props) => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        fontFamily: "Karla,sans-serif",
+      }}
+    >
       <Loader dataProduct={props.dataProduct} />
       <div className="row">
         {arrayDataProduct.length !== 0 ? (
