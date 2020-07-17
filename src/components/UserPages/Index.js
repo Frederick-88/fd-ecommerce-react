@@ -36,6 +36,12 @@ const Index = (props) => {
     });
   };
 
+  const comingSoonNotification = () => {
+    toast.success("This Feature will coming soon, Stay tune!", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   const searchNotification = () => {
     toast.success("Discover the clothe that you search below.", {
       position: toast.POSITION.TOP_CENTER,
@@ -187,6 +193,9 @@ const Index = (props) => {
               placeholder="Search the fashion name that you want here"
               name="searchinput"
               onChange={handleSearchInput}
+              onKeyPress={(event) =>
+                event.key === "Enter" ? handleSearchSubmit() : null
+              }
             />
             <div className="input-group-append">
               <button
@@ -219,6 +228,7 @@ const Index = (props) => {
                 Gender
               </h5>
               <button
+                onClick={comingSoonNotification}
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
@@ -226,6 +236,7 @@ const Index = (props) => {
                 Man
               </button>
               <button
+                onClick={comingSoonNotification}
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
@@ -233,6 +244,7 @@ const Index = (props) => {
                 Women
               </button>
               <button
+                onClick={comingSoonNotification}
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-4"
               >
@@ -247,6 +259,7 @@ const Index = (props) => {
                 Type
               </h5>
               <button
+                onClick={comingSoonNotification}
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
@@ -254,6 +267,7 @@ const Index = (props) => {
                 Tops
               </button>
               <button
+                onClick={comingSoonNotification}
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row mb-2"
               >
@@ -261,6 +275,7 @@ const Index = (props) => {
                 Bottom
               </button>
               <button
+                onClick={comingSoonNotification}
                 type="button"
                 className="list-group-item list-group-item-action d-flex d-row"
               >

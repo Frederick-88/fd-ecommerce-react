@@ -48,6 +48,12 @@ const Login = (props) => {
     });
   };
 
+  const comingSoonNotification = () => {
+    toast.success("This Feature will coming soon, Stay tune!", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   if (props.registerSuccessToastifyNotif.show) {
     registerSuccessToastifyNotif();
   }
@@ -180,6 +186,7 @@ const Login = (props) => {
 
                   <div>
                     <button
+                      onClick={comingSoonNotification}
                       className="btn btn-primary w-100 d-flex d-row justify-content-center mb-2"
                       style={{ padding: "0.7rem 0.2rem" }}
                     >
@@ -187,6 +194,7 @@ const Login = (props) => {
                       Login with Facebook
                     </button>
                     <button
+                      onClick={comingSoonNotification}
                       className="btn btn-danger w-100 d-flex d-row justify-content-center"
                       style={{ padding: "0.7rem 0.2rem" }}
                     >
