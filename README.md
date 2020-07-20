@@ -1,27 +1,33 @@
-## Visibility Password
+### Visibility Password
 
-## Better Appearance
+### Better Appearance
 
-## Modal show without Redux
+### Modal show without Redux
 
-## React Slick with its' arrow
+### React Slick with its' arrow
 
-## Limit(See More) with Javascript
+### Limit(See More) with Javascript
 
-## Sidebar
+### Sidebar
 
-## REDUX
+### REDUX
 
-## RESPONSIVE TABLE
+### RESPONSIVE TABLE
 
-## Local Storage
+### Local Storage
 
-## Scroll Customization
+### Scroll Customization
 
-## React Slick custom-paging (Made Manual with UseState)
+### React Slick custom-paging (Made Manual with UseState)
 
-## NEXT NAVBAR HARUS COMPONENT BEDA BIAR GAMPANG
+### NEXT NAVBAR HARUS COMPONENT BEDA BIAR GAMPANG
 
-## TOASTIFY NOTIF, You can only put 1 toast container (parent only, if u put in child too, there will be 2 notification.)
+### TOASTIFY NOTIF, You can only put 1 toast container (parent only, if u put in child too, there will be 2 notification.)
 
-## TOASTIFY COMBINE WITH ACTION CREATOR & REDUCER
+### TOASTIFY COMBINE WITH ACTION CREATOR & REDUCER
+
+### Loading page
+
+### Full version
+
+### etc
