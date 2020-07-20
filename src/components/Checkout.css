@@ -11,6 +11,9 @@
   padding: 2.5rem;
   margin-bottom: 4rem;
 }
+.checkout-modal-td {
+  vertical-align: top !important;
+}
 .text-success-s2 {
   color: #009e7f;
 }

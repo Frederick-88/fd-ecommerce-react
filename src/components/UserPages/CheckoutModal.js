@@ -92,69 +92,123 @@ const CheckoutModal = (props) => {
             <h5 className="font-weight-bold text-success-s2 mb-3">
               ORDER DETAILS
             </h5>
-            <div className="d-flex d-row">
-              <p className="mr-4">
-                FirstName: <b>{props.dataInputCheckout.firstName}</b>
-              </p>
-              <p>
-                LastName: <b>{props.dataInputCheckout.lastName}</b>
-              </p>
-            </div>
-            <p>
-              Phone Number: <b>{props.dataInputCheckout.phoneNumber}</b>
-            </p>
-            <p>
-              Location:{" "}
-              <b>
-                {props.dataInputCheckout.address},{" "}
-                {props.dataInputCheckout.city},{" "}
-                {props.dataInputCheckout.country}
-              </b>
-            </p>
-            <p className="my-0">Product :</p>
-            {props.dataCart.map((item, index) => {
-              return (
-                <div className="d-flex d-row" key={index}>
-                  <div className="col-md-9 px-0">
-                    <p className="text-success-s2 mb-0 mt-1">
-                      {item.name}
-                      <span className="text-secondary font-weight-bold ml-2">
-                        × {item.qtyBuy}
-                      </span>
-                    </p>
-                  </div>
-                  <div className="col-md-3 text-right pr-0">
-                    <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
-                      ${item.price * item.qtyBuy}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-            <div className="d-flex d-row mt-3">
-              <p className="mr-4">
-                SubTotal:{" "}
-                <b className="text-success-s2 font-weight-bold">
-                  ${props.subTotalPrice}
-                </b>
-              </p>
-              <p className="mr-4">
-                Shipping:{" "}
-                <b className="text-success-s2 font-weight-bold">$5 </b>
-              </p>
-              <p>
-                Postal Code: <b>{props.dataInputCheckout.postalCode}</b>
-              </p>
-            </div>
-            <p>
-              Payment: <b>{props.dataInputCheckout.payment}</b>
-            </p>
-            <p className="font-weight-bold" style={{ fontSize: "1.1rem" }}>
-              Total:{" "}
-              <b className="text-success-s2">${props.subTotalPrice + 5}</b>
-            </p>
+            <table class="table">
+              <thead style={{ backgroundColor: "#009e7f", color: "white" }}>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Subject</th>
+                  <th scope="col">Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Firstname:</td>
+                  <td>
+                    <b>{props.dataInputCheckout.firstName}</b>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Lastname:</td>
+                  <td>
+                    <b>{props.dataInputCheckout.lastName}</b>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Phone Number:</td>
+                  <td>
+                    <b>{props.dataInputCheckout.phoneNumber}</b>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Location:</td>
+                  <td>
+                    <b>
+                      {props.dataInputCheckout.address},
+                      {props.dataInputCheckout.city},
+                      {props.dataInputCheckout.country}
+                    </b>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td className="checkout-modal-td">Product:</td>
+                  <td>
+                    {props.dataCart.map((item, index) => {
+                      return (
+                        <div className="d-flex d-row" key={index}>
+                          <div className="col-md-9 px-0">
+                            <p className="text-success-s2 mb-0 mt-1">
+                              {item.name}
+                              <span className="text-secondary font-weight-bold ml-2">
+                                × {item.qtyBuy}
+                              </span>
+                            </p>
+                          </div>
+                          <div className="col-md-3 text-right pr-0">
+                            <p className="text-success-s2 mb-0 mt-2 font-weight-bold">
+                              ${item.price * item.qtyBuy}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td> SubTotal:</td>
+                  <td>
+                    <b className="text-success-s2 font-weight-bold">
+                      ${props.subTotalPrice}
+                    </b>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">7</th>
+                  <td> Shipping:</td>
+                  <td>
+                    <b className="text-success-s2 font-weight-bold">$5 </b>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td>Postal Code:</td>
+                  <td>
+                    <b>{props.dataInputCheckout.postalCode}</b>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">9</th>
+                  <td> Payment:</td>
+                  <td>
+                    <b>{props.dataInputCheckout.payment}</b>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">10</th>
+                  <td
+                    className="font-weight-bold"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    Total:
+                  </td>
+                  <td style={{ fontSize: "1.1rem" }}>
+                    <b className="text-success-s2">
+                      ${props.subTotalPrice + 5}
+                    </b>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div className="border-top mt-4 mb-2" />
+          <div
+            className="mt-4 mb-2"
+            style={{ borderTop: "2px solid #009e7f" }}
+          />
           <div>
             <h6 className="text-success-s2 my-0">
               Thank you for being our valued customer. We are so grateful for
