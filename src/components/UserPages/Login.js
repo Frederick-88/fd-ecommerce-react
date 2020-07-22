@@ -3,8 +3,13 @@ import { toast } from "react-toastify";
 import { Modal, Alert, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import logo from "../../assets/logo.png";
+import FacebookLogin from "./FacebookButton";
 
-import { loginUser, registerUser } from "../../actionCreators/LoginAction";
+import {
+  loginUser,
+  registerUser,
+  userLoginFacebook,
+} from "../../actionCreators/LoginAction";
 
 const Login = (props) => {
   const [loginDisplay, setLoginDisplay] = useState(true);
@@ -118,6 +123,11 @@ const Login = (props) => {
     setLoginDisplay(false);
     props.registerSuccessToastifyNotif.show = false;
   };
+
+  // for facebook
+  const getDataUserFacebook = (data) => {
+    props.userLoginFacebook(data);
+  };
   return (
     <div>
       <Modal show={props.showLoginModal} onHide={closeLoginModal}>
@@ -185,15 +195,17 @@ const Login = (props) => {
                   <p style={{ fontSize: "1rem", margin: "0.7rem 0rem" }}>or</p>
 
                   <div>
-                    <button
+                    {/* <button
                       onClick={comingSoonNotification}
                       className="btn btn-primary w-100 d-flex d-row justify-content-center mb-2"
                       style={{ padding: "0.7rem 0.2rem" }}
                     >
                       <i className="fab fa-facebook-square fa-lg align-self-center mr-3" />
                       Login with Facebook
-                    </button>
+                    </button> */}
+                    <FacebookLogin getDataUserFacebook={getDataUserFacebook} />
                     <button
+                      type="button"
                       onClick={comingSoonNotification}
                       className="btn btn-danger w-100 d-flex d-row justify-content-center"
                       style={{ padding: "0.7rem 0.2rem" }}
@@ -352,6 +364,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { loginUser, registerUser };
+const mapDispatchToProps = { loginUser, registerUser, userLoginFacebook };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

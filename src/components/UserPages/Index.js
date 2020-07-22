@@ -146,7 +146,7 @@ const Index = (props) => {
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        Hello, {userData.username}
+                        {`Hello, ${userData.username}`}
                       </button>
                       <div className="dropdown-menu">
                         <button

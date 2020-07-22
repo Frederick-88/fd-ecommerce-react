@@ -3,6 +3,7 @@ const initialState = {
   // if after login token haven't got from reducer, we can make condition to transfer the token with action.payload if they can't get
   tokenAdmin: localStorage.getItem("token-admin"),
   tokenUser: localStorage.getItem("token-user"),
+
   // alert for login feedbacks
   alert: {
     show: false,
