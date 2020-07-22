@@ -63,6 +63,11 @@
 .dropdown-item:active {
   background-color: #cfcfcf !important;
 }
+.facebook-button {
+  width: 100%;
+  padding: 0.7rem 0.2rem !important;
+  margin-bottom: 0.6rem;
+}
 .navbar {
   padding: 0.25rem 0rem !important;
 }

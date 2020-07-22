@@ -47,15 +47,13 @@ class Facebook extends Component {
     } else {
       fbContent = (
         <FacebookLogin
-          cssClass="btn btn-primary w-100 py-2 mb-2"
+          cssClass="btn btn-primary facebook-button"
           appId="280111876594452"
           autoLoad={false}
           fields="name,email,picture"
           onClick={this.componentClicked}
           callback={this.responseFacebook}
-        >
-          <i className="fab fa-google fa-lg text-white mr-3" />
-        </FacebookLogin>
+        />
       );
     }
 
