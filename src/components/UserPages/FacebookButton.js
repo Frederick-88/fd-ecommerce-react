@@ -48,6 +48,7 @@ class Facebook extends Component {
       fbContent = (
         <FacebookLogin
           cssClass="btn btn-primary facebook-button"
+          // based on your id in facebook developers website, just go to "your app navbar".
           appId="280111876594452"
           autoLoad={false}
           fields="name,email,picture"

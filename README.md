@@ -4,6 +4,8 @@
 
 ### Modal show without Redux
 
+### Login with Facebook.
+
 ### React Slick with its' arrow
 
 ### Limit(See More) with Javascript
