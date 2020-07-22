@@ -78,7 +78,7 @@ const Footer = () => {
               type="email"
               className="form-control"
               name="emailUser"
-              placeholder="Your Gmail/Whatsapp"
+              placeholder="Your Gmail/Email"
               onChange={handleUserSendEmailInput}
             />
             <div className="input-group-append">
