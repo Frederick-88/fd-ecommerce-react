@@ -117,7 +117,7 @@ const CheckoutModal = (props) => {
                 </tr>
                 <tr>
                   <th scope="row">3</th>
-                  <td>Phone Numbear:</td>
+                  <td>Phone Number:</td>
                   <td>
                     <b>{props.dataInputCheckout.phoneNumber}</b>
                   </td>
