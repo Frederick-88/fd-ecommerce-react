@@ -196,7 +196,7 @@ const Cart = (props) => {
                       className="btn btn-outline-success mt-4"
                       to="/checkout"
                     >
-                      PROCEED TO CHECKOUT <i className="fas fa-print"></i>
+                      PROCEED TO CHECKOUTa <i className="fas fa-print"></i>
                     </Link>
                   ) : (
                     <button className="btn btn-outline-success mt-4" disabled>
