@@ -164,7 +164,7 @@ const Cart = (props) => {
         {props.dataCart.length === 0 ? (
           <div>
             <h3 className="my-0 text-secondary text-center">
-              The cart is still empty, let's searach something cool in the shop!
+              The cart is still empty, let's search something cool in the shop!
             </h3>
           </div>
         ) : (
