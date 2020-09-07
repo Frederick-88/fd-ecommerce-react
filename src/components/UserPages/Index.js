@@ -304,7 +304,7 @@ const Index = (props) => {
       {/* Footer */}
       <hr className="horizontal-line" />
       <Footer />
-      {/* Footaer */}
+      {/* Footer */}
 
       {/* Modals */}
       <LoginModal
