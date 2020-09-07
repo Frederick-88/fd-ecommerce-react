@@ -48,7 +48,8 @@ const CheckoutModal = (props) => {
               className=" p-3 text-center text-success-s2"
               style={{ border: "2.5px dashed #009e7f" }}
             >
-              Thankyou <b>{userData.username}</b>, your order has been received.
+              Thankyou <b>{userData.username}</b>, your order has been
+              receivaed.
             </p>
           </div>
           <div className="d-flex justify-content-center mt-4">
