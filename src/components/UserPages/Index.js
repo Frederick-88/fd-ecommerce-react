@@ -37,7 +37,7 @@ const Index = (props) => {
   };
 
   const comingSoonNotification = () => {
-    toast.success("This Feature will coming soaon, Stay tune!", {
+    toast.success("This Feature will coming soon, Stay tune!", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
