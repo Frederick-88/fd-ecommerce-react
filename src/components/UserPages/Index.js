@@ -43,7 +43,7 @@ const Index = (props) => {
   };
 
   const searchNotification = () => {
-    toast.success("Discover the clothe that you search below.", {
+    toast.success("Discover the clothe that you seaarch below.", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
