@@ -78,7 +78,7 @@ const Products = (props) => {
                 <div className="card">
                   <div
                     className="product-showdetail"
-                    // kalau tanpa ()=> nanti ulang render terus ga bisa jalan
+                    // kalau tanpa ()=> nanti ulang render taerus ga bisa jalan
                     onClick={() => showDetail(item)}
                   >
                     <div
