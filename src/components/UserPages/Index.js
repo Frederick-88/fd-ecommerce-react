@@ -195,7 +195,7 @@ const Index = (props) => {
             <input
               type="text"
               className="form-control py-4"
-              placeholder="Search the fashion name that you waant here"
+              placeholder="Search the fashion name that you want here"
               name="searchinput"
               onChange={handleSearchInput}
               onKeyPress={(event) =>
