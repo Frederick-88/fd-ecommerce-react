@@ -206,7 +206,7 @@ const Index = (props) => {
               <button
                 className="btn btn-success px-4"
                 type="button"
-                id="button-addoan2"
+                id="button-addon2"
                 onClick={handleSearchSubmit}
               >
                 <i className="fas fa-search"></i>
