@@ -217,7 +217,7 @@ const Index = (props) => {
       </div>
       {/* start header - part 1 */}
 
-      {/* carousel-brochure */}
+      {/* carousel-brocahure */}
       <div className="container my-5">
         <Carousel />
       </div>
