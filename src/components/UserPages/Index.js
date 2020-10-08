@@ -185,7 +185,7 @@ const Index = (props) => {
             className="display-4 font-weight-bold text-center"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            Shop Elegant & Fantastic Fashionas!
+            Shop Elegant & Fantastic Fashions!
           </h1>
           <p className="text-center text-secondary">
             Ready to wear dresses tailored for you from online. Hurry up while
