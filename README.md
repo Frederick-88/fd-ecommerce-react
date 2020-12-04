@@ -1,34 +1,36 @@
-### Visibility Password
+### Features :
 
-### Better Appearance
+##### Visibility Password
 
-### Modal show without Redux
+##### Better Appearance
 
-### Login with Facebook.
+##### Modal show without Redux
 
-### React Slick with its' arrow
+##### Login with Facebook.
 
-### Limit(See More) with Javascript
+##### React Slick with its' arrow
 
-### Sidebar
+##### Limit(See More) with Javascript
 
-### REDUX
+##### Sidebar
 
-### RESPONSIVE TABLE
+##### REDUX
 
-### Local Storage
+##### RESPONSIVE TABLE
 
-### Scroll Customization
+##### Local Storage
 
-### React Slick custom-paging (Made Manual with UseState)
+##### Scroll Customization
 
-### NEXT NAVBAR HARUS COMPONENT BEDA BIAR GAMPANG
+##### React Slick custom-paging (Made Manual with UseState)
 
-### TOASTIFY NOTIF, You can only put 1 toast container (parent only, if u put in child too, there will be 2 notification.)
+##### NEXT NAVBAR HARUS COMPONENT BEDA BIAR GAMPANG
 
-### TOASTIFY COMBINE WITH ACTION CREATOR & REDUCER
+##### TOASTIFY NOTIF, You can only put 1 toast container (parent only, if u put in child too, there will be 2 notification.)
 
-### Loading page
+##### TOASTIFY COMBINE WITH ACTION CREATOR & REDUCER
+
+##### Loading page
 
 ### Full version
 
