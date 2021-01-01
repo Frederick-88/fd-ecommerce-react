@@ -1,6 +1,6 @@
 
 ```
-### Features :
+Features :
 
 - UI based of Best selling e-commerce in ThemeForest !!
 - React-Redux Applications
