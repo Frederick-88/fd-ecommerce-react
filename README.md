@@ -1,37 +1,16 @@
+
+```
 ### Features :
 
-##### Visibility Password
-
-##### Better Appearance
-
-##### Modal show without Redux
-
-##### Login with Facebook.
-
-##### React Slick with its' arrow
-
-##### Limit(See More) with Javascript
-
-##### Sidebar
-
-##### REDUX
-
-##### RESPONSIVE TABLE
-
-##### Local Storage
-
-##### Scroll Customization
-
-##### React Slick custom-paging (Made Manual with UseState)
-
-##### NEXT NAVBAR HARUS COMPONENT BEDA BIAR GAMPANG
-
-##### TOASTIFY NOTIF, You can only put 1 toast container (parent only, if u put in child too, there will be 2 notification.)
-
-##### TOASTIFY COMBINE WITH ACTION CREATOR & REDUCER
-
-##### Loading page
-
-### Full version
-
-### etc
+- UI based of Best selling e-commerce in ThemeForest !!
+- React-Redux Applications
+- Login with Facebook (OAUTH)
+- Local Storage Applications
+- Pagination system with Javascript
+- React Slick - Carousel JS plugin
+- Sidebar Design-Model
+- Implemented React-Toastify JS plugin for better UI/UX in giving alerts/notifications
+- Customized Scroll UI
+- Loading page
+- Responsive Table
+- etc
