@@ -1,3 +1,9 @@
+### S2-Boutique
+#### E-commerce made of fullstack development, where :
+- Frontend ( ReactJS )
+- Backend ( ExpressJS )
+- Database ( MongoDB-NOSQL )
+- Cloud ( AWS - expired 2021-Jan, currently shifting to heroku )
 
 ```
 Features :
