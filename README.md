@@ -1,5 +1,5 @@
 ### S2-Boutique
-===================
+
 #### E-commerce made of fullstack development, where :
 - Frontend ( ReactJS )
 - Backend ( ExpressJS )
