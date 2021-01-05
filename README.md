@@ -4,7 +4,7 @@
 - Frontend ( ReactJS )
 - Backend ( ExpressJS )
 - Database ( MongoDB-NOSQL )
-- Cloud ( AWS - expired 2021-Jan, currently shifting to heroku )
+- Cloud ( AWS - expired Jan2021, currently shifting to heroku )
 
 ```
 Features :
