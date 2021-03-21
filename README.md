@@ -1,5 +1,7 @@
 ## S2-Boutique
 
+Full Version of ReactJS & Redux E-Commerce made by Fullstack Development (Frontend, Backend until Deployment to AWS), Inspiration based on Best Seller E-Commerce app in theme forest (PickBazar). When user register & stored data to database, products of admin, login with Facebook, and everything was made by me. Check out this cool E-commerce!
+
 #### E-commerce made of fullstack development, where :
 - Frontend ( ReactJS )
 - Backend ( ExpressJS )
