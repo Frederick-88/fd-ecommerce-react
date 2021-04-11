@@ -8,8 +8,9 @@ Full Version of ReactJS & Redux E-Commerce made by Fullstack Development (Fronte
 - Database ( MongoDB-NOSQL )
 - Cloud ( AWS - expired Jan2021, currently shifting to heroku )
 
+#### Features :
+
 ```
-Features :
 
 - UI based of Best selling e-commerce in ThemeForest !!
 - React-Redux Applications
