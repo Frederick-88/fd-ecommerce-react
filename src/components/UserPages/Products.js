@@ -36,7 +36,7 @@ const Products = (props) => {
 
   useEffect(() => {
     props.getDataProduct();
-  }, []);
+  }, [props]);
 
   // limit configuration
   var start = 0;

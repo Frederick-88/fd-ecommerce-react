@@ -9,7 +9,7 @@ import { getDataUser, deleteUser } from "../../actionCreators/AdminAction";
 const AdminUsers = (props) => {
   useEffect(() => {
     props.getDataUser();
-  }, []);
+  }, [props]);
 
   // DELETE MODAL FORM.
   const [showDeleteModal, setShowDeleteModal] = useState(false);

@@ -24,7 +24,7 @@ const AdminProduct = (props) => {
 
   useEffect(() => {
     props.getDataProduct();
-  }, []);
+  }, [props]);
 
   // ADD MODAL FORM.
   const [showAddModal, setShowAddModal] = useState(false);
