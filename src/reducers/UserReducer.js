@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 const initialState = {
+  isProductLoading: false,
   dataProduct: [],
   dataCart: [],
   alert: {
@@ -10,6 +11,12 @@ const initialState = {
 };
 const UserReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "SET_IS_PRODUCT_LOADING":
+      return {
+        ...state,
+        isProductLoading: action.boolean,
+      };
+
     case "USER_GET_DATA_PRODUCT":
       return {
         ...state,

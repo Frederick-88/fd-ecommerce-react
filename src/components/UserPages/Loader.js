@@ -2,7 +2,7 @@ import React from "react";
 import "../Loader.css";
 
 const Loader = (props) => {
-  if (props.dataProduct.length === 0) {
+  if (props.isProductLoading) {
     return (
       <div>
         <div className="loader" />

@@ -5,6 +5,11 @@ const url = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
 
 export const getDataProduct = () => {
   return async (dispatch) => {
+    dispatch({
+      type: "SET_IS_PRODUCT_LOADING",
+      boolean: true,
+    });
+
     try {
       const response = await axios.get(`${url}/product/getproduct`);
       const output = response.data;
@@ -12,6 +17,10 @@ export const getDataProduct = () => {
       dispatch({
         type: "USER_GET_DATA_PRODUCT",
         payload: output.data,
+      });
+      dispatch({
+        type: "SET_IS_PRODUCT_LOADING",
+        boolean: false,
       });
     } catch (error) {
       const errorOutput = error.response;

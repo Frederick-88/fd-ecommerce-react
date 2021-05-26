@@ -74,7 +74,7 @@ const Products = (props) => {
         fontFamily: "Karla,sans-serif",
       }}
     >
-      <Loader dataProduct={props.dataProduct} />
+      <Loader isProductLoading={props.isProductLoading} />
       <div className="row">
         {arrayDataProduct.length !== 0 ? (
           arrayDataProduct.map((item, index) => {
@@ -120,15 +120,21 @@ const Products = (props) => {
           })
         ) : (
           <div>
-            <div className="d-flex justify-content-center">
-              <img src={Pic404} alt="..." className="w-50" />
-            </div>
-            <h5
-              className="text-success-s2 text-center"
-              style={{ marginTop: "-25px" }}
-            >
-              Sorry, it seems the clothe that you search not found.
-            </h5>
+            {props.isProductLoading ? (
+              <> </>
+            ) : (
+              <div>
+                <div className="d-flex justify-content-center">
+                  <img src={Pic404} alt="..." className="w-50" />
+                </div>
+                <h5
+                  className="text-success-s2 text-center"
+                  style={{ marginTop: "-25px" }}
+                >
+                  Sorry, it seems the clothe that you search not found.
+                </h5>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -158,6 +164,7 @@ const mapStateToProps = (state) => {
   return {
     dataProduct: state.UserReducer.dataProduct,
     dataCart: state.UserReducer.dataCart,
+    isProductLoading: state.UserReducer.isProductLoading,
   };
 };
 
