@@ -5,11 +5,14 @@ import { Modal, Button } from "react-bootstrap";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
 import { getDataUser, deleteUser } from "../../actionCreators/AdminAction";
+import { useDispatch } from "react-redux";
 
 const AdminUsers = (props) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    props.getDataUser();
-  }, [props]);
+    dispatch(getDataUser());
+  }, [dispatch]);
 
   // DELETE MODAL FORM.
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -24,7 +27,7 @@ const AdminUsers = (props) => {
     setShowDeleteModal(false);
   };
   const handleDelete = () => {
-    props.deleteUser(dataDelete._id);
+    dispatch(deleteUser(dataDelete._id));
     setShowDeleteModal(false);
   };
   const DeleteProductModal = () => {
@@ -100,9 +103,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {
-  getDataUser,
-  deleteUser,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AdminUsers);
+export default connect(mapStateToProps)(AdminUsers);

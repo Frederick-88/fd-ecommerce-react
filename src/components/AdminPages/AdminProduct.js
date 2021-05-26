@@ -4,6 +4,7 @@ import {
   getDataProduct,
   deleteDataProduct,
 } from "../../actionCreators/AdminAction";
+import { useDispatch } from "react-redux";
 
 import { Modal, Button, Alert } from "react-bootstrap";
 import EditProductModal from "./AdminProductEdit";
@@ -11,6 +12,7 @@ import AddProductModal from "./AdminProductAdd";
 
 const AdminProduct = (props) => {
   const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
+  const dispatch = useDispatch();
 
   const picture = (image) => {
     return {
@@ -23,8 +25,8 @@ const AdminProduct = (props) => {
   };
 
   useEffect(() => {
-    props.getDataProduct();
-  }, [props]);
+    dispatch(getDataProduct());
+  }, [dispatch]);
 
   // ADD MODAL FORM.
   const [showAddModal, setShowAddModal] = useState(false);
@@ -67,7 +69,7 @@ const AdminProduct = (props) => {
     setShowDeleteModal(false);
   };
   const handleDelete = () => {
-    props.deleteDataProduct(dataDelete._id);
+    dispatch(deleteDataProduct(dataDelete._id));
     setShowDeleteModal(false);
   };
   const DeleteProductModal = () => {
@@ -210,6 +212,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { getDataProduct, deleteDataProduct };
-
-export default connect(mapStateToProps, mapDispatchToProps)(AdminProduct);
+export default connect(mapStateToProps)(AdminProduct);

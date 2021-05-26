@@ -6,9 +6,12 @@ import Loader from "./Loader";
 import Pic404 from "../../assets/404.png";
 
 import { getDataProduct, addItemToCart } from "../../actionCreators/UserAction";
+import { useDispatch } from "react-redux";
 
 const Products = (props) => {
-  const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
+  // const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
+  const dispatch = useDispatch();
+
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [dataProduct, setDataProduct] = useState({});
   const [limit, setLimit] = useState(5);
@@ -18,7 +21,7 @@ const Products = (props) => {
   };
 
   const inputCart = (data) => {
-    props.addItemToCart(data);
+    dispatch(addItemToCart(data));
   };
   const showDetail = (data) => {
     setDataProduct(data);
@@ -26,7 +29,9 @@ const Products = (props) => {
   };
   const picture = (image) => {
     return {
-      backgroundImage: `url(${urlLocalhost}/${image})`,
+      // backgroundImage: `url(${urlLocalhost}/${image})`,
+      backgroundImage:
+        "url(https://uploads-ssl.webflow.com/5d556af3fe21d65f602dca94/5dec1f7c45001ed823d6ab6e_Vgb1MR8JrGK0.png)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       marginTop: "1rem",
@@ -35,8 +40,8 @@ const Products = (props) => {
   };
 
   useEffect(() => {
-    props.getDataProduct();
-  }, [props]);
+    dispatch(getDataProduct());
+  }, [dispatch]);
 
   // limit configuration
   var start = 0;
@@ -156,5 +161,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { getDataProduct, addItemToCart };
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps)(Products);
