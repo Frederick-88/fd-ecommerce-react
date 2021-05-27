@@ -9,7 +9,7 @@ import { getDataProduct, addItemToCart } from "../../actionCreators/UserAction";
 import { useDispatch } from "react-redux";
 
 const Products = (props) => {
-  // const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
+  const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
   const dispatch = useDispatch();
 
   const [showDetailModal, setShowDetailModal] = useState(false);
@@ -29,9 +29,9 @@ const Products = (props) => {
   };
   const picture = (image) => {
     return {
-      // backgroundImage: `url(${urlLocalhost}/${image})`,
-      backgroundImage:
-        "url(https://uploads-ssl.webflow.com/5d556af3fe21d65f602dca94/5dec1f7c45001ed823d6ab6e_Vgb1MR8JrGK0.png)",
+      backgroundImage: `url(${urlLocalhost}/${image})`,
+      // backgroundImage:
+      //   "url(https://uploads-ssl.webflow.com/5d556af3fe21d65f602dca94/5dec1f7c45001ed823d6ab6e_Vgb1MR8JrGK0.png)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       marginTop: "1rem",
