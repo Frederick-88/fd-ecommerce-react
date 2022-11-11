@@ -14,7 +14,7 @@ const Footer = () => {
     );
   };
   const nullValueEmailNotification = () => {
-    toast.error("There are no email to subscribe.", {
+    toast.error("There is no any email to subscribe.", {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 3000,
     });
@@ -35,7 +35,7 @@ const Footer = () => {
     }
   };
   return (
-    <div className="mx-5 my-5">
+    <div className="px-5 py-5">
       <div className="row">
         <div className="col-md-2">
           <img src={logoHead} alt="..." className="w-100" />

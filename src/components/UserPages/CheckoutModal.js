@@ -92,7 +92,7 @@ const CheckoutModal = (props) => {
             <h5 className="font-weight-bold text-success-s2 mb-3">
               ORDER DETAILS
             </h5>
-            <table class="table">
+            <table className="table">
               <thead style={{ backgroundColor: "#009e7f", color: "white" }}>
                 <tr>
                   <th scope="col">#</th>

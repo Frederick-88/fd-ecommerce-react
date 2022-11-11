@@ -2,10 +2,13 @@
 .slick-prev::before,
 .slick-next::before {
   color: black;
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 .slick-prev {
   z-index: 100;
+}
+.slick-slider .slick-dots {
+  bottom: -35px;
 }
 /* ReWrite Slick Carousel Class */
 
@@ -69,8 +72,12 @@
   margin-bottom: 0.6rem;
 }
 .navbar {
-  padding: 0.25rem 0rem !important;
+  padding: 10px 0 !important;
 }
+.nav-item .btn {
+  padding: 7px 15px !important;
+}
+
 .list-group-item {
   background-color: transparent !important;
   border: 0 !important;
@@ -134,7 +141,7 @@ body {
   font-weight: bold;
 }
 .horizontal-line {
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: 1px solid #cccccc;
 }
 .table-success {
   background-color: #009e7f !important;

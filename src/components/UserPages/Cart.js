@@ -199,7 +199,7 @@ const Cart = (props) => {
                       PROCEED TO CHECKOUT <i className="fas fa-print"></i>
                     </Link>
                   ) : (
-                    <button className="btn btn-outline-success mt-4" disabled>
+                    <button className="btn btn-outline-secondary mt-4" disabled>
                       PROCEED TO CHECKOUT <i className="fas fa-print"></i>
                     </button>
                   )}

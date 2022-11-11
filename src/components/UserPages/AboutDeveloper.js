@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import devPic from "../../assets/fred2.png";
+import devPic from "../../assets/fred.jpg";
 import { Modal } from "react-bootstrap";
 
 const AboutDeveloper = (props) => {
