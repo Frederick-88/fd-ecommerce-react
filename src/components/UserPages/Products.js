@@ -9,7 +9,7 @@ import { getDataProduct, addItemToCart } from "../../actionCreators/UserAction";
 import { useDispatch } from "react-redux";
 
 const Products = (props) => {
-  const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
+  const urlLocalhost = `${process.env.REACT_APP_API_URL}`;
   const dispatch = useDispatch();
 
   const [showDetailModal, setShowDetailModal] = useState(false);

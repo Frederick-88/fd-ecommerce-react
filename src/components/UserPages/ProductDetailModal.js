@@ -6,7 +6,7 @@ import { Modal } from "react-bootstrap";
 import { addItemToCart } from "../../actionCreators/UserAction";
 
 const ProductDetailModal = (props) => {
-  const urlLocalhost = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
+  const urlLocalhost = `${process.env.REACT_APP_API_URL}`;
   // Sample photo to try on display
   const samplePhoto1 =
     "public/productImages/2020-06-23T11:07:29.174Z-!GRADIENT%20COLOR.png";

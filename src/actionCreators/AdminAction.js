@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = `${process.env.REACT_APP_HEROKU_BACKEND_URL}`;
+const url = `${process.env.REACT_APP_API_URL}`;
 const tokenAdmin = localStorage.getItem("token-admin");
 
 // FOR ADMIN USER PART
