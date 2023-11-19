@@ -177,11 +177,10 @@ body {
 }
 /* vertical-center = for the first user page */
 .vertical-center {
-  margin: 0 15rem;
   position: absolute;
   top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 /* center table vertically */
 td {
@@ -216,16 +215,4 @@ td {
     to(#058057),
     color-stop(0.6, #009e7f)
   );
-}
-
-/* Scroll */
-
-@media (min-width: 1440px) {
-  .vertical-center {
-    margin: 0 30rem;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
 }
